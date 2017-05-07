@@ -1,0 +1,6 @@
+Error
+(The permissions granted to user 'domain\username' are insufficient for performing this operation. (rsAccessDenied))
+
+
+start (search)----reporting services configuration manager----Rport manager URL(IE Administator)-----report folder aunder----click up(Folder settings)---L.H.S----Security(click)---(up)New Role Assignment----
+Group or user name =(system name)-----Browser(click)----OK

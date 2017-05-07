@@ -1,0 +1,78 @@
+﻿@model MAF.BAL.Model.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Pay Online Reporting - Login</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700' rel='stylesheet' type='text/css'>
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+    @System.Web.Optimization.Styles.Render("~/Content/custom")
+</head>
+<body>
+    <div class="box-holder site-holder">
+        <section id="header">
+            <nav class="navbar navbar-default no-margin navbar-fixed-top">
+                <div class="navbar-header fixed-brand pull-left"> <a href="" class="navbar-brand"><i class="fa fa-list btn-nav-toggle-responsive text-white hide"></i><span><img alt="" src="~/images/logo.png" width="190"></span></a> </div>
+            </nav>
+            <div class="clearfix"></div>
+        </section>
+        <section class="bg_white_contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mobile_pdlt0 mobile_pdrt0">
+                        <h2 class="font_color2 text-center pad_top10 text-uppercase pad_topbig0 mar_btm30"><span class="padrtlt_10 bdr_btmgrn">MAF PAYMENT LOGIN</span></h2>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 acc_serv">
+
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login_bg", @id = "login_form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <span style="color:red;">  @Html.ValidationSummary(true)</span>
+                            <div class="form-group">
+                                <label>Username</label>
+                                @Html.TextBoxFor(s => s.Username, new { id = "txtusername", placeholder = "Email/Username", @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Username)
+                            <div class="form-group">
+                                <label>Password</label>
+                                @Html.TextBoxFor(s => s.Password, new { id = "txtPassword", placeholder = "Password", type = "password", @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Password)
+                            <div class="custom_check col-lg-12 col-md-12 col-sm-12 col-xs-12 pad_rt0 pad_lt20 mar_btm10">
+                                <input type="checkbox" name="remember" id="c1">
+                                <label for="c1" class="font_color1">Remember Me</label>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default btn-block" type="submit"> Login </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="footer" class="footer">
+            <label class="f_mainwhite">
+                Copyright © @DateTime.Now.Year
+                <a href="">Mid-Atlantic Finance</a>
+                All Right Reserved
+                <a href="">Privacy Statement</a>
+                <a href="">MAF Disclaimer</a>
+                <a href="">Terms Of Service</a>
+            </label>
+
+        </div>
+    </div>
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    @System.Web.Optimization.Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

@@ -1,0 +1,10 @@
+E:\Report\SPReport\MAF.DAL\bin\Debug\MAF.DAL.dll
+E:\Report\SPReport\MAF.DAL\bin\Debug\MAF.DAL.pdb
+E:\Report\SPReport\MAF.DAL\obj\Debug\MAF.DAL.csprojResolveAssemblyReference.cache
+E:\Report\SPReport\MAF.DAL\obj\Debug\MAF.DAL.dll
+E:\Report\SPReport\MAF.DAL\obj\Debug\MAF.DAL.pdb
+E:\Report\SPReport\MAF.DAL\bin\Debug\MAF.DAL.dll.config
+E:\Report\SPReport\MAF.DAL\bin\Debug\EntityFramework.dll
+E:\Report\SPReport\MAF.DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Report\SPReport\MAF.DAL\bin\Debug\EntityFramework.xml
+E:\Report\SPReport\MAF.DAL\bin\Debug\EntityFramework.SqlServer.xml

@@ -1,0 +1,106 @@
+﻿@model MAF.BAL.Model.AllNotificationsByModel
+@{
+    ViewBag.Title = "AllNotificationsByTextReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    #report-frame {
+        height: 331px;
+    }
+
+    @@media only screen and (min-width: 1680px) {
+        #report-frame {
+            height: 650px;
+        }
+    }
+
+    @@media only screen and (min-width: 1920px) {
+        #report-frame {
+            height: 680px;
+        }
+    }
+</style>
+<link href="~/Content/plugin/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<div class="container-fluid dash_link pad_lt0 pad_rt0">
+    <div class="row mar_btm10">
+        <div class="col-lg-12 mobile_marbtm10">
+            <h5 class="mar_top0">
+                <b>All Payment Report</b>
+            </h5>
+            @using (Html.BeginForm("AllNotificationsByText", "Report", FormMethod.Post, new { id = "filterform" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="filter_wrapper">
+                    <div class="row">
+                   
+                       
+                        
+                        <div class="col-sm-3">
+                            <div class="form-group mar_btm10">
+                                <label>Account Number</label>
+                                @Html.TextBoxFor(m => m.AccountNumber, new { @class = "form-control", id = "AccountNumber", placeholder = "Enter Account Number", maxlength = 7 })
+                                @Html.ValidationMessageFor(m => m.AccountNumber)
+                            </div>
+                        </div>
+                       
+                        <div class="clearfix"></div>
+                        
+                        <div class="col-sm-4">
+
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group text-right mar_btm0 mar_top25">
+                                <input type="submit" class="btn btn-default view-report" value="View Report" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            @if (ViewBag.ShowIframe)
+            {
+                <iframe src='@Url.Content("~/Reports/AllNotificationsByText.aspx")' width="100%" style="border: none;" id="report-frame"></iframe>
+            }
+        </div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/plugin/select2/js/select2.min.js"></script>
+    <script src="~/Content/plugin/datepicker/js/jquery-datetimepicker.js"></script>
+    <script>
+        $.validator.defaults.focusInvalid = false;
+        $.validator.unobtrusive.adapters.add(
+        'isdateafter', ['propertytested', 'allowequaldates'], function (options) {
+            options.rules['isdateafter'] = options.params;
+            options.messages['isdateafter'] = options.message;
+        });
+        $.validator.addMethod("isdateafter", function (value, element, params) {
+            var startdatevalue = $('input[name="' + params.propertytested + '"]').val();
+            if (!value || !startdatevalue) return true;
+            return (params.allowequaldates) ? Date.parse(startdatevalue) <= Date.parse(value) : Date.parse(startdatevalue) < Date.parse(value);
+        }, '');
+        $(function () {
+            $('#FromDate').datetimepicker({
+                //defaultTime: '00:01 AM',
+                maxDate: new Date,
+                formatTime: 'g:i A',
+                format: 'm/d/Y h:i A',
+                step: 5
+            });
+            $('#ToDate').datetimepicker({
+                //defaultTime: '11:59 PM',
+                maxDate: new Date,
+                formatTime: 'g:i A',
+                format: 'm/d/Y h:i A',
+                step: 5
+            });
+            $('#ddlStatus').select2();
+        });
+    </script>
+}

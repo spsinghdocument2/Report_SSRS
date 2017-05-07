@@ -1,0 +1,47 @@
+﻿@model MAF.BAL.Model.UserLoginReportViewModel
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/plugin/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<div class="container-fluid dash_link pad_lt0 pad_rt0">
+    <div class="row mar_btm10">
+        <div class="col-lg-12 mobile_marbtm10">
+            <h5 class="mar_top0">
+                <b>User Login Report</b>
+            </h5>
+            @using (Html.BeginForm("Test", "Report", FormMethod.Post, new { id = "filterform" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="filter_wrapper">
+                    <div class="row">
+                       
+                       
+                        <div class="col-sm-3">
+                            <div class="form-group text-right mar_btm0 mar_top25">
+                                <input type="submit" class="btn btn-default view-report" value="View Report" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            @if (ViewBag.ShowIframe)
+            {
+                <iframe src='@Url.Content("~/Reports/Test.aspx")' width="100%" style="border: none;" id="report-frame"></iframe>
+            }
+        </div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/plugin/select2/js/select2.min.js"></script>
+   
+    
+}
+
