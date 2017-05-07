@@ -1,0 +1,195 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}   
+    <style>
+        body{overflow:hidden;}
+        /*#body-wrapper, .content-wrapper{height:572px;}*/
+        .subheaderL {float: left;padding-top: 8px;font-weight: bold;}
+        .header_name {margin-right: 30px;padding-top: 8px;font-size: 13px;font-weight: bold;float: right;color: #135ba5; display:block; width:157px; }
+        .header_rbtn{margin-right:20px; float:right; width:75px;}
+        .subheader {margin-left: 15px;margin-top: 50px;}
+        .subheaderR {margin-left: 10px; width:40%; float:left; }
+        .Content {margin-top: 10px;border: 1px solid gray;}
+        .cont_table {width: 100%;text-align: center;border-collapse: collapse;}
+        .cont_table th {border: 1px solid gray;padding: 5px;}.cont_table td {border: 1px solid gray;padding: 5px;}
+        .txt {font-size: 12px;}
+        .IndexHeader th {border: 1px solid #ddd; padding:10px;}
+
+        .Role-head {height:20px; margin-right:22px; width:inherit;}
+        /*-------------PopUp------------------------------------*/
+        .Ssubheader {padding: 10px 0px 0px 10px; height:50px; font-size:13px; margin-left:10px;}
+        .Queuelistpop {display: none;position: absolute;z-index: 100;background: #135ba5;padding: 5px; margin-left:25%; margin-top : 100px;}
+        .Queuelistpop {display: none;position: absolute;z-index: 100;background: #135ba5;padding: 5px;margin-left: 25%;margin-top: 0;}
+        .Innerdata{padding:0px 20px 00px 20px; }
+        .PopUpContent {background: white;}
+        .header {background-color: #135ba5;color: white;font-weight: bold;text-align: center;padding-bottom: 5px;}
+        .closes {position: absolute;width: 24px;height: 27px;top: -7px;right: -7px;background-color: #eb9316;text-align: center;font-weight: bold;padding-top: 3px;cursor: pointer;color: white;}
+        .closess {position: absolute;width: 24px;height: 27px;top: -7px;right: -7px;background-color: #eb9316;text-align: center;font-weight: bold;padding-top: 3px;cursor: pointer;color: white;}
+        .CloseRole, .closepowerzoneschedule {position: absolute;width: 24px;height: 27px;top: -7px;right: -7px;background-color: #eb9316;text-align: center;font-weight: bold;padding-top: 3px;cursor: pointer; color: white;}
+  
+              /*-------------End PopUp------------------------------------*/
+    </style>
+@section scripts
+{        
+<script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+    <script src="~/Scripts/Js/Management.js"></script>  
+<link href="~/Content/plugins/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<script src="~/Content/plugins/datepicker/js/jquery-datetimepicker.js"></script>
+    <script>
+        $(function () {
+            $("#popup").draggable({ scroll: false});
+            $("#SReportpopup").draggable({ scroll: false });
+            $("#SMultiUserReportpopup").draggable({ scroll: false });
+            $("#AReportpopup").draggable({ scroll: false });
+            $("#Excludeuserpopup").draggable({ scroll: false });
+            $("#Scheduleuserpopup").draggable({ scroll: false });
+            $("#Rolepopup").draggable({ scroll: false });
+            $("#BigScreenpopup").draggable({ scroll: false });
+            $("#PowerZonepopup").draggable({ scroll: false });
+            $("#RecordingPopup").draggable({ scroll: false });
+        });
+    </script>
+    }
+    <div class="right-panel" >
+        <div id="popup" class="Queuelistpop" style="display:none;">
+            <div class="PopUpContent">
+                <header class="header">Assign Queue</header>
+                <div class="Ssubheader" id="Queuesearch"><div class="subheaderL"> Search Queue</div><div class="subheaderR"><input type="text" onkeyup="AjaxQueueList('123',this.value)" id="txtqueue" class="form-control txt" placeholder="Enter Queue Name" /> </div><div class="header_name"></div></div>
+               
+                <div id="Queuedata" class="Innerdata"></div>
+                <div class="closes">X</div>
+            </div>
+        </div>
+        <div id="SReportpopup" class="Single-left-pop">
+            <div class="PopUpContent">
+                <header class="header">Schedule Report</header>
+                <div class="Ssubheader"><div class="subheaderL"> Search Report</div><div class="subheaderR" style="width:24%;"><input type="text" id="txtschedulereport" class="form-control txt" onkeyup="AjaxSheduleReport(this.value)" placeholder="Enter Report Name" /> </div> <div class="header_name"></div></div>
+                
+                <div id="Schedulereportdata" class="Innerdata"></div>
+                <div class="closes">X</div>
+            </div>
+        </div>
+
+        <div id="SMultiUserReportpopup" class="multi-left-pop" >
+            <div class="PopUpContent">
+                <header class="header">Multi User Schedule Report</header>
+                <div class="Ssubheader"><div class="subheaderL"> Search Report</div><div class="subheaderR" style="width:24%;"><input type="text" class="form-control txt" id="txtmultischedulereport" onkeyup="AjaxSheduleMultiUserReport(this.value)" placeholder="Enter Report Name" /> </div> </div>
+                                              
+                 <div id="ScheduleMultiUserreportdata" class="Innerdata"></div>
+                <div class="closes">X</div>                
+            </div>
+        </div>
+
+        <div id="AReportpopup" class="Queuelistpop" style="display:none; ">
+            <div class="PopUpContent">
+                <header class="header">Assign Report</header>
+                <div class="Ssubheader"><div class="subheaderL">  Search Report</div><div class="subheaderR"><input type="text" class="form-control txt" id="txtaddreport" onkeyup="AjaxAddReport(this.value)" placeholder="Enter Report Name" /> </div> <div class="header_name"></div></div>               
+               
+                 <div id="Addreportdata" class="Innerdata"></div>
+                <div class="closes">X</div>
+            </div>
+        </div>
+
+
+        <div id="Excludeuserpopup" class="Queuelistpop" style="display:none; ">
+            <div class="PopUpContent">
+                <header class="header">Exclude Management Users</header>
+                <div class="Ssubheader"><div class="subheaderL">  Search User</div><div class="subheaderR"><input type="text" class="form-control txt" id="txtexcludeuser" onkeyup="AjaxExcludeUserReport(this.value)" placeholder="Enter User Name" /> </div> </div>
+               
+                 <div id="ExcludeUserdata" class="Innerdata"></div>
+                <div class="closes">X</div>
+            </div>
+        </div>
+
+        <div id="Scheduleuserpopup" class="Queuelistpop" style="display:none; margin-top:65px; ">
+            <div class="PopUpContent">
+                <header class="header">Schedule Users</header>
+                <div class="Ssubheader"><div class="subheaderL">  Search User</div><div class="subheaderR"><input type="text" class="form-control txt" id="txtscheduleuser" onkeyup="AjaxScheduleUserList(this.value)" placeholder="Enter User Name" /> </div><div class="header_rbtn"><input type="button" id="btnsave" value="Close"  class="btn btn-default" /> </div> </div>
+               
+                <div id="ScheduleUserdata" class="Innerdata"></div>                
+                <div class="closess">X</div>
+            </div>
+        </div>
+   
+        <div id="Rolepopup" class="Queuelistpop" style="display:none; ">
+            <div class="PopUpContent">
+                <header class="header">Assign Role</header> 
+                <div class="Ssubheader" style="height:20px;"><div class="header_name Role-head"></div></div>                             
+                <div id="AssignRole"  ></div>
+                <div class="CloseRole">X</div>
+            </div>
+        </div>
+
+        <div id="PowerZonepopup" class="Queuelistpop" style="display:none; ">
+            <div class="PopUpContent">
+                <header class="header">Power Zone Time</header>
+                <div id="PowerZoneTime"></div>
+                <div class="closepowerzoneschedule">X</div>
+            </div>
+        </div>
+        <div id="BigScreenpopup" class="Queuelistpop" style="display: none;">
+            <div class="PopUpContent">
+                <header class="header">Big Screen Zone Time</header>
+                <div id="BigScreenTime"></div>
+                <div class="closes">X</div>
+            </div>
+        </div>
+        <div id="RecordingPopup" class="Queuelistpop" style="display:none; ">
+            <div class="PopUpContent">
+                <header class="header">Recording Path</header>
+                <div id="RecordingPathDiv"></div>
+                <div class="closes">X</div>
+            </div>
+        </div>
+        <div class="inner-content clearfix">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4><strong> Management Interface</strong></h4>
+                    <div class="search-sec">
+                        <form class="navbar-form" role="search">
+                            <div class="form-group">
+                                <label>Search </label>
+                                <input type="text" class="form-control" id="txtsearch" placeholder="Enter user name or ext or permission" onkeyup="UserInfo()" style="width:260px;">
+                            </div>
+                            <div class="form-group">
+                                <label>@*Search User*@  </label>
+                                <input type="text" class="form-control" id="txtsearchqueue" placeholder="Enter queue name or number" onkeyup="UserInfo()" style="width:260px;">
+                            </div>
+                            <div class="float-R"> <input type="button" value="Exclude Management Users" onclick="ExcludeUserReport();" class="btn btn-warning"></div>
+                            <div class="float-R" style="margin-right:10px;"> <input type="button" value="Schedule Report" onclick="ScheduleMultiUserReport();" class="btn btn-warning"></div>
+                            <div class="float-R" style="margin-right: 10px;"> <input type="button" value="Big Screen Time" onclick="BigScreenZoneTime()" class="btn btn-warning">
+                            </div>
+                            <div class="float-R" style="margin-right:10px;"> <input type="button" value="Recording Path" onclick="RecordingPath()" class="btn btn-warning"></div>
+                        </form>
+                     
+                        <div id="Info" class="Main-info" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*----------------------Start Confirmation PopUp--------------------------------------------------*@
+    <div id="modalConfirmYesNo" class="modal fade">
+        <div class="modal-dialog" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="lblTitleConfirmYesNo" class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="lblMsgConfirmYesNo"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnYesConfirmYesNo" type="button" class="btn btn-primary">Yes</button>
+                    <button id="btnNoConfirmYesNo" type="button" class="btn btn-default">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*----------------------Start Confirmation PopUp--------------------------------------------------*@
+    <input type="hidden" id="usernamehidden" />
+    <input type="hidden" id="useridhidden" />
+    <input type="hidden" id="exthidden" />
+

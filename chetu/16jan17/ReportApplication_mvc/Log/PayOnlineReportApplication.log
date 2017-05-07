@@ -1,0 +1,38 @@
+ERROR 2017-01-09 21:35:55,384 [7]  PayOnlineReportApplication.BAL.Logger - Error in Report page while generating report
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.16.0.69:80
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at PayOnlineReportApplication.Web.Reports.UserLoginReport.RenderReportModels() in e:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.Web\Reports\UserLoginReport.aspx.cs:line 59
+ERROR 2017-01-09 21:38:07,540 [9]  PayOnlineReportApplication.BAL.Logger - Error in Report page while generating report
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.16.0.69:80
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at PayOnlineReportApplication.Web.Reports.UserLoginReport.RenderReportModels() in e:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.Web\Reports\UserLoginReport.aspx.cs:line 59
+ERROR 2017-01-12 18:21:26,694 [9]  PayOnlineReportApplication.BAL.Logger - Error in Report page while generating report
+Microsoft.Reporting.WebForms.ReportServerException: The report server cannot open a connection to the report server database. A connection to the database is required for all requests and processing. (rsReportServerDatabaseUnavailable) ---> Microsoft.Reporting.WebForms.ReportServerException: For more information about this error navigate to the report server on the local server machine, or enable remote errors
+   --- End of inner exception stack trace ---
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.ServerReportSoapProxy.OnSoapException(SoapException e)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at PayOnlineReportApplication.Web.Reports.AllPaymentReport.RenderReportModels() in e:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.Web\Reports\AllPaymentReport.aspx.cs:line 62

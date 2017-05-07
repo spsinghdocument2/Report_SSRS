@@ -1,0 +1,213 @@
+﻿@model MAF.BAL.Models.QueueLogParameterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Queue Calls Log";
+}
+<link href="~/Content/plugins/select2/css/select2.min.css" rel="stylesheet" />
+<link href="~/Content/plugins/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<style>
+    .select2-container--default .select2-selection--single {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 3px 0px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            top: 4px;
+        }
+
+    .right-panel {
+        /*margin-left: 200px;*/
+        padding: 0px 15px 0;
+    }
+
+    .inner-content h3 {
+        margin: 5px 0 10px;
+    }
+
+    .search-wrapper {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        /*padding: 3px 12px;*/
+        margin-top: 25px;
+    }
+
+    .select2 {
+        display:block;
+        width:100%!important;
+    }
+</style>
+<div class="right-panel">
+    <div class="inner-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5><strong>Queue Calls Log</strong></h5>
+                @using (Html.BeginForm("QueueLog", "Report", FormMethod.Post, new { id = "filterform" }))
+                {
+                    @*@Html.AntiForgeryToken()*@
+                    @Html.ValidationSummary(true)
+                    <div class="search-wrapper">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>From Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.FromDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "FromDate", @class = "form-control", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.FromDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>To Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.ToDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "ToDate", @class = "form-control", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.ToDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Queue # </label>
+                                @Html.DropDownListFor(m => m.QueueNumber, ViewBag.QueueList as SelectList, "--Select Queue--", new { @class = "form-control", id = "ddlQueue", @onchange = "javascript:GetExtension(this.value);" })
+                                @Html.ValidationMessageFor(m => m.QueueNumber)
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Extension</label>
+                                @Html.DropDownListFor(m => m.ExtNumber, ViewBag.ExtensionList as SelectList, "All Extensions", new { @class = "form-control", id = "ddlExt" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group text-right">
+                                <input type="submit" class="btn btn-warning view-report" value="View Report" style="width:100px;" />
+                            </div>
+                        </div>
+                    </div>
+                   
+                    //if(string.Equals(Session["Role"],MAF.BAL.Enums.Roles.User.ToString()))
+                    //{ 
+                    <input id="hiddenuserrole" type="hidden" value="@Session["Role"]" />
+                    @*}*@
+                }
+                @if (ViewBag.ShowIframe)
+                {
+                    <iframe src='@Url.Content("~/Reports/Report.aspx")' width="100%" style="border: none;" id="report-frame"></iframe>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/plugins/select2/js/select2.min.js"></script>
+    <script src="~/Content/plugins/datepicker/js/jquery-datetimepicker.js"></script>
+    <script>
+        $.validator.defaults.focusInvalid = false;
+        $.validator.unobtrusive.adapters.add(
+    'isdateafter', ['propertytested', 'allowequaldates'], function (options) {
+        options.rules['isdateafter'] = options.params;
+        options.messages['isdateafter'] = options.message;
+    });
+        $.validator.addMethod("isdateafter", function (value, element, params) {
+            var startdatevalue = $('input[name="' + params.propertytested + '"]').val();
+            if (!value || !startdatevalue) return true;
+            return (params.allowequaldates) ? Date.parse(startdatevalue) <= Date.parse(value) : Date.parse(startdatevalue) < Date.parse(value);
+        }, '');
+
+        $(function () {
+            $('#FromDate').datetimepicker({
+                defaultTime: '08:00 AM',
+                //value: utcdate + ' 08:00 AM',
+                //mask:true,
+                maxDate: new Date,
+                formatTime: 'g:i A',
+                format: 'm/d/Y h:i A'
+            });
+            $('#ToDate').datetimepicker({
+                defaultTime: '08:00 PM',
+                //mask: true,
+                maxDate: new Date,
+                formatTime: 'g:i A',
+                format: 'm/d/Y h:i A'
+            });
+            $('#ddlQueue').select2();
+            $('#ddlExt').select2();
+            });
+
+        function GetExtension(_queueNumber) {
+            if (_queueNumber != 0) {
+                var procemessage = "<option value='0'> Please wait...</option>";
+                var dropdownextension = $("#ddlExt");
+                var _fromDate = $('#FromDate').val();
+                var _toDate = $('#ToDate').val();
+                dropdownextension.html(procemessage).show();
+                var url = "/report/GetExtensionByQueue/";
+                $.ajax({
+                    url: url,
+                    data: { queueNumber: _queueNumber, fromDate: _fromDate, toDate: _toDate },
+                    cache: false,
+                    type: "POST",
+                    success: function (data) {
+                        var markup = "<option value='0'>All Extensions</option>";
+                        var userrole = $('#hiddenuserrole').val();
+                        if(userrole == 'User' && userrole != undefined || (userrole == 'Manager' && data.length==1) )
+                        {
+                            markup = "";
+                        }
+                        
+                        for (var x = 0; x < data.length; x++) {
+                            if (userrole == 'User' && userrole != undefined || (userrole == 'Manager' && data.length == 1)) {
+                                markup += "<option value=" + data[x].Value + " selected>" + data[x].Text + "</option>";
+                            }
+                            else {
+                                markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                            }
+                        }
+                        dropdownextension.html(markup).show();
+                        
+                        if (userrole == undefined ) {
+
+                            dropdownextension.val("0").trigger("change");
+                        }
+                        else {
+                            dropdownextension.trigger("change");
+                        }
+                    },
+                    error: function (reponse) {
+                        alert("error : " + reponse);
+                    }
+                });
+            }
+            else {
+                var markup = "<option value='0'>All Extensions</option>";
+                var dropdownextension = $("#ddlExt");
+                dropdownextension.html(markup).show();
+                dropdownextension.val("0").trigger("change");
+            }
+        }
+    </script>
+}
+

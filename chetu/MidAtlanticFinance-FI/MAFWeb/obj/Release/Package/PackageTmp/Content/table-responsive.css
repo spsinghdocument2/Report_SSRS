@@ -1,0 +1,175 @@
+body{ font: 14px/21px Helvetica,Arial,sans-serif; background:#fff; margin:0; padding:0;}
+
+  .tb-data-responsive {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin:0;
+    padding:0;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .tb-data-responsive tr {
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+
+  .tb-data-responsive th, .tb-data-responsive td {
+    padding: 10px;
+    text-align: center;
+	border-right: 1px solid #e2e2e2;
+	color: rgb(96, 96, 96);
+	
+  }
+  tr:hover{ background:#fafafa;}
+
+  .tb-data-responsive th {
+    text-transform: capitalize;
+    font-size: 12px;
+    letter-spacing: 1px;
+	letter-spacing: 0;
+	border-right: 1px solid #e2e2e2;
+	border: 1px solid #ddd;
+    border-right: none;
+    background-image: linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: -o-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: -moz-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: -webkit-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: -ms-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-color: #f7f7f7;
+	color:#333;
+  }
+  
+.table-input{display:none;}
+.tb-data-responsive tr:last-child{ margin-bottom:0 !important;}
+	  
+.tb-data-responsive > thead > tr > th:nth-child(1){text-align:left; cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(2){text-align:left; cursor: pointer;} 
+.tb-data-responsive > thead > tr > th{cursor: pointer;}
+/*.tb-data-responsive > thead > tr > th:nth-child(3){cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(4){cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(5){cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(6){cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(7){cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(8){cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(9){cursor: pointer;}
+.tb-data-responsive > thead > tr > th:nth-child(10){cursor: pointer;} */ 
+  
+.tb-data-responsive > tbody > tr > td:nth-child(1){width: 12%; text-align:left;}
+.tb-data-responsive > tbody > tr > td:nth-child(2){width: 10%; text-align:left;} 
+.tb-data-responsive > tbody > tr > td:nth-child(3){width: 5%;} 
+.tb-data-responsive > tbody > tr > td:nth-child(4){width: 8%;} 
+.tb-data-responsive > tbody > tr > td:nth-child(5){width: 9%;} 
+.tb-data-responsive > tbody > tr > td:nth-child(6){width: 10%;} 
+.tb-data-responsive > tbody > tr > td:nth-child(7){width: 8%;} 
+.tb-data-responsive > tbody > tr > td:nth-child(8){width: 8%;} 
+.tb-data-responsive > tbody > tr > td:nth-child(9){width: 11%;} 
+.tb-data-responsive > tbody > tr > td:nth-child(10){ width: 15%; padding: 10px 5px 10px 10px;}
+.tb-data-responsive > tbody > tr > td:nth-child(11){width: ;}    
+
+
+/*================================================== Contacts page table css srart ===================================================================*/
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(1) {width: 8%;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(2) {width: 8%;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(3) {width: 8%;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(4) {width: 10%;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(5) {width: 5%;}
+/*================================================== Contacts page table css end ===================================================================*/
+
+/*================================================== Back to List page table css srart ===================================================================*/
+.six-col-table .tb-data-responsive > thead > tr > th:nth-child(2){text-align:left;}
+.six-col-table .tb-data-responsive > thead > tr > th:nth-child(3){text-align:left;}
+.six-col-table .tb-data-responsive > thead > tr > th:nth-child(4){text-align:left;}
+.six-col-table .tb-data-responsive > thead > tr > th:nth-child(5){text-align:left;}
+.six-col-table .tb-data-responsive > thead > tr > th:nth-child(6){}
+.six-col-table .tb-data-responsive > thead > tr > th:nth-child(7){border:0;}
+
+
+
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(2) {width: 16%; text-align:left;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(3) {width: 16%; text-align:left;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(4) {width: 26%; text-align:left;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(5) {width: 16%; text-align:left;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(6) {width: 16%; text-align:left;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(7) {width: 5%;  border:0;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(8) {width: 5%; }
+
+
+/*================================================== Back to List page table css srart ===================================================================*/
+
+  @media screen and (max-width: 768px) {
+
+    .tb-data-responsive {
+      border: 0;
+    }
+
+    .tb-data-responsive thead {
+      display: none;
+    }
+
+    .tb-data-responsive tr {
+      margin-bottom: 10px;
+      display: block;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tb-data-responsive td {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+	  border-right:0;
+    }
+
+    .tb-data-responsive td:last-child {
+      border-bottom: 0;
+    }
+
+    .tb-data-responsive td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform:capitalize;
+      font-weight: bold;
+    }
+	
+.table-input{display:block;}
+
+.scroll-box{ height:auto;}	
+	
+.tb-data-responsive > tbody > tr > td:nth-child(1){width: auto; text-align:right;}
+.tb-data-responsive > tbody > tr > td:nth-child(2){width: auto; text-align:right;} 
+.tb-data-responsive > tbody > tr > td:nth-child(3){width: auto;} 
+.tb-data-responsive > tbody > tr > td:nth-child(4){width: auto;} 
+.tb-data-responsive > tbody > tr > td:nth-child(5){width: auto;} 
+.tb-data-responsive > tbody > tr > td:nth-child(6){width: auto;} 
+.tb-data-responsive > tbody > tr > td:nth-child(7){width: auto;} 
+.tb-data-responsive > tbody > tr > td:nth-child(8){width: auto;} 
+.tb-data-responsive > tbody > tr > td:nth-child(9){width: auto;} 
+.tb-data-responsive > tbody > tr > td:nth-child(10){ width: auto;}  
+
+
+
+
+/*================================================== Contacts page table css srart ===================================================================*/
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(1) {width: auto;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(2) {width: auto;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(3) {width: auto;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(4) {width: auto;}
+.contact-details .tb-data-responsive > tbody > tr > td:nth-child(5) {width: auto;}
+/*================================================== Contacts page table css end ===================================================================*/
+	
+
+/*================================================== Back to List page table css srart ===================================================================*/
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(2) {width: auto; text-align:right;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(3) {width:auto;  text-align:right;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(4) {width: auto; text-align:right;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(5) {width: auto; text-align:right;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(6) {width: auto; text-align:right;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(7) {width: auto; text-align:right;}
+.six-col-table .tb-data-responsive > tbody > tr > td:nth-child(8) {width: auto; text-align:right;}
+
+
+/*================================================== Back to List page table css srart ===================================================================*/	
+	
+	
+  }

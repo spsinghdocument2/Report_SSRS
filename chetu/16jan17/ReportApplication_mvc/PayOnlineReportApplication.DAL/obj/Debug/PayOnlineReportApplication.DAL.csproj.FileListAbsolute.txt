@@ -1,0 +1,10 @@
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\bin\Debug\PayOnlineReportApplication.DAL.dll.config
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\bin\Debug\PayOnlineReportApplication.DAL.dll
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\bin\Debug\PayOnlineReportApplication.DAL.pdb
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\bin\Debug\EntityFramework.dll
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\bin\Debug\EntityFramework.xml
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\obj\Debug\PayOnlineReportApplication.DAL.csprojResolveAssemblyReference.cache
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\obj\Debug\PayOnlineReportApplication.DAL.dll
+E:\TFS\PayOnline\PayOnlineReport\ReportApplication\PayOnlineReportApplication.DAL\obj\Debug\PayOnlineReportApplication.DAL.pdb

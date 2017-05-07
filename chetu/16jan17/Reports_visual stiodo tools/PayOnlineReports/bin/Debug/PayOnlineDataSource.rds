@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="PayOnlineDataSource">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=sql2;Initial Catalog=Reserves</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>b062842e-af8a-4128-ad4b-4a220e99dc5b</DataSourceID>
+</RptDataSource>

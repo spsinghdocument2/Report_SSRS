@@ -1,0 +1,146 @@
+﻿@model MAF.BAL.Models.ChatLogParameterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Chat Log";
+}
+<link href="~/Content/plugins/select2/css/select2.min.css" rel="stylesheet" />
+<link href="~/Content/plugins/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<style>
+    .select2-container--default .select2-selection--single {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 3px 0px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            top: 4px;
+        }
+
+    .right-panel {
+        /*margin-left: 200px;*/
+        padding: 0px 15px 0;
+    }
+
+    .inner-content h3 {
+        margin: 5px 0 10px;
+    }
+
+    .search-wrapper {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        /*padding: 3px 12px;*/
+        margin-top: 25px;
+    }
+
+    .select2 {
+        display: block;
+        width: 100% !important;
+    }
+</style>
+<div class="right-panel">
+    <div class="inner-content clearfix">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5><strong>Chat Log</strong></h5>
+                @using (Html.BeginForm("ChatLog", "Report", FormMethod.Post, new { id = "filterform" }))
+                {
+                    @*@Html.AntiForgeryToken()*@
+                    @Html.ValidationSummary(true)
+                    <div class="search-wrapper">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>From Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.FromDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "FromDate", @class = "form-control", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.FromDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>To Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.ToDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "ToDate", @class = "form-control", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.ToDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Extension</label>
+                                @Html.DropDownListFor(m => m.ExtNumber, ViewBag.ExtensionList as SelectList, new { @class = "form-control", id = "ddlExt" })
+                                @Html.ValidationMessageFor(m => m.ExtNumber)
+                            </div>
+                        </div>  
+                        <div class="col-sm-2" style="float:right;">
+                            <div class="form-group text-right padding-top-custom">
+                                <input type="submit" class="btn btn-warning" value="View Report" style="width:100px;" />
+                            </div>
+                        </div>                
+                    </div>
+                }
+                @section scripts
+{
+                    @Scripts.Render("~/bundles/jqueryval")
+                <script src="~/Content/plugins/select2/js/select2.min.js"></script>
+                <script src="~/Content/plugins/datepicker/js/jquery-datetimepicker.js"></script>
+                    <script>                     
+                        $.validator.defaults.focusInvalid = false;
+                        $.validator.unobtrusive.adapters.add(
+                        'isdateafter', ['propertytested', 'allowequaldates'], function (options) {
+                            options.rules['isdateafter'] = options.params;
+                            options.messages['isdateafter'] = options.message;
+                        });
+                        $.validator.addMethod("isdateafter", function (value, element, params) {
+                            var startdatevalue = $('input[name="' + params.propertytested + '"]').val();
+                            if (!value || !startdatevalue) return true;
+                            return (params.allowequaldates) ? Date.parse(startdatevalue) <= Date.parse(value) : Date.parse(startdatevalue) < Date.parse(value);
+                        }, '');
+                        $(function () {
+                            $('#FromDate').datetimepicker({
+                                defaultTime: '08:00 AM',
+                                maxDate: new Date,
+                                formatTime: 'g:i A',
+                                format: 'm/d/Y h:i A'
+                            });
+                            $('#ToDate').datetimepicker({
+                                defaultTime: '08:00 PM',
+                                maxDate: new Date,
+                                formatTime: 'g:i A',
+                                format: 'm/d/Y h:i A'
+                            });
+                            $('#ddlExt').select2();
+                        });
+                    </script>
+                }
+                @if (ViewBag.ShowIframe)
+                {
+                    <iframe src='@Url.Content("~/Reports/ChatLogReport.aspx")' width="100%" style="border:none;" id="report-frame"></iframe>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,170 @@
+﻿@model MAF.BAL.Models.ManagementList
+
+<style>
+    .RMSContent {
+        padding-top: 0px;
+        border: 1px solid gray;
+        width: 977px;
+        overflow: auto;
+        display: block;
+        overflow-x: hidden;
+        max-height: 260px;
+        background-color: none;
+        border: none;
+        font-family: Arial;
+        font-size: 13px;
+        max-height: 280px;
+    }
+
+    .RMScont_table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+        .RMScont_table tr th; {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .RMScont_table tr td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+    .txt2 {
+        width: 90px;
+        padding-left: 5px;
+    }
+
+    .txt3 {
+        width: 275px;
+        padding-left: 5px;
+    }
+</style>
+
+<script>
+    function chkchange(id)  
+    {
+        if ($('#chk' + id).is(':checked')) { $('#IssSchedule' + id).val('1'); }
+        else { $('#IssSchedule' + id).val('0'); }
+    }
+  
+</script>
+
+
+
+<div class="RMSContent" style="margin-bottom:0px;">
+  
+    <table  class="RMScont_table table table-striped table-bordered">
+            <tr>
+                <th>S.No</th>
+                <th>Report Name</th>
+                <th>Schedule Time</th>
+                <th>Schedule Type</th>
+                <th>Email</th>
+                <th>Schedule Report</th>
+            </tr>
+ 
+            @{
+                int count = 0;
+                foreach (var item in Model.objReportList)
+                {
+                    if (item.Abbreviation == "QueueLog" || item.Abbreviation == "AgentLog" || item.Abbreviation == "ChatLog")
+                    {
+                        count++;
+
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>@item.ReportName </td>
+
+                            @{
+                        var val = (from details in Model.objUserScheduleReportlist where details.ReportId == item.ReportId select details).ToList().FirstOrDefault();
+                        if (val != null)
+                        {
+                            <td><input id="stimetxt@(item.ReportId)" value="@val.ScheduleTime" placeholder="8:00 AM" readonly class="txt2 scheduletime" type="text" /> @item.ScheduleTime</td>
+                                <td>
+                                    <select disabled id="ddl@(item.ReportId)" style="background-color:lightgray;">
+                                        <option value="1">Daily</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" id="emailtxt@(item.ReportId)" class="txt3" value="@val.EmailId" placeholder="Email" /> </td>
+                        }
+                        else
+                        {
+                            <td><input id="stimetxt@(item.ReportId)" value="8:00 AM" readonly class="txt2 scheduletime" type="text" /> @item.ScheduleTime</td>
+                                <td>
+                                    <select disabled id="ddl@(item.ReportId)" style="background-color:lightgray;">
+                                        <option value="1">Daily</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" id="emailtxt@(item.ReportId)" class="txt3" placeholder="EmailID" /> </td>
+                        }
+                            }
+                            <td>
+                                <input type="button" id="btnSav@(item.ReportId)" value="Save" onclick="ShowSReportConfirmYesNo('@item.ReportId')" />
+                                <span style=" padding-left:10px;"><input id="btnCan@(item.ReportId)" type="button" value="Cancel" onclick="AjaxSheduleReport('','')" /></span>
+                                <input id="IssSchedule@(item.ReportId)" type="hidden" value="1" />
+                            </td>
+
+                        </tr>
+
+                    }
+                }
+            }
+   
+    </table>
+</div>
+<div class="clear-height"></div>
+
+
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.scheduletime').datetimepicker({
+            timepicker: true,
+            datepicker: false,
+            step: 30,
+            formatTime: 'g:i A',
+            format: 'h:i A'
+        });
+    });
+    function ShowSReportConfirmYesNo(Reportid) {
+        var errortxt = "";
+        var error = "";
+        var $confirm = $("#modalConfirmYesNo");
+        var UserName = $('#usernamehidden').val();
+        var emailtxt = $('#emailtxt' + Reportid);
+        var stimetxt = $('#stimetxt' + Reportid);
+        if (stimetxt.val() == "") { stimetxt.css('border', '1px solid red'); error = 1; errortxt = "Please enter schedule time </br>"; } else { stimetxt.css('border-color', ''); }
+        //if (emailtxt.val() == "") { emailtxt.css('border', '1px solid red'); error = 1; errortxt += "Please enter email id </br>"; } else { emailtxt.css('border-color', ''); }
+        if (error == 1) {
+            $confirm.modal('show');
+            $("#lblTitleConfirmYesNo").html('Validation');
+            $("#lblMsgConfirmYesNo").html(errortxt);
+            $("#btnYesConfirmYesNo").hide();
+            $("#btnNoConfirmYesNo").text("Ok");
+        }
+        else {
+            $("#lblTitleConfirmYesNo").html('Confirmation');
+            $("#lblMsgConfirmYesNo").html('Are you sure to chanage this report for ' + UserName + ' user?');
+            $("#btnYesConfirmYesNo").show();
+            $("#btnNoConfirmYesNo").text("No");
+            emailtxt.css('border-color', '');
+            $confirm.modal('show');
+        }
+
+        $("#btnYesConfirmYesNo").off('click').click(function () {
+            UpdateScheduleReports(Reportid);
+            $confirm.modal("hide");
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+        $("#btnNoConfirmYesNo").off('click').click(function () {
+            $confirm.modal("hide");
+        });
+    }
+</script>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@

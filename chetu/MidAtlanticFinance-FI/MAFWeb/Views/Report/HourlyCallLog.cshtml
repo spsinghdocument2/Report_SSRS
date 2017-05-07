@@ -1,0 +1,181 @@
+﻿@model MAF.BAL.Models.HourlyCallLogParameterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Hourly Calls Log";
+}
+<link href="~/Content/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" />
+<link href="~/Content/plugins/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<style>
+    .right-panel {
+        padding: 0px 15px 0;
+    }
+
+    .inner-content h3 {
+        margin: 5px 0 10px;
+    }
+
+    .search-wrapper {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .padding-top-custom {
+        padding-top: 25px;
+    }
+
+    .btn-group {
+        display: block;
+    }
+
+    .btn-default {
+        text-shadow: 0;
+        background-image: none;
+        border-color: #ccc;
+    }
+
+        .btn-default:hover, .btn-default:focus {
+            background-color: none;
+        }
+
+    .btn .caret {
+        float: right;
+        margin-top: 8px;
+    }
+
+    .multiselect-selected-text {
+        float: left;
+    }
+
+    .multiselect-container {
+        position: absolute;
+        margin-top: 34px;
+    }
+
+    .btn-default:hover, .btn-default:focus,
+    .btn-default.focus, .btn-default:active,
+    .btn-default.active, .open > .dropdown-toggle.btn-default {
+        background: none;
+        box-shadow: none;
+    }
+
+    .dropdown-menu > li > a:hover,
+    .dropdown-menu > li > a:focus {
+        background-color: #357ebd;
+        background-image: none;
+        color: white;
+        background-repeat: repeat-x;
+    }
+
+    .dropdown-menu > .active > a,
+    .dropdown-menu > .active > a:hover,
+    .dropdown-menu > .active > a:focus {
+        background-color: #357ebd;
+        background-image: none;
+    }
+
+    .form-control[readonly] {
+        cursor: auto;
+        background-color: #fff;
+        opacity: 1;
+    }
+</style>
+<div class="right-panel">
+    <div class="inner-content clearfix">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5><strong>Hourly Calls Log</strong></h5>
+                @using (Html.BeginForm("HourlyCallLog", "Report", FormMethod.Post, new { id = "filterform" }))
+                {
+                    @*@Html.AntiForgeryToken()*@
+                    @Html.ValidationSummary(true)
+                    <div class="search-wrapper">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>From Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.FromDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "FromDate", @class = "form-control", @readonly = "readonly", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.FromDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>To Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.ToDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "ToDate", @class = "form-control", @readonly = "readonly", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.ToDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Queue</label>
+                                @Html.ListBoxFor(m => m.QueueNumber, ViewBag.QueueList as MultiSelectList, new { @class = "form-control", id = "ddlqueue" })
+                                @Html.ValidationMessageFor(m => m.QueueNumber)
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group text-right padding-top-custom">
+                                <input type="submit" class="btn btn-warning" value="View Report" style="width:100px;" />
+                            </div>
+                        </div>
+                    </div>
+                }
+                @section scripts
+{
+                    @Scripts.Render("~/bundles/jqueryval")
+                    <script src="~/Content/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+                    <script src="~/Content/plugins/datepicker/js/jquery-datetimepicker.js"></script>
+                    <script>
+                        $('#ddlqueue').multiselect(
+                              {
+                                  nonSelectedText: '--Select Queue--',
+                                  disableIfEmpty: true,
+                                  //disabledText: 'No Extension',
+                                  includeSelectAllOption: true,
+                                  enableFiltering: true,
+                                  numberDisplayed: 1,
+                                  buttonWidth: '100%',
+                                  maxHeight: 300,
+                                  enableCaseInsensitiveFiltering: true
+                              });
+                        $.validator.defaults.focusInvalid = false;
+                        $.validator.unobtrusive.adapters.add(
+                        'isdateafter', ['propertytested', 'allowequaldates'], function (options) {
+                            options.rules['isdateafter'] = options.params;
+                            options.messages['isdateafter'] = options.message;
+                        });
+                        $.validator.addMethod("isdateafter", function (value, element, params) {
+                            var startdatevalue = $('input[name="' + params.propertytested + '"]').val();
+                            if (!value || !startdatevalue) return true;
+                            return (params.allowequaldates) ? Date.parse(startdatevalue) <= Date.parse(value) : Date.parse(startdatevalue) < Date.parse(value);
+                        }, '');
+                        $(function () {
+                            $('#FromDate').datetimepicker({
+                                defaultTime: '08:00 AM',
+                                maxDate: new Date,
+                                formatTime: 'g:i A',
+                                format: 'm/d/Y h:i A'
+                            });
+                            $('#ToDate').datetimepicker({
+                                defaultTime: '08:00 PM',
+                                maxDate: new Date,
+                                formatTime: 'g:i A',
+                                format: 'm/d/Y h:i A'
+                            });
+                        });
+                    </script>
+                }
+                @if (ViewBag.ShowIframe)
+                {
+                    <iframe src='@Url.Content("~/Reports/HourlyCallReport.aspx")' width="100%" style="border:none;" id="report-frame"></iframe>
+                }
+            </div>
+        </div>
+    </div>
+</div>

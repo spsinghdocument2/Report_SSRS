@@ -1,0 +1,13 @@
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\MAF.BAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\MAF.BAL.pdb
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\EntityFramework.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\log4net.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\MAF.DAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\MAF.DAL.pdb
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\log4net.xml
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Release\MAF.BAL.csprojResolveAssemblyReference.cache
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Release\MAF.BAL.ResourceFile.Common.resources
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Release\MAF.BAL.csproj.GenerateResource.Cache
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Release\MAF.BAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Release\MAF.BAL.pdb
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\bin\Release\Microsoft.Web.Administration.dll

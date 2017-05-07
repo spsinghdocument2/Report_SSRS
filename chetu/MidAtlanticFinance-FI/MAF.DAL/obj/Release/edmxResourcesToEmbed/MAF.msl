@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="MAF" />
+  <Alias Key="Target" Value="MAF.Store" />
+  <EntityContainerMapping CdmEntityContainer="MAFContainer" StorageEntityContainer="MAFStoreContainer">
+    <EntitySetMapping Name="callcent_ag_dropped_calls">
+      <EntityTypeMapping TypeName="MAF.callcent_ag_dropped_calls">
+        <MappingFragment StoreEntitySet="callcent_ag_dropped_calls">
+          <ScalarProperty Name="q_call_history_id" ColumnName="q_call_history_id" />
+          <ScalarProperty Name="call_history_id" ColumnName="call_history_id" />
+          <ScalarProperty Name="reason_noanswerdesc" ColumnName="reason_noanswerdesc" />
+          <ScalarProperty Name="reason_noanswercode" ColumnName="reason_noanswercode" />
+          <ScalarProperty Name="time_end" ColumnName="time_end" />
+          <ScalarProperty Name="time_start" ColumnName="time_start" />
+          <ScalarProperty Name="ag_num" ColumnName="ag_num" />
+          <ScalarProperty Name="q_num" ColumnName="q_num" />
+          <ScalarProperty Name="idcallcent_ag_dropped_calls" ColumnName="idcallcent_ag_dropped_calls" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="callcent_ag_queuestatus">
+      <EntityTypeMapping TypeName="MAF.callcent_ag_queuestatus">
+        <MappingFragment StoreEntitySet="callcent_ag_queuestatus">
+          <ScalarProperty Name="is_loggedin_in_allqueues" ColumnName="is_loggedin_in_allqueues" />
+          <ScalarProperty Name="is_loggedin_in_queue" ColumnName="is_loggedin_in_queue" />
+          <ScalarProperty Name="timeofupdate" ColumnName="timeofupdate" />
+          <ScalarProperty Name="ag_num" ColumnName="ag_num" />
+          <ScalarProperty Name="q_num" ColumnName="q_num" />
+          <ScalarProperty Name="idcallcent_ag_queuestatus" ColumnName="idcallcent_ag_queuestatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="callcent_queuecalls">
+      <EntityTypeMapping TypeName="MAF.callcent_queuecalls">
+        <MappingFragment StoreEntitySet="callcent_queuecalls">
+          <ScalarProperty Name="is_visible" ColumnName="is_visible" />
+          <ScalarProperty Name="deal_status" ColumnName="deal_status" />
+          <ScalarProperty Name="call_result" ColumnName="call_result" />
+          <ScalarProperty Name="cb_num" ColumnName="cb_num" />
+          <ScalarProperty Name="to_dntype" ColumnName="to_dntype" />
+          <ScalarProperty Name="to_dn" ColumnName="to_dn" />
+          <ScalarProperty Name="to_dialednum" ColumnName="to_dialednum" />
+          <ScalarProperty Name="from_displayname" ColumnName="from_displayname" />
+          <ScalarProperty Name="from_userpart" ColumnName="from_userpart" />
+          <ScalarProperty Name="q_cal" ColumnName="q_cal" />
+          <ScalarProperty Name="call_history_id" ColumnName="call_history_id" />
+          <ScalarProperty Name="reason_faildesc" ColumnName="reason_faildesc" />
+          <ScalarProperty Name="reason_noanswerdesc" ColumnName="reason_noanswerdesc" />
+          <ScalarProperty Name="reason_failcode" ColumnName="reason_failcode" />
+          <ScalarProperty Name="reason_noanswercode" ColumnName="reason_noanswercode" />
+          <ScalarProperty Name="count_dials_timed" ColumnName="count_dials_timed" />
+          <ScalarProperty Name="count_rejected" ColumnName="count_rejected" />
+          <ScalarProperty Name="count_dialed" ColumnName="count_dialed" />
+          <ScalarProperty Name="count_polls" ColumnName="count_polls" />
+          <ScalarProperty Name="ts_locating" ColumnName="ts_locating" />
+          <ScalarProperty Name="ts_servicing" ColumnName="ts_servicing" />
+          <ScalarProperty Name="ts_polling" ColumnName="ts_polling" />
+          <ScalarProperty Name="ts_waiting" ColumnName="ts_waiting" />
+          <ScalarProperty Name="time_end" ColumnName="time_end" />
+          <ScalarProperty Name="time_start" ColumnName="time_start" />
+          <ScalarProperty Name="q_num" ColumnName="q_num" />
+          <ScalarProperty Name="idcallcent_queuecalls" ColumnName="idcallcent_queuecalls" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calldetails">
+      <EntityTypeMapping TypeName="MAF.calldetail">
+        <MappingFragment StoreEntitySet="calldetails">
+          <ScalarProperty Name="billcost" ColumnName="billcost" />
+          <ScalarProperty Name="billrate" ColumnName="billrate" />
+          <ScalarProperty Name="billratename" ColumnName="billratename" />
+          <ScalarProperty Name="billprefix" ColumnName="billprefix" />
+          <ScalarProperty Name="otherparty" ColumnName="otherparty" />
+          <ScalarProperty Name="dest_dn" ColumnName="dest_dn" />
+          <ScalarProperty Name="is_tooutside" ColumnName="is_tooutside" />
+          <ScalarProperty Name="is_compl" ColumnName="is_compl" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="answertime" ColumnName="answertime" />
+          <ScalarProperty Name="dur" ColumnName="dur" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="specdsttype" ColumnName="specdsttype" />
+          <ScalarProperty Name="dest_num" ColumnName="dest_num" />
+          <ScalarProperty Name="parentdetailnum" ColumnName="parentdetailnum" />
+          <ScalarProperty Name="detailnum" ColumnName="detailnum" />
+          <ScalarProperty Name="idcallhistory2" ColumnName="idcallhistory2" />
+          <ScalarProperty Name="idcalldetail" ColumnName="idcalldetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="callhistory3">
+      <EntityTypeMapping TypeName="MAF.callhistory3">
+        <MappingFragment StoreEntitySet="callhistory3">
+          <ScalarProperty Name="caller_display_name" ColumnName="caller_display_name" />
+          <ScalarProperty Name="is_visible" ColumnName="is_visible" />
+          <ScalarProperty Name="callchain" ColumnName="callchain" />
+          <ScalarProperty Name="recfile" ColumnName="recfile" />
+          <ScalarProperty Name="grpanswdetail" ColumnName="grpanswdetail" />
+          <ScalarProperty Name="billratename" ColumnName="billratename" />
+          <ScalarProperty Name="billprefix" ColumnName="billprefix" />
+          <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="line_no" ColumnName="line_no" />
+          <ScalarProperty Name="group_no" ColumnName="group_no" />
+          <ScalarProperty Name="lastdialednumber" ColumnName="lastdialednumber" />
+          <ScalarProperty Name="lastcallerid" ColumnName="lastcallerid" />
+          <ScalarProperty Name="dialednumber" ColumnName="dialednumber" />
+          <ScalarProperty Name="callerid" ColumnName="callerid" />
+          <ScalarProperty Name="to_no" ColumnName="to_no" />
+          <ScalarProperty Name="from_no" ColumnName="from_no" />
+          <ScalarProperty Name="mediatype" ColumnName="mediatype" />
+          <ScalarProperty Name="is_fromoutside" ColumnName="is_fromoutside" />
+          <ScalarProperty Name="is_compl" ColumnName="is_compl" />
+          <ScalarProperty Name="is_fail" ColumnName="is_fail" />
+          <ScalarProperty Name="is_answ" ColumnName="is_answ" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+          <ScalarProperty Name="answertime" ColumnName="answertime" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="callid" ColumnName="callid" />
+          <ScalarProperty Name="idcallhistory3" ColumnName="idcallhistory3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chat_dest2chat_mess">
+      <EntityTypeMapping TypeName="MAF.chat_dest2chat_mess">
+        <MappingFragment StoreEntitySet="chat_dest2chat_mess">
+          <ScalarProperty Name="received" ColumnName="received" />
+          <ScalarProperty Name="is_visibleto_tono" ColumnName="is_visibleto_tono" />
+          <ScalarProperty Name="is_visibleto_src" ColumnName="is_visibleto_src" />
+          <ScalarProperty Name="to_name" ColumnName="to_name" />
+          <ScalarProperty Name="to_no" ColumnName="to_no" />
+          <ScalarProperty Name="fk_id_chat_mess" ColumnName="fk_id_chat_mess" />
+          <ScalarProperty Name="id_chat_dest2chat_mess" ColumnName="id_chat_dest2chat_mess" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chat_history_mess">
+      <EntityTypeMapping TypeName="MAF.chat_history_mess">
+        <MappingFragment StoreEntitySet="chat_history_mess">
+          <ScalarProperty Name="party" ColumnName="party" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="time_received" ColumnName="time_received" />
+          <ScalarProperty Name="from_name" ColumnName="from_name" />
+          <ScalarProperty Name="from_no" ColumnName="from_no" />
+          <ScalarProperty Name="id_chat_history" ColumnName="id_chat_history" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depts">
+      <EntityTypeMapping TypeName="MAF.Dept">
+        <MappingFragment StoreEntitySet="Dept">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idDept" ColumnName="idDept" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dept2ext">
+      <EntityTypeMapping TypeName="MAF.Dept2ext">
+        <MappingFragment StoreEntitySet="Dept2ext">
+          <ScalarProperty Name="fkidextension" ColumnName="fkidextension" />
+          <ScalarProperty Name="fkidDept" ColumnName="fkidDept" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dns">
+      <EntityTypeMapping TypeName="MAF.dn">
+        <MappingFragment StoreEntitySet="dn">
+          <ScalarProperty Name="fkidtenant" ColumnName="fkidtenant" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="iddn" ColumnName="iddn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dngrps">
+      <EntityTypeMapping TypeName="MAF.dngrp">
+        <MappingFragment StoreEntitySet="dngrp">
+          <ScalarProperty Name="roletag" ColumnName="roletag" />
+          <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+          <ScalarProperty Name="fkidgrp" ColumnName="fkidgrp" />
+          <ScalarProperty Name="iddngrp" ColumnName="iddngrp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="extensions">
+      <EntityTypeMapping TypeName="MAF.extension">
+        <MappingFragment StoreEntitySet="extension">
+          <ScalarProperty Name="fallbackprofile" ColumnName="fallbackprofile" />
+          <ScalarProperty Name="overrideprofile" ColumnName="overrideprofile" />
+          <ScalarProperty Name="currentprofile" ColumnName="currentprofile" />
+          <ScalarProperty Name="hidepresence" ColumnName="hidepresence" />
+          <ScalarProperty Name="use_srtp" ColumnName="use_srtp" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="qstatus" ColumnName="qstatus" />
+          <ScalarProperty Name="castatus" ColumnName="castatus" />
+          <ScalarProperty Name="issupportreplaces" ColumnName="issupportreplaces" />
+          <ScalarProperty Name="issupportreinvite" ColumnName="issupportreinvite" />
+          <ScalarProperty Name="isbindtoms" ColumnName="isbindtoms" />
+          <ScalarProperty Name="isinternal" ColumnName="isinternal" />
+          <ScalarProperty Name="busydetection" ColumnName="busydetection" />
+          <ScalarProperty Name="noanswtimeout" ColumnName="noanswtimeout" />
+          <ScalarProperty Name="accconfig" ColumnName="accconfig" />
+          <ScalarProperty Name="accstatus" ColumnName="accstatus" />
+          <ScalarProperty Name="recrdin" ColumnName="recrdin" />
+          <ScalarProperty Name="recrdout" ColumnName="recrdout" />
+          <ScalarProperty Name="outcid" ColumnName="outcid" />
+          <ScalarProperty Name="authpswd" ColumnName="authpswd" />
+          <ScalarProperty Name="authid" ColumnName="authid" />
+          <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+          <ScalarProperty Name="idextension" ColumnName="idextension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="group2ext">
+      <EntityTypeMapping TypeName="MAF.group2ext">
+        <MappingFragment StoreEntitySet="group2ext">
+          <ScalarProperty Name="fkidextension" ColumnName="fkidextension" />
+          <ScalarProperty Name="fkidGroup" ColumnName="fkidGroup" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="groups">
+      <EntityTypeMapping TypeName="MAF.group">
+        <MappingFragment StoreEntitySet="groups">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idgroup" ColumnName="idgroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grps">
+      <EntityTypeMapping TypeName="MAF.grp">
+        <MappingFragment StoreEntitySet="grp">
+          <ScalarProperty Name="pv_users_role" ColumnName="pv_users_role" />
+          <ScalarProperty Name="pv_managers_role" ColumnName="pv_managers_role" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="fkidtenant" ColumnName="fkidtenant" />
+          <ScalarProperty Name="idgrp" ColumnName="idgrp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="queues">
+      <EntityTypeMapping TypeName="MAF.queue">
+        <MappingFragment StoreEntitySet="queue">
+          <ScalarProperty Name="pollingstrategy" ColumnName="pollingstrategy" />
+          <ScalarProperty Name="cidprefix" ColumnName="cidprefix" />
+          <ScalarProperty Name="ringtime" ColumnName="ringtime" />
+          <ScalarProperty Name="mastertimeout" ColumnName="mastertimeout" />
+          <ScalarProperty Name="onholdfile" ColumnName="onholdfile" />
+          <ScalarProperty Name="smtimeout" ColumnName="smtimeout" />
+          <ScalarProperty Name="enablesm" ColumnName="enablesm" />
+          <ScalarProperty Name="introfile" ColumnName="introfile" />
+          <ScalarProperty Name="enableintro" ColumnName="enableintro" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="noanswertoout" ColumnName="noanswertoout" />
+          <ScalarProperty Name="noanswertype" ColumnName="noanswertype" />
+          <ScalarProperty Name="fknoanswerdn" ColumnName="fknoanswerdn" />
+          <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+          <ScalarProperty Name="idqueue" ColumnName="idqueue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="queue2dn">
+      <EntityTypeMapping TypeName="MAF.queue2dn">
+        <MappingFragment StoreEntitySet="queue2dn">
+          <ScalarProperty Name="IsManager" ColumnName="IsManager" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="idqueue2dn" ColumnName="idqueue2dn" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+          <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+          <ScalarProperty Name="fkidqueue" ColumnName="fkidqueue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="specialmenus">
+      <EntityTypeMapping TypeName="MAF.specialmenu">
+        <MappingFragment StoreEntitySet="specialmenu">
+          <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+          <ScalarProperty Name="idspecialmenu" ColumnName="idspecialmenu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MAF.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_UpdateUserReports" FunctionName="MAF.Store.SP_UpdateUserReports" />
+    <FunctionImportMapping FunctionImportName="SP_GetUserReports" FunctionName="MAF.Store.SP_GetUserReports">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetUserReports_Result">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="idreport" ColumnName="idreport" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_UpdateScheduleReport" FunctionName="MAF.Store.SP_UpdateScheduleReport" />
+    <FunctionImportMapping FunctionImportName="SP_GetUpdateScheduleRepotList" FunctionName="MAF.Store.SP_GetUpdateScheduleRepotList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetUpdateScheduleRepotList_Result">
+          <ScalarProperty Name="fkuserid" ColumnName="fkuserid" />
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+          <ScalarProperty Name="IsSchedule" ColumnName="IsSchedule" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetUserInQueueList" FunctionName="MAF.Store.SP_GetUserInQueueList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetUserInQueueList_Result">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetUpdateScheduleRepotList1" FunctionName="MAF.Store.SP_GetUpdateScheduleRepotList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetUpdateScheduleRepotList_Result">
+          <ScalarProperty Name="fkuserid" ColumnName="fkuserid" />
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+          <ScalarProperty Name="IsSchedule" ColumnName="IsSchedule" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetQueueNumbers" FunctionName="MAF.Store.SP_GetQueueNumbers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetQueueNumbers_Result">
+          <ScalarProperty Name="iddn" ColumnName="iddn" />
+          <ScalarProperty Name="QueueNumber" ColumnName="QueueNumber" />
+          <ScalarProperty Name="QueueName" ColumnName="QueueName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_InsertReportTransaction" FunctionName="MAF.Store.SP_InsertReportTransaction" />
+    <EntitySetMapping Name="ReportTransactions">
+      <EntityTypeMapping TypeName="MAF.ReportTransaction">
+        <MappingFragment StoreEntitySet="ReportTransaction">
+          <ScalarProperty Name="CDt" ColumnName="CDt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="fkscheduleid" ColumnName="fkscheduleid" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetExtNum" FunctionName="MAF.Store.SP_GetExtNum" />
+    <FunctionImportMapping FunctionImportName="SP_GetQueueList" FunctionName="MAF.Store.SP_GetQueueList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetQueueList_Result">
+          <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idqueue" ColumnName="idqueue" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_UpdateExculdeUser" FunctionName="MAF.Store.SP_UpdateExculdeUser" />
+    <FunctionImportMapping FunctionImportName="SP_GetMUInScheduleList" FunctionName="MAF.Store.SP_GetMUInScheduleList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetMUInScheduleList_Result">
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          <ScalarProperty Name="QueueNum" ColumnName="QueueNum" />
+          <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+          <ScalarProperty Name="IsSchedule" ColumnName="IsSchedule" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="MultiUserID" ColumnName="MultiUserID" />
+          <ScalarProperty Name="Zone1FromTime" ColumnName="Zone1FromTime" />
+          <ScalarProperty Name="Zone1ToTime" ColumnName="Zone1ToTime" />
+          <ScalarProperty Name="Zone2FromTime" ColumnName="Zone2FromTime" />
+          <ScalarProperty Name="Zone2ToTime" ColumnName="Zone2ToTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_UpdateMUInSReport" FunctionName="MAF.Store.SP_UpdateMUInSReport" />
+    <FunctionImportMapping FunctionImportName="spLogin" FunctionName="MAF.Store.spLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.spLogin_Result">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_UpdateUserRole" FunctionName="MAF.Store.SP_UpdateUserRole" />
+    <FunctionImportMapping FunctionImportName="spUpdatePowerZoneTime" FunctionName="MAF.Store.spUpdatePowerZoneTime" />
+    <FunctionImportMapping FunctionImportName="GetPowerZoneTime" FunctionName="MAF.Store.GetPowerZoneTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.GetPowerZoneTime_Result">
+          <ScalarProperty Name="Zone1FromTime" ColumnName="Zone1FromTime" />
+          <ScalarProperty Name="Zone1ToTime" ColumnName="Zone1ToTime" />
+          <ScalarProperty Name="Zone2FromTime" ColumnName="Zone2FromTime" />
+          <ScalarProperty Name="Zone2ToTime" ColumnName="Zone2ToTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBigScreenPowerZoneTime" FunctionName="MAF.Store.GetBigScreenPowerZoneTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.GetBigScreenPowerZoneTime_Result">
+          <ScalarProperty Name="Zone1FromTime" ColumnName="Zone1FromTime" />
+          <ScalarProperty Name="Zone1ToTime" ColumnName="Zone1ToTime" />
+          <ScalarProperty Name="Zone2FromTime" ColumnName="Zone2FromTime" />
+          <ScalarProperty Name="Zone2ToTime" ColumnName="Zone2ToTime" />
+          <ScalarProperty Name="Header1Color" ColumnName="Header1Color" />
+          <ScalarProperty Name="Header2Color" ColumnName="Header2Color" />
+          <ScalarProperty Name="Row1Color" ColumnName="Row1Color" />
+          <ScalarProperty Name="Row2Color" ColumnName="Row2Color" />
+          <ScalarProperty Name="FontColor" ColumnName="FontColor" />
+          <ScalarProperty Name="Queue1" ColumnName="Queue1" />
+          <ScalarProperty Name="Queue2" ColumnName="Queue2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUpdateBigScreenPowerZoneTime" FunctionName="MAF.Store.spUpdateBigScreenPowerZoneTime" />
+    <FunctionImportMapping FunctionImportName="SP_GetReportList" FunctionName="MAF.Store.SP_GetReportList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetReportList_Result">
+          <ScalarProperty Name="idreport" ColumnName="idreport" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spResetPowerZoneColor" FunctionName="MAF.Store.spResetPowerZoneColor" />
+    <FunctionImportMapping FunctionImportName="SP_UpdateEnableUser" FunctionName="MAF.Store.SP_UpdateEnableUser" />
+    <FunctionImportMapping FunctionImportName="SP_UpdateUserInQueue" FunctionName="MAF.Store.SP_UpdateUserInQueue" />
+    <FunctionImportMapping FunctionImportName="SP_UpdateManagerInQueue" FunctionName="MAF.Store.SP_UpdateManagerInQueue" />
+    <FunctionImportMapping FunctionImportName="SP_UserRoleDetails" FunctionName="MAF.Store.SP_UserRoleDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_UserRoleDetails_Result">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="managerqueue" ColumnName="managerqueue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetQueues" FunctionName="MAF.Store.spGetQueues">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.spGetQueues_Result">
+          <ScalarProperty Name="QueueNumber" ColumnName="QueueNumber" />
+          <ScalarProperty Name="iddn" ColumnName="iddn" />
+          <ScalarProperty Name="QueueName" ColumnName="QueueName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetUserDetails" FunctionName="MAF.Store.SP_GetUserDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetUserDetails_Result">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="Ext" ColumnName="Ext" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="queuenum" ColumnName="queuenum" />
+          <ScalarProperty Name="managerqueue" ColumnName="managerqueue" />
+          <ScalarProperty Name="queuename" ColumnName="queuename" />
+          <ScalarProperty Name="QueueCnt" ColumnName="QueueCnt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetExcludeUserByReport" FunctionName="MAF.Store.SP_GetExcludeUserByReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetExcludeUserByReport_Result">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsExclude" ColumnName="IsExclude" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="Ext" ColumnName="Ext" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetSchduleUserDetails" FunctionName="MAF.Store.SP_GetSchduleUserDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.SP_GetSchduleUserDetails_Result">
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ext" ColumnName="Ext" />
+          <ScalarProperty Name="queuenum" ColumnName="queuenum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spExtensionByQueue" FunctionName="MAF.Store.spExtensionByQueue">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.spExtensionByQueue_Result">
+          <ScalarProperty Name="extnum" ColumnName="extnum" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spExtensions" FunctionName="MAF.Store.spExtensions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.spExtensions_Result">
+          <ScalarProperty Name="extnum" ColumnName="extnum" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spExtensionsByPowerZone" FunctionName="MAF.Store.spExtensionsByPowerZone">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MAF.spExtensionsByPowerZone_Result">
+          <ScalarProperty Name="extnum" ColumnName="extnum" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetRecordingPath" FunctionName="MAF.Store.spGetRecordingPath" />
+    <FunctionImportMapping FunctionImportName="spSetRecordingPath" FunctionName="MAF.Store.spSetRecordingPath" />
+    <FunctionImportMapping FunctionImportName="SP_DeleteUser" FunctionName="MAF.Store.SP_DeleteUser" />
+  </EntityContainerMapping>
+</Mapping>

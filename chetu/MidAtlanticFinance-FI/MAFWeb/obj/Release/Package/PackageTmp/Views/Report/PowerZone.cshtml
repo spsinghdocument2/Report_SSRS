@@ -1,0 +1,180 @@
+﻿@model MAF.BAL.Models.PowerZoneParameterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Power Zone";
+}
+<link href="~/Content/plugins/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<style>
+    .right-panel {
+        padding: 0px 15px 0;
+    }
+
+    .inner-content h3 {
+        margin: 5px 0 10px;
+    }
+
+    .search-wrapper {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        /*padding: 3px 12px;*/
+        margin-top: 25px;
+    }
+     @@media (min-width: 768px) {
+    .col2 {width:100%;}
+    .col1{width:100%;}
+    }
+    @@media (min-width: 992px) {
+    .col2 {width:17.5%;}
+    .col1{width:13%;}
+    }
+</style>
+<div class="right-panel">
+    <div class="inner-content clearfix">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5><strong>Power Zone</strong></h5>
+                @using (Html.BeginForm("PowerZone", "Report", FormMethod.Post, new { id = "filterform" }))
+                {
+                    @*@Html.AntiForgeryToken()*@
+                    @Html.ValidationSummary(true)
+                    <div class="search-wrapper">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                @*<label>Date</label>*@
+                                @Html.LabelFor(m => m.Date)
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.Date, "{0:MM/dd/yyyy}", new { id = "Date", @class = "form-control", placeholder = "mm/dd/yyyy" })
+                                    @Html.ValidationMessageFor(m => m.Date)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                @*<label>Zone 1</label>*@
+                                @Html.LabelFor(m => m.Zone1FromTime)
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.Zone1FromTime, "{0:hh:mm tt}", new { id = "zone1fromtime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.Zone1FromTime)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                @*<label>Zone 1</label>*@
+                                @Html.LabelFor(m => m.Zone1ToTime)
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.Zone1ToTime, "{0:hh:mm tt}", new { id = "zone1totime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.Zone1ToTime)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                @*<label>Zone 2</label>*@
+                                @Html.LabelFor(m => m.Zone2FromTime)
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.Zone2FromTime, "{0:hh:mm tt}", new { id = "zone2fromtime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.Zone2FromTime)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                @*<label>Zone 2</label>*@
+                                @Html.LabelFor(m => m.Zone2ToTime)
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.Zone2ToTime, "{0:hh:mm tt}", new { id = "zone2totime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.Zone2ToTime)
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-sm-1 col2">
+                            <div class="form-group">
+                                <label></label>
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.CheckBoxFor(m => m.BigScreen1)
+                                        Big Screen 1
+                                    </label>
+                                    <label>
+                                        @Html.CheckBoxFor(m => m.BigScreen2)
+                                        Big Screen 2
+                                    </label>
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="col-sm-2">
+                            <div class="form-group text-right padding-top-custom">
+                                <input type="submit" class="btn btn-warning" value="View Report" style="width:100px;" />
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.ShowIframe)
+                {
+                    <iframe src='@Url.Content("~/Reports/PowerZoneReport.aspx")' width="100%" style="border:none;" id="report-frame"></iframe>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/plugins/datepicker/js/jquery-datetimepicker.js"></script>
+    <script>
+        $(function () {
+            $('#Date').datetimepicker({
+                defaultDate: new Date,
+                timepicker: false,
+                maxDate: new Date,
+                format: 'm/d/Y'
+            });
+            $('.zonetime').datetimepicker({
+                timepicker: true,
+                datepicker: false,
+                step:30,
+                formatTime: 'g:i A',
+                format: 'h:i A' 
+            });
+            var showPopup1 = @ViewBag.ShowPopup1.ToString().ToLower();
+            var showPopup2 = @ViewBag.ShowPopup2.ToString().ToLower();
+            if(showPopup1)
+            {
+                f_open_window_max('@Url.Content("~/Reports/PowerZone1Report.aspx")','_blank');
+            }
+            if(showPopup2)
+            {
+                f_open_window_max('@Url.Content("~/Reports/PowerZone2Report.aspx")','_blank');
+            }
+            function f_open_window_max( aURL, aWinName )
+            {
+                var wOpen;
+                var sOptions;
+
+                sOptions = 'status=no,menubar=no,scrollbars=yes,resizable=yes,toolbar=no,location=no,titlebar=no';
+                sOptions = sOptions + ',width=' + (screen.availWidth - 10).toString();
+                sOptions = sOptions + ',height=' + (screen.availHeight - 122).toString();
+                sOptions = sOptions + ',screenX=0,screenY=0,left=0,top=0';
+
+                wOpen = window.open( '', aWinName, sOptions );
+                wOpen.location = aURL;
+                wOpen.focus();
+                wOpen.moveTo( 0, 0 );
+                wOpen.resizeTo( screen.availWidth, screen.availHeight );
+                return wOpen;
+            }
+        });
+    </script>
+}

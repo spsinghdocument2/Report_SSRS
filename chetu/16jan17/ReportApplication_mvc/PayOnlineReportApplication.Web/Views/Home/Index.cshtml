@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid dash_link">
+    <div class="row">
+        @*<div class="col-lg-3 mobile_marbtm10">
+            <a href="@Url.Action("Index", "Home")" class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                <div class="card_bg">
+                    <div class="management_icon report_icon"></div>
+                    <h5><b>Management</b></h5>
+                </div>
+            </a>
+        </div>*@
+        <div class="col-lg-3 mar_btm10">
+            <a href="@Url.Action("UserLogin", "Report")">
+                <div class="card_bg">
+                    <div class="logged_in_icon report_icon"></div>
+                    <h5><b>User Login Report</b></h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 mar_btm10">
+            <a href="@Url.Action("CardPayment", "Report")">
+                <div class="card_bg">
+                    <div class="card_payment_icon report_icon"></div>
+                    <h5><b>Card Payment Report</b></h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 mar_btm10">
+            <a href="@Url.Action("TextMessage", "Report")">
+                <div class="card_bg">
+                    <div class="text_message_icon report_icon"></div>
+                    <h5><b>Text Message Report</b></h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 mar_btm10">
+            <a href="@Url.Action("AllPayment", "Report")">
+                <div class="card_bg">
+                    <div class="all_payment_icon report_icon"></div>
+                    <h5><b>All Payment Report</b></h5>
+                </div>
+            </a>
+        </div>
+  
+        
+        <div class="col-lg-3 mar_btm10">
+            <a href="@Url.Action("AutoPay", "Report")">
+                <div class="card_bg">
+                    <div class="auto_pay_icon report_icon"></div>
+                    <h5><b>AutoPay Report</b></h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 mar_btm10">
+            <a href="@Url.Action("AutoPayEnrollment", "Report")">
+                <div class="card_bg">
+                    <div class="auto_pay_icon report_icon"></div>
+                    <h5><b>AutoPay Enrollment Report</b></h5>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 mar_btm10">
+            <a href="#">
+                <div class="card_bg">
+                    <div class="auto_pay_icon report_icon"></div>
+                    <h5><b>AutoPay Schedule Report</b></h5>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReservesModelStoreContainer" CdmEntityContainer="ReservesEntities">
+    <FunctionImportMapping FunctionImportName="sp_rpt_AdminLogin" FunctionName="ReservesModel.Store.sp_rpt_AdminLogin" />
+    <FunctionImportMapping FunctionImportName="sp_rpt_GetAccountInfo" FunctionName="ReservesModel.Store.sp_rpt_GetAccountInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ReservesModel.sp_rpt_GetAccountInfo_Result">
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rpt_GetPaymentStatus" FunctionName="ReservesModel.Store.sp_rpt_GetPaymentStatus" />
+  </EntityContainerMapping>
+</Mapping>

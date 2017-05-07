@@ -1,0 +1,43 @@
+@media (min-width: 768px){
+
+#wrapper {
+    padding-left: 60px;
+}
+#page-content-wrapper {
+    padding: 20px;
+    position: relative;
+}
+.navbar .btn-nav-toggle-responsive {
+    display: none;
+}
+}
+@media (max-width: 1024px){
+#sidebar-wrapper {
+   height: 89%;
+}
+}
+@media (max-width: 768px){
+	body {
+    padding: 0px 0 130px;
+}
+.navbar .btn-nav-toggle-responsive {
+    background: #b8e5ff none repeat scroll 0 0;
+    color: #00205f;
+    display: inline-block;
+    font-size: 28px;
+    margin-right: 10px;
+    padding: 10px;
+}
+#sidebar-wrapper.hide_sidebar{left: 0px;}
+#sidebar-wrapper.show-fullsidebar{left:60px;}
+.mobile_marbtm10{margin-bottom:10px;}
+}
+@media (max-width: 450px){
+.navbar-brand img {
+    width: 120px;
+}
+.navbar .btn-nav-toggle-responsive {
+    font-size: 20px;
+    padding: 5px;
+}
+}

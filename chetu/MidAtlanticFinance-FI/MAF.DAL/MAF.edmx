@@ -1,0 +1,1804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MAF.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="callcent_ag_dropped_calls">
+          <Key>
+            <PropertyRef Name="idcallcent_ag_dropped_calls" />
+          </Key>
+          <Property Name="idcallcent_ag_dropped_calls" Type="int" Nullable="false" />
+          <Property Name="q_num" Type="varchar" MaxLength="255" />
+          <Property Name="ag_num" Type="varchar" MaxLength="255" />
+          <Property Name="time_start" Type="datetime" Nullable="false" />
+          <Property Name="time_end" Type="datetime" Nullable="false" />
+          <Property Name="reason_noanswercode" Type="int" Nullable="false" />
+          <Property Name="reason_noanswerdesc" Type="varchar" MaxLength="255" />
+          <Property Name="call_history_id" Type="varchar" MaxLength="255" />
+          <Property Name="q_call_history_id" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="callcent_ag_queuestatus">
+          <Key>
+            <PropertyRef Name="idcallcent_ag_queuestatus" />
+          </Key>
+          <Property Name="idcallcent_ag_queuestatus" Type="int" Nullable="false" />
+          <Property Name="q_num" Type="varchar" MaxLength="255" />
+          <Property Name="ag_num" Type="varchar" MaxLength="255" />
+          <Property Name="timeofupdate" Type="datetime" Nullable="false" />
+          <Property Name="is_loggedin_in_queue" Type="bit" />
+          <Property Name="is_loggedin_in_allqueues" Type="bit" />
+        </EntityType>
+        <EntityType Name="callcent_queuecalls">
+          <Key>
+            <PropertyRef Name="idcallcent_queuecalls" />
+          </Key>
+          <Property Name="idcallcent_queuecalls" Type="int" Nullable="false" />
+          <Property Name="q_num" Type="varchar" MaxLength="255" />
+          <Property Name="time_start" Type="datetime" Nullable="false" />
+          <Property Name="time_end" Type="datetime" Nullable="false" />
+          <Property Name="ts_waiting" Type="time" Precision="7" />
+          <Property Name="ts_polling" Type="time" Precision="7" />
+          <Property Name="ts_servicing" Type="time" Precision="7" />
+          <Property Name="ts_locating" Type="time" Precision="7" />
+          <Property Name="count_polls" Type="int" Nullable="false" />
+          <Property Name="count_dialed" Type="int" Nullable="false" />
+          <Property Name="count_rejected" Type="int" Nullable="false" />
+          <Property Name="count_dials_timed" Type="int" Nullable="false" />
+          <Property Name="reason_noanswercode" Type="int" Nullable="false" />
+          <Property Name="reason_failcode" Type="int" Nullable="false" />
+          <Property Name="reason_noanswerdesc" Type="varchar" MaxLength="255" />
+          <Property Name="reason_faildesc" Type="varchar" MaxLength="255" />
+          <Property Name="call_history_id" Type="varchar" MaxLength="255" />
+          <Property Name="q_cal" Type="varchar" MaxLength="255" />
+          <Property Name="from_userpart" Type="varchar" MaxLength="255" />
+          <Property Name="from_displayname" Type="varchar" MaxLength="255" />
+          <Property Name="to_dialednum" Type="varchar" MaxLength="255" />
+          <Property Name="to_dn" Type="varchar" MaxLength="255" />
+          <Property Name="to_dntype" Type="int" Nullable="false" />
+          <Property Name="cb_num" Type="varchar" MaxLength="255" />
+          <Property Name="call_result" Type="text" />
+          <Property Name="deal_status" Type="int" Nullable="false" />
+          <Property Name="is_visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="calldetails">
+          <Key>
+            <PropertyRef Name="idcalldetail" />
+          </Key>
+          <Property Name="idcalldetail" Type="int" Nullable="false" />
+          <Property Name="idcallhistory2" Type="int" Nullable="false" />
+          <Property Name="detailnum" Type="int" Nullable="false" />
+          <Property Name="parentdetailnum" Type="int" />
+          <Property Name="dest_num" Type="nvarchar" MaxLength="255" />
+          <Property Name="specdsttype" Type="int" Nullable="false" />
+          <Property Name="starttime" Type="datetime" Nullable="false" />
+          <Property Name="dur" Type="time" Precision="7" Nullable="false" />
+          <Property Name="answertime" Type="datetime" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="is_compl" Type="bit" Nullable="false" />
+          <Property Name="is_tooutside" Type="bit" Nullable="false" />
+          <Property Name="dest_dn" Type="nvarchar" MaxLength="255" />
+          <Property Name="otherparty" Type="nvarchar" MaxLength="255" />
+          <Property Name="billprefix" Type="nvarchar" MaxLength="255" />
+          <Property Name="billratename" Type="nvarchar" MaxLength="255" />
+          <Property Name="billrate" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="billcost" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="callhistory3">
+          <Key>
+            <PropertyRef Name="idcallhistory3" />
+          </Key>
+          <Property Name="idcallhistory3" Type="int" Nullable="false" />
+          <Property Name="callid" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="starttime" Type="datetime" Nullable="false" />
+          <Property Name="answertime" Type="datetime" />
+          <Property Name="endtime" Type="datetime" Nullable="false" />
+          <Property Name="duration" Type="time" Precision="7" Nullable="false" />
+          <Property Name="is_answ" Type="bit" Nullable="false" />
+          <Property Name="is_fail" Type="bit" Nullable="false" />
+          <Property Name="is_compl" Type="bit" Nullable="false" />
+          <Property Name="is_fromoutside" Type="bit" />
+          <Property Name="mediatype" Type="int" />
+          <Property Name="from_no" Type="nvarchar" MaxLength="255" />
+          <Property Name="to_no" Type="nvarchar" MaxLength="255" />
+          <Property Name="callerid" Type="nvarchar" MaxLength="255" />
+          <Property Name="dialednumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="lastcallerid" Type="nvarchar" MaxLength="255" />
+          <Property Name="lastdialednumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="group_no" Type="nvarchar" MaxLength="255" />
+          <Property Name="line_no" Type="nvarchar" MaxLength="255" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="totalcost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="billprefix" Type="nvarchar" MaxLength="255" />
+          <Property Name="billratename" Type="nvarchar" MaxLength="255" />
+          <Property Name="grpanswdetail" Type="int" />
+          <Property Name="recfile" Type="nvarchar" MaxLength="511" />
+          <Property Name="callchain" Type="nvarchar" MaxLength="255" />
+          <Property Name="is_visible" Type="bit" Nullable="false" />
+          <Property Name="caller_display_name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="chat_dest2chat_mess">
+          <Key>
+            <PropertyRef Name="id_chat_dest2chat_mess" />
+          </Key>
+          <Property Name="id_chat_dest2chat_mess" Type="int" Nullable="false" />
+          <Property Name="fk_id_chat_mess" Type="int" Nullable="false" />
+          <Property Name="to_no" Type="nvarchar" MaxLength="255" />
+          <Property Name="to_name" Type="nvarchar(max)" />
+          <Property Name="is_visibleto_src" Type="bit" Nullable="false" />
+          <Property Name="is_visibleto_tono" Type="bit" Nullable="false" />
+          <Property Name="received" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="chat_history_mess">
+          <Key>
+            <PropertyRef Name="id_chat_history" />
+          </Key>
+          <Property Name="id_chat_history" Type="int" Nullable="false" />
+          <Property Name="from_no" Type="nvarchar" MaxLength="255" />
+          <Property Name="from_name" Type="nvarchar(max)" />
+          <Property Name="time_received" Type="datetime" Nullable="false" />
+          <Property Name="message" Type="nvarchar(max)" />
+          <Property Name="party" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Dept">
+          <Key>
+            <PropertyRef Name="idDept" />
+          </Key>
+          <Property Name="idDept" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dept2ext">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkidDept" Type="int" Nullable="false" />
+          <Property Name="fkidextension" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dn">
+          <Key>
+            <PropertyRef Name="iddn" />
+          </Key>
+          <Property Name="iddn" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fkidtenant" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dngrp">
+          <Key>
+            <PropertyRef Name="iddngrp" />
+          </Key>
+          <Property Name="iddngrp" Type="int" Nullable="false" />
+          <Property Name="fkidgrp" Type="int" Nullable="false" />
+          <Property Name="fkiddn" Type="int" Nullable="false" />
+          <Property Name="roletag" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="extension">
+          <Key>
+            <PropertyRef Name="idextension" />
+          </Key>
+          <Property Name="idextension" Type="int" Nullable="false" />
+          <Property Name="fkiddn" Type="int" Nullable="false" />
+          <Property Name="authid" Type="varchar" MaxLength="255" />
+          <Property Name="authpswd" Type="varchar" MaxLength="255" />
+          <Property Name="outcid" Type="varchar" MaxLength="255" />
+          <Property Name="recrdout" Type="bit" Nullable="false" />
+          <Property Name="recrdin" Type="bit" Nullable="false" />
+          <Property Name="accstatus" Type="bit" Nullable="false" />
+          <Property Name="accconfig" Type="bit" Nullable="false" />
+          <Property Name="noanswtimeout" Type="int" />
+          <Property Name="busydetection" Type="int" />
+          <Property Name="isinternal" Type="bit" Nullable="false" />
+          <Property Name="isbindtoms" Type="bit" Nullable="false" />
+          <Property Name="issupportreinvite" Type="bit" Nullable="false" />
+          <Property Name="issupportreplaces" Type="bit" Nullable="false" />
+          <Property Name="castatus" Type="int" Nullable="false" />
+          <Property Name="qstatus" Type="int" Nullable="false" />
+          <Property Name="enabled" Type="bit" Nullable="false" />
+          <Property Name="use_srtp" Type="bit" Nullable="false" />
+          <Property Name="hidepresence" Type="bit" Nullable="false" />
+          <Property Name="currentprofile" Type="int" />
+          <Property Name="overrideprofile" Type="int" />
+          <Property Name="fallbackprofile" Type="int" />
+        </EntityType>
+        <EntityType Name="group2ext">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkidGroup" Type="int" Nullable="false" />
+          <Property Name="fkidextension" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="idgroup" />
+          </Key>
+          <Property Name="idgroup" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grp">
+          <Key>
+            <PropertyRef Name="idgrp" />
+          </Key>
+          <Property Name="idgrp" Type="int" Nullable="false" />
+          <Property Name="fkidtenant" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="pv_managers_role" Type="nvarchar(max)" />
+          <Property Name="pv_users_role" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="queue">
+          <Key>
+            <PropertyRef Name="idqueue" />
+          </Key>
+          <Property Name="idqueue" Type="int" Nullable="false" />
+          <Property Name="fkiddn" Type="int" Nullable="false" />
+          <Property Name="fknoanswerdn" Type="int" />
+          <Property Name="noanswertype" Type="int" Nullable="false" />
+          <Property Name="noanswertoout" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="enableintro" Type="bit" />
+          <Property Name="introfile" Type="varchar" MaxLength="255" />
+          <Property Name="enablesm" Type="bit" Nullable="false" />
+          <Property Name="smtimeout" Type="int" Nullable="false" />
+          <Property Name="onholdfile" Type="varchar" MaxLength="255" />
+          <Property Name="mastertimeout" Type="int" Nullable="false" />
+          <Property Name="ringtime" Type="int" Nullable="false" />
+          <Property Name="cidprefix" Type="varchar" MaxLength="255" />
+          <Property Name="pollingstrategy" Type="int" />
+        </EntityType>
+        <EntityType Name="queue2dn">
+          <Key>
+            <PropertyRef Name="idqueue2dn" />
+          </Key>
+          <Property Name="fkidqueue" Type="int" Nullable="false" />
+          <Property Name="fkiddn" Type="int" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+          <Property Name="idqueue2dn" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsManager" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="specialmenu">
+          <Key>
+            <PropertyRef Name="idspecialmenu" />
+          </Key>
+          <Property Name="idspecialmenu" Type="int" Nullable="false" />
+          <Property Name="fkiddn" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_calldetails_callhistory3">
+          <End Role="callhistory3" Type="Self.callhistory3" Multiplicity="1" />
+          <End Role="calldetails" Type="Self.calldetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="callhistory3">
+              <PropertyRef Name="idcallhistory3" />
+            </Principal>
+            <Dependent Role="calldetails">
+              <PropertyRef Name="idcallhistory2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dept2ext_extension">
+          <End Role="extension" Type="Self.extension" Multiplicity="1" />
+          <End Role="Dept2ext" Type="Self.Dept2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extension">
+              <PropertyRef Name="idextension" />
+            </Principal>
+            <Dependent Role="Dept2ext">
+              <PropertyRef Name="fkidextension" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dept2ext_Group">
+          <End Role="Dept" Type="Self.Dept" Multiplicity="1" />
+          <End Role="Dept2ext" Type="Self.Dept2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept">
+              <PropertyRef Name="idDept" />
+            </Principal>
+            <Dependent Role="Dept2ext">
+              <PropertyRef Name="fkidDept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group2ext_extension">
+          <End Role="extension" Type="Self.extension" Multiplicity="1" />
+          <End Role="group2ext" Type="Self.group2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extension">
+              <PropertyRef Name="idextension" />
+            </Principal>
+            <Dependent Role="group2ext">
+              <PropertyRef Name="fkidextension" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group2ext_Group">
+          <End Role="groups" Type="Self.groups" Multiplicity="1" />
+          <End Role="group2ext" Type="Self.group2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="idgroup" />
+            </Principal>
+            <Dependent Role="group2ext">
+              <PropertyRef Name="fkidGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="specialmenu_fkiddn_fkey">
+          <End Role="dn" Type="Self.dn" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="specialmenu" Type="Self.specialmenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dn">
+              <PropertyRef Name="iddn" />
+            </Principal>
+            <Dependent Role="specialmenu">
+              <PropertyRef Name="fkiddn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetBigScreenPowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Zone1FromTime" Type="time" Precision="7" />
+                <Property Name="Zone1ToTime" Type="time" Precision="7" />
+                <Property Name="Zone2FromTime" Type="time" Precision="7" />
+                <Property Name="Zone2ToTime" Type="time" Precision="7" />
+                <Property Name="Queue1" Type="nvarchar" MaxLength="255" />
+                <Property Name="Queue2" Type="nvarchar" MaxLength="255" />
+                <Property Name="Header1Color" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="Header2Color" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="Row1Color" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="Row2Color" Type="varchar" MaxLength="10" Nullable="false" />
+                <Property Name="FontColor" Type="varchar" MaxLength="10" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetPowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Zone1FromTime" Type="time" Precision="7" />
+                <Property Name="Zone1ToTime" Type="time" Precision="7" />
+                <Property Name="Zone2FromTime" Type="time" Precision="7" />
+                <Property Name="Zone2ToTime" Type="time" Precision="7" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="SP_DeleteSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="scheduleid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GetExcludeUserByReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GetExtNum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GetLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LoginUserID" Type="varchar" Mode="In" />
+          <Parameter Name="LoginPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GetMUInScheduleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GetQueueList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Queuename" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GetQueueNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GetReportList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Reportname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GetSchduleUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="abbreviation" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GetUpdateScheduleRepotList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="queue" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GetUserInQueueList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GetUserReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertReportTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fkscheduleid" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+          <Parameter Name="Description" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateEnableUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+          <Parameter Name="active" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateExculdeUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+          <Parameter Name="Active" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateManagerInQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="extnum" Type="int" Mode="In" />
+          <Parameter Name="queueid" Type="varchar(max)" Mode="In" />
+          <Parameter Name="role" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateMUInSReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reportid" Type="int" Mode="In" />
+          <Parameter Name="emailid" Type="varchar" Mode="In" />
+          <Parameter Name="scheduletime" Type="varchar" Mode="In" />
+          <Parameter Name="scheduletype" Type="int" Mode="In" />
+          <Parameter Name="selectUser" Type="varchar" Mode="In" />
+          <Parameter Name="queuenum" Type="varchar" Mode="In" />
+          <Parameter Name="scheduleid" Type="int" Mode="In" />
+          <Parameter Name="IsSchedule" Type="int" Mode="In" />
+          <Parameter Name="Zone1FromTime" Type="time" Mode="In" />
+          <Parameter Name="Zone1ToTime" Type="time" Mode="In" />
+          <Parameter Name="Zone2FromTime" Type="time" Mode="In" />
+          <Parameter Name="Zone2ToTime" Type="time" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateScheduleReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+          <Parameter Name="reportid" Type="int" Mode="In" />
+          <Parameter Name="emailid" Type="varchar" Mode="In" />
+          <Parameter Name="scheduletime" Type="varchar" Mode="In" />
+          <Parameter Name="scheduletype" Type="int" Mode="In" />
+          <Parameter Name="IsSchedule" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateUserInQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="extnum" Type="int" Mode="In" />
+          <Parameter Name="queueid" Type="int" Mode="In" />
+          <Parameter Name="active" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateUserReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idreport" Type="int" Mode="In" />
+          <Parameter Name="iduser" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_UpdateUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Userid" Type="varchar" Mode="In" />
+          <Parameter Name="Loginid" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="Role" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_UserRoleDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spExtensionByQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="qnum" Type="varchar" Mode="In" />
+          <Parameter Name="extnum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spExtensions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ext" Type="int" Mode="In" />
+          <Parameter Name="role" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spExtensionsByPowerZone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ext" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetQueues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ext" Type="int" Mode="In" />
+          <Parameter Name="role" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGetRecordingPath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LoginUserID" Type="varchar" Mode="In" />
+          <Parameter Name="LoginPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spResetPowerZoneColor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spSetRecordingPath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="path" Type="nvarchar" Mode="In" />
+          <Parameter Name="callInterval" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spUpdateBigScreenPowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="zone1FromTime" Type="time" Mode="In" />
+          <Parameter Name="zone1ToTime" Type="time" Mode="In" />
+          <Parameter Name="zone2FromTime" Type="time" Mode="In" />
+          <Parameter Name="zone2ToTime" Type="time" Mode="In" />
+          <Parameter Name="header1Color" Type="varchar" Mode="In" />
+          <Parameter Name="header2Color" Type="varchar" Mode="In" />
+          <Parameter Name="row1Color" Type="varchar" Mode="In" />
+          <Parameter Name="row2Color" Type="varchar" Mode="In" />
+          <Parameter Name="fontColor" Type="varchar" Mode="In" />
+          <Parameter Name="queues" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spUpdatePowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="zone1FromTime" Type="time" Mode="In" />
+          <Parameter Name="zone1ToTime" Type="time" Mode="In" />
+          <Parameter Name="zone2FromTime" Type="time" Mode="In" />
+          <Parameter Name="zone2ToTime" Type="time" Mode="In" />
+        </Function>
+        <EntityContainer Name="MAFStoreContainer">
+          <EntitySet Name="callcent_ag_dropped_calls" EntityType="Self.callcent_ag_dropped_calls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="callcent_ag_queuestatus" EntityType="Self.callcent_ag_queuestatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="callcent_queuecalls" EntityType="Self.callcent_queuecalls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="calldetails" EntityType="Self.calldetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="callhistory3" EntityType="Self.callhistory3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chat_dest2chat_mess" EntityType="Self.chat_dest2chat_mess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chat_history_mess" EntityType="Self.chat_history_mess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dept" EntityType="Self.Dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dept2ext" EntityType="Self.Dept2ext" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dn" EntityType="Self.dn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dngrp" EntityType="Self.dngrp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="extension" EntityType="Self.extension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="group2ext" EntityType="Self.group2ext" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="grp" EntityType="Self.grp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="queue" EntityType="Self.queue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="queue2dn" EntityType="Self.queue2dn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="specialmenu" EntityType="Self.specialmenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_calldetails_callhistory3" Association="Self.FK_calldetails_callhistory3">
+            <End Role="callhistory3" EntitySet="callhistory3" />
+            <End Role="calldetails" EntitySet="calldetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dept2ext_extension" Association="Self.FK_Dept2ext_extension">
+            <End Role="extension" EntitySet="extension" />
+            <End Role="Dept2ext" EntitySet="Dept2ext" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dept2ext_Group" Association="Self.FK_Dept2ext_Group">
+            <End Role="Dept" EntitySet="Dept" />
+            <End Role="Dept2ext" EntitySet="Dept2ext" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group2ext_extension" Association="Self.FK_Group2ext_extension">
+            <End Role="extension" EntitySet="extension" />
+            <End Role="group2ext" EntitySet="group2ext" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group2ext_Group" Association="Self.FK_Group2ext_Group">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="group2ext" EntitySet="group2ext" />
+          </AssociationSet>
+          <AssociationSet Name="specialmenu_fkiddn_fkey" Association="Self.specialmenu_fkiddn_fkey">
+            <End Role="dn" EntitySet="dn" />
+            <End Role="specialmenu" EntitySet="specialmenu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MAF" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="MAFContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="callcent_ag_dropped_calls" EntityType="MAF.callcent_ag_dropped_calls" />
+          <EntitySet Name="callcent_ag_queuestatus" EntityType="MAF.callcent_ag_queuestatus" />
+          <EntitySet Name="callcent_queuecalls" EntityType="MAF.callcent_queuecalls" />
+          <EntitySet Name="calldetails" EntityType="MAF.calldetail" />
+          <EntitySet Name="callhistory3" EntityType="MAF.callhistory3" />
+          <EntitySet Name="chat_dest2chat_mess" EntityType="MAF.chat_dest2chat_mess" />
+          <EntitySet Name="chat_history_mess" EntityType="MAF.chat_history_mess" />
+          <EntitySet Name="Depts" EntityType="MAF.Dept" />
+          <EntitySet Name="Dept2ext" EntityType="MAF.Dept2ext" />
+          <EntitySet Name="dns" EntityType="MAF.dn" />
+          <EntitySet Name="dngrps" EntityType="MAF.dngrp" />
+          <EntitySet Name="extensions" EntityType="MAF.extension" />
+          <EntitySet Name="group2ext" EntityType="MAF.group2ext" />
+          <EntitySet Name="groups" EntityType="MAF.group" />
+          <EntitySet Name="grps" EntityType="MAF.grp" />
+          <EntitySet Name="queues" EntityType="MAF.queue" />
+          <EntitySet Name="queue2dn" EntityType="MAF.queue2dn" />
+          <EntitySet Name="specialmenus" EntityType="MAF.specialmenu" />
+          <EntitySet Name="sysdiagrams" EntityType="MAF.sysdiagram" />
+          <AssociationSet Name="FK_calldetails_callhistory3" Association="MAF.FK_calldetails_callhistory3">
+            <End Role="callhistory3" EntitySet="callhistory3" />
+            <End Role="calldetail" EntitySet="calldetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dept2ext_Group" Association="MAF.FK_Dept2ext_Group">
+            <End Role="Dept" EntitySet="Depts" />
+            <End Role="Dept2ext" EntitySet="Dept2ext" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dept2ext_extension" Association="MAF.FK_Dept2ext_extension">
+            <End Role="extension" EntitySet="extensions" />
+            <End Role="Dept2ext" EntitySet="Dept2ext" />
+          </AssociationSet>
+          <AssociationSet Name="specialmenu_fkiddn_fkey" Association="MAF.specialmenu_fkiddn_fkey">
+            <End Role="dn" EntitySet="dns" />
+            <End Role="specialmenu" EntitySet="specialmenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group2ext_extension" Association="MAF.FK_Group2ext_extension">
+            <End Role="extension" EntitySet="extensions" />
+            <End Role="group2ext" EntitySet="group2ext" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group2ext_Group" Association="MAF.FK_Group2ext_Group">
+            <End Role="group" EntitySet="groups" />
+            <End Role="group2ext" EntitySet="group2ext" />
+          </AssociationSet>
+          <FunctionImport Name="SP_UpdateUserReports">
+            <Parameter Name="idreport" Mode="In" Type="Int32" />
+            <Parameter Name="iduser" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetUserReports" ReturnType="Collection(MAF.SP_GetUserReports_Result)">
+          <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateScheduleReport">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+            <Parameter Name="reportid" Mode="In" Type="Int32" />
+            <Parameter Name="emailid" Mode="In" Type="String" />
+            <Parameter Name="scheduletime" Mode="In" Type="String" />
+            <Parameter Name="scheduletype" Mode="In" Type="Int32" />
+            <Parameter Name="IsSchedule" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetUpdateScheduleRepotList" ReturnType="Collection(MAF.SP_GetUpdateScheduleRepotList_Result)">
+          <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetUserInQueueList" ReturnType="Collection(MAF.SP_GetUserInQueueList_Result)">
+          <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetUpdateScheduleRepotList1" ReturnType="Collection(MAF.SP_GetUpdateScheduleRepotList_Result)">
+          <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetQueueNumbers" ReturnType="Collection(MAF.SP_GetQueueNumbers_Result)" />
+          <FunctionImport Name="SP_InsertReportTransaction">
+            <Parameter Name="fkscheduleid" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="Boolean" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetExtNum" ReturnType="Collection(String)">
+          <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetQueueList" ReturnType="Collection(MAF.SP_GetQueueList_Result)">
+          <Parameter Name="Queuename" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateExculdeUser">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+            <Parameter Name="Active" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateMUInSReport">
+            <Parameter Name="reportid" Mode="In" Type="Int32" />
+            <Parameter Name="emailid" Mode="In" Type="String" />
+            <Parameter Name="scheduletime" Mode="In" Type="String" />
+            <Parameter Name="scheduletype" Mode="In" Type="Int32" />
+            <Parameter Name="selectUser" Mode="In" Type="String" />
+            <Parameter Name="queuenum" Mode="In" Type="String" />
+            <Parameter Name="scheduleid" Mode="In" Type="Int32" />
+            <Parameter Name="IsSchedule" Mode="In" Type="Int32" />
+            <Parameter Name="Zone1FromTime" Mode="In" Type="Time" />
+            <Parameter Name="Zone1ToTime" Mode="In" Type="Time" />
+            <Parameter Name="Zone2FromTime" Mode="In" Type="Time" />
+            <Parameter Name="Zone2ToTime" Mode="In" Type="Time" />
+          </FunctionImport>
+          <FunctionImport Name="spLogin" ReturnType="Collection(MAF.spLogin_Result)">
+            <Parameter Name="LoginUserID" Mode="In" Type="String" />
+            <Parameter Name="LoginPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateUserRole" ReturnType="Collection(String)">
+            <Parameter Name="Userid" Mode="In" Type="String" />
+            <Parameter Name="Loginid" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Role" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdatePowerZoneTime">
+            <Parameter Name="zone1FromTime" Mode="In" Type="Time" />
+            <Parameter Name="zone1ToTime" Mode="In" Type="Time" />
+            <Parameter Name="zone2FromTime" Mode="In" Type="Time" />
+            <Parameter Name="zone2ToTime" Mode="In" Type="Time" />
+          </FunctionImport>
+          <FunctionImport Name="GetPowerZoneTime" IsComposable="true" ReturnType="Collection(MAF.GetPowerZoneTime_Result)" />
+          <FunctionImport Name="GetBigScreenPowerZoneTime" IsComposable="true" ReturnType="Collection(MAF.GetBigScreenPowerZoneTime_Result)" />
+          <FunctionImport Name="spUpdateBigScreenPowerZoneTime">
+            <Parameter Name="zone1FromTime" Mode="In" Type="Time" />
+            <Parameter Name="zone1ToTime" Mode="In" Type="Time" />
+            <Parameter Name="zone2FromTime" Mode="In" Type="Time" />
+            <Parameter Name="zone2ToTime" Mode="In" Type="Time" />
+            <Parameter Name="header1Color" Mode="In" Type="String" />
+            <Parameter Name="header2Color" Mode="In" Type="String" />
+            <Parameter Name="row1Color" Mode="In" Type="String" />
+            <Parameter Name="row2Color" Mode="In" Type="String" />
+            <Parameter Name="fontColor" Mode="In" Type="String" />
+            <Parameter Name="queues" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetReportList" ReturnType="Collection(MAF.SP_GetReportList_Result)">
+          <Parameter Name="Reportname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spResetPowerZoneColor" />
+          <FunctionImport Name="SP_UpdateEnableUser">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+            <Parameter Name="active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateUserInQueue">
+            <Parameter Name="extnum" Mode="In" Type="Int32" />
+            <Parameter Name="queueid" Mode="In" Type="Int32" />
+            <Parameter Name="active" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UpdateManagerInQueue">
+            <Parameter Name="extnum" Mode="In" Type="Int32" />
+            <Parameter Name="queueid" Mode="In" Type="String" />
+            <Parameter Name="role" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UserRoleDetails" ReturnType="Collection(MAF.SP_UserRoleDetails_Result)">
+          <Parameter Name="userid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetQueues" ReturnType="Collection(MAF.spGetQueues_Result)">
+            <Parameter Name="Ext" Mode="In" Type="Int32" />
+            <Parameter Name="role" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetUserDetails" ReturnType="Collection(MAF.SP_GetUserDetails_Result)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="queue" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetExcludeUserByReport" ReturnType="Collection(MAF.SP_GetExcludeUserByReport_Result)">
+          <Parameter Name="Username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetSchduleUserDetails" ReturnType="Collection(MAF.SP_GetSchduleUserDetails_Result)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="abbreviation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spExtensionByQueue" ReturnType="Collection(MAF.spExtensionByQueue_Result)">
+            <Parameter Name="qnum" Mode="In" Type="String" />
+            <Parameter Name="extnum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spExtensions" ReturnType="Collection(MAF.spExtensions_Result)">
+            <Parameter Name="Ext" Mode="In" Type="Int32" />
+            <Parameter Name="role" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spExtensionsByPowerZone" ReturnType="Collection(MAF.spExtensionsByPowerZone_Result)">
+          <Parameter Name="Ext" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DeleteUser">
+          <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetMUInScheduleList" ReturnType="Collection(MAF.SP_GetMUInScheduleList_Result)" />
+          <FunctionImport Name="SP_DeleteSchedule">
+          <Parameter Name="scheduleid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetRecordingPath" ReturnType="Collection(MAF.spGetRecordingPath_Result)" />
+          <FunctionImport Name="spSetRecordingPath">
+            <Parameter Name="path" Mode="In" Type="String" />
+            <Parameter Name="callInterval" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="callcent_ag_dropped_calls">
+          <Key>
+            <PropertyRef Name="idcallcent_ag_dropped_calls" />
+          </Key>
+          <Property Name="idcallcent_ag_dropped_calls" Type="Int32" Nullable="false" />
+          <Property Name="q_num" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ag_num" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="time_start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="time_end" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="reason_noanswercode" Type="Int32" Nullable="false" />
+          <Property Name="reason_noanswerdesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="call_history_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="q_call_history_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="callcent_ag_queuestatus">
+          <Key>
+            <PropertyRef Name="idcallcent_ag_queuestatus" />
+          </Key>
+          <Property Name="idcallcent_ag_queuestatus" Type="Int32" Nullable="false" />
+          <Property Name="q_num" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ag_num" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="timeofupdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="is_loggedin_in_queue" Type="Boolean" />
+          <Property Name="is_loggedin_in_allqueues" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="callcent_queuecalls">
+          <Key>
+            <PropertyRef Name="idcallcent_queuecalls" />
+          </Key>
+          <Property Name="idcallcent_queuecalls" Type="Int32" Nullable="false" />
+          <Property Name="q_num" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="time_start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="time_end" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ts_waiting" Type="Time" Precision="7" />
+          <Property Name="ts_polling" Type="Time" Precision="7" />
+          <Property Name="ts_servicing" Type="Time" Precision="7" />
+          <Property Name="ts_locating" Type="Time" Precision="7" />
+          <Property Name="count_polls" Type="Int32" Nullable="false" />
+          <Property Name="count_dialed" Type="Int32" Nullable="false" />
+          <Property Name="count_rejected" Type="Int32" Nullable="false" />
+          <Property Name="count_dials_timed" Type="Int32" Nullable="false" />
+          <Property Name="reason_noanswercode" Type="Int32" Nullable="false" />
+          <Property Name="reason_failcode" Type="Int32" Nullable="false" />
+          <Property Name="reason_noanswerdesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="reason_faildesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="call_history_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="q_cal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="from_userpart" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="from_displayname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="to_dialednum" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="to_dn" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="to_dntype" Type="Int32" Nullable="false" />
+          <Property Name="cb_num" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="call_result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="deal_status" Type="Int32" Nullable="false" />
+          <Property Name="is_visible" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="calldetail">
+          <Key>
+            <PropertyRef Name="idcalldetail" />
+          </Key>
+          <Property Name="idcalldetail" Type="Int32" Nullable="false" />
+          <Property Name="idcallhistory2" Type="Int32" Nullable="false" />
+          <Property Name="detailnum" Type="Int32" Nullable="false" />
+          <Property Name="parentdetailnum" Type="Int32" />
+          <Property Name="dest_num" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="specdsttype" Type="Int32" Nullable="false" />
+          <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dur" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="answertime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="is_compl" Type="Boolean" Nullable="false" />
+          <Property Name="is_tooutside" Type="Boolean" Nullable="false" />
+          <Property Name="dest_dn" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="otherparty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="billprefix" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="billratename" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="billrate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="billcost" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="callhistory3" Relationship="MAF.FK_calldetails_callhistory3" FromRole="calldetail" ToRole="callhistory3" />
+        </EntityType>
+        <EntityType Name="callhistory3">
+          <Key>
+            <PropertyRef Name="idcallhistory3" />
+          </Key>
+          <Property Name="idcallhistory3" Type="Int32" Nullable="false" />
+          <Property Name="callid" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="starttime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="answertime" Type="DateTime" Precision="3" />
+          <Property Name="endtime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="duration" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="is_answ" Type="Boolean" Nullable="false" />
+          <Property Name="is_fail" Type="Boolean" Nullable="false" />
+          <Property Name="is_compl" Type="Boolean" Nullable="false" />
+          <Property Name="is_fromoutside" Type="Boolean" />
+          <Property Name="mediatype" Type="Int32" />
+          <Property Name="from_no" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="to_no" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="callerid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dialednumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lastcallerid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lastdialednumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="group_no" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="line_no" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="totalcost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="billprefix" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="billratename" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="grpanswdetail" Type="Int32" />
+          <Property Name="recfile" Type="String" MaxLength="511" FixedLength="false" Unicode="true" />
+          <Property Name="callchain" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="is_visible" Type="Boolean" Nullable="false" />
+          <Property Name="caller_display_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="calldetails" Relationship="MAF.FK_calldetails_callhistory3" FromRole="callhistory3" ToRole="calldetail" />
+        </EntityType>
+        <EntityType Name="chat_dest2chat_mess">
+          <Key>
+            <PropertyRef Name="id_chat_dest2chat_mess" />
+          </Key>
+          <Property Name="id_chat_dest2chat_mess" Type="Int32" Nullable="false" />
+          <Property Name="fk_id_chat_mess" Type="Int32" Nullable="false" />
+          <Property Name="to_no" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="to_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_visibleto_src" Type="Boolean" Nullable="false" />
+          <Property Name="is_visibleto_tono" Type="Boolean" Nullable="false" />
+          <Property Name="received" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="chat_history_mess">
+          <Key>
+            <PropertyRef Name="id_chat_history" />
+          </Key>
+          <Property Name="id_chat_history" Type="Int32" Nullable="false" />
+          <Property Name="from_no" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="from_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="time_received" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="party" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Dept">
+          <Key>
+            <PropertyRef Name="idDept" />
+          </Key>
+          <Property Name="idDept" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dept2ext" Relationship="MAF.FK_Dept2ext_Group" FromRole="Dept" ToRole="Dept2ext" />
+        </EntityType>
+        <EntityType Name="Dept2ext">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkidDept" Type="Int32" Nullable="false" />
+          <Property Name="fkidextension" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dept" Relationship="MAF.FK_Dept2ext_Group" FromRole="Dept2ext" ToRole="Dept" />
+          <NavigationProperty Name="extension" Relationship="MAF.FK_Dept2ext_extension" FromRole="Dept2ext" ToRole="extension" />
+        </EntityType>
+        <EntityType Name="dn">
+          <Key>
+            <PropertyRef Name="iddn" />
+          </Key>
+          <Property Name="iddn" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fkidtenant" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="specialmenus" Relationship="MAF.specialmenu_fkiddn_fkey" FromRole="dn" ToRole="specialmenu" />
+        </EntityType>
+        <EntityType Name="dngrp">
+          <Key>
+            <PropertyRef Name="iddngrp" />
+          </Key>
+          <Property Name="iddngrp" Type="Int32" Nullable="false" />
+          <Property Name="fkidgrp" Type="Int32" Nullable="false" />
+          <Property Name="fkiddn" Type="Int32" Nullable="false" />
+          <Property Name="roletag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="extension">
+          <Key>
+            <PropertyRef Name="idextension" />
+          </Key>
+          <Property Name="idextension" Type="Int32" Nullable="false" />
+          <Property Name="fkiddn" Type="Int32" Nullable="false" />
+          <Property Name="authid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="authpswd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="outcid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="recrdout" Type="Boolean" Nullable="false" />
+          <Property Name="recrdin" Type="Boolean" Nullable="false" />
+          <Property Name="accstatus" Type="Boolean" Nullable="false" />
+          <Property Name="accconfig" Type="Boolean" Nullable="false" />
+          <Property Name="noanswtimeout" Type="Int32" />
+          <Property Name="busydetection" Type="Int32" />
+          <Property Name="isinternal" Type="Boolean" Nullable="false" />
+          <Property Name="isbindtoms" Type="Boolean" Nullable="false" />
+          <Property Name="issupportreinvite" Type="Boolean" Nullable="false" />
+          <Property Name="issupportreplaces" Type="Boolean" Nullable="false" />
+          <Property Name="castatus" Type="Int32" Nullable="false" />
+          <Property Name="qstatus" Type="Int32" Nullable="false" />
+          <Property Name="enabled" Type="Boolean" Nullable="false" />
+          <Property Name="use_srtp" Type="Boolean" Nullable="false" />
+          <Property Name="hidepresence" Type="Boolean" Nullable="false" />
+          <Property Name="currentprofile" Type="Int32" />
+          <Property Name="overrideprofile" Type="Int32" />
+          <Property Name="fallbackprofile" Type="Int32" />
+          <NavigationProperty Name="Dept2ext" Relationship="MAF.FK_Dept2ext_extension" FromRole="extension" ToRole="Dept2ext" />
+          <NavigationProperty Name="group2ext" Relationship="MAF.FK_Group2ext_extension" FromRole="extension" ToRole="group2ext" />
+        </EntityType>
+        <EntityType Name="group2ext">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkidGroup" Type="Int32" Nullable="false" />
+          <Property Name="fkidextension" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="extension" Relationship="MAF.FK_Group2ext_extension" FromRole="group2ext" ToRole="extension" />
+          <NavigationProperty Name="group" Relationship="MAF.FK_Group2ext_Group" FromRole="group2ext" ToRole="group" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="idgroup" />
+          </Key>
+          <Property Name="idgroup" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="group2ext" Relationship="MAF.FK_Group2ext_Group" FromRole="group" ToRole="group2ext" />
+        </EntityType>
+        <EntityType Name="grp">
+          <Key>
+            <PropertyRef Name="idgrp" />
+          </Key>
+          <Property Name="idgrp" Type="Int32" Nullable="false" />
+          <Property Name="fkidtenant" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pv_managers_role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pv_users_role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="queue">
+          <Key>
+            <PropertyRef Name="idqueue" />
+          </Key>
+          <Property Name="idqueue" Type="Int32" Nullable="false" />
+          <Property Name="fkiddn" Type="Int32" Nullable="false" />
+          <Property Name="fknoanswerdn" Type="Int32" />
+          <Property Name="noanswertype" Type="Int32" Nullable="false" />
+          <Property Name="noanswertoout" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="enableintro" Type="Boolean" />
+          <Property Name="introfile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="enablesm" Type="Boolean" Nullable="false" />
+          <Property Name="smtimeout" Type="Int32" Nullable="false" />
+          <Property Name="onholdfile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mastertimeout" Type="Int32" Nullable="false" />
+          <Property Name="ringtime" Type="Int32" Nullable="false" />
+          <Property Name="cidprefix" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="pollingstrategy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="queue2dn">
+          <Key>
+            <PropertyRef Name="idqueue2dn" />
+          </Key>
+          <Property Name="fkidqueue" Type="Int32" Nullable="false" />
+          <Property Name="fkiddn" Type="Int32" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+          <Property Name="idqueue2dn" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsManager" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="specialmenu">
+          <Key>
+            <PropertyRef Name="idspecialmenu" />
+          </Key>
+          <Property Name="idspecialmenu" Type="Int32" Nullable="false" />
+          <Property Name="fkiddn" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dn" Relationship="MAF.specialmenu_fkiddn_fkey" FromRole="specialmenu" ToRole="dn" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_calldetails_callhistory3">
+          <End Type="MAF.callhistory3" Role="callhistory3" Multiplicity="1" />
+          <End Type="MAF.calldetail" Role="calldetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="callhistory3">
+              <PropertyRef Name="idcallhistory3" />
+            </Principal>
+            <Dependent Role="calldetail">
+              <PropertyRef Name="idcallhistory2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dept2ext_Group">
+          <End Type="MAF.Dept" Role="Dept" Multiplicity="1" />
+          <End Type="MAF.Dept2ext" Role="Dept2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dept">
+              <PropertyRef Name="idDept" />
+            </Principal>
+            <Dependent Role="Dept2ext">
+              <PropertyRef Name="fkidDept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dept2ext_extension">
+          <End Type="MAF.extension" Role="extension" Multiplicity="1" />
+          <End Type="MAF.Dept2ext" Role="Dept2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extension">
+              <PropertyRef Name="idextension" />
+            </Principal>
+            <Dependent Role="Dept2ext">
+              <PropertyRef Name="fkidextension" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="specialmenu_fkiddn_fkey">
+          <End Type="MAF.dn" Role="dn" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MAF.specialmenu" Role="specialmenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dn">
+              <PropertyRef Name="iddn" />
+            </Principal>
+            <Dependent Role="specialmenu">
+              <PropertyRef Name="fkiddn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group2ext_extension">
+          <End Type="MAF.extension" Role="extension" Multiplicity="1" />
+          <End Type="MAF.group2ext" Role="group2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="extension">
+              <PropertyRef Name="idextension" />
+            </Principal>
+            <Dependent Role="group2ext">
+              <PropertyRef Name="fkidextension" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group2ext_Group">
+          <End Type="MAF.group" Role="group" Multiplicity="1" />
+          <End Type="MAF.group2ext" Role="group2ext" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="idgroup" />
+            </Principal>
+            <Dependent Role="group2ext">
+              <PropertyRef Name="fkidGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_GetUserINQueue_Result">
+          <Property Type="Int32" Name="iduser" Nullable="false" />
+          <Property Type="Int32" Name="fkiddn" Nullable="true" />
+          <Property Type="Int32" Name="fkidqueue" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_GetUserReports_Result">
+          <Property Type="Int32" Name="iduser" Nullable="false" />
+          <Property Type="Int32" Name="idreport" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GetUpdateScheduleRepotList_Result">
+          <Property Type="Int32" Name="fkuserid" Nullable="false" />
+          <Property Type="Int32" Name="ReportID" Nullable="false" />
+          <Property Type="String" Name="EmailID" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="ScheduleTime" Nullable="false" MaxLength="25" />
+          <Property Type="Boolean" Name="IsSchedule" Nullable="false" />
+          <Property Type="Int32" Name="ScheduleType" Nullable="false" />
+          <Property Type="String" Name="ReportName" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="SP_GetUserInQueueList_Result">
+          <Property Type="Int32" Name="iduser" Nullable="false" />
+          <Property Type="Int32" Name="fkiddn" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GetQueueNumbers_Result">
+          <Property Type="Int32" Name="iddn" Nullable="false" />
+          <Property Type="String" Name="QueueNumber" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="QueueName" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SP_GetQueueList_Result">
+          <Property Type="Int32" Name="fkiddn" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="idqueue" Nullable="false" />
+          <Property Type="String" Name="value" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="spLogin_Result">
+          <Property Type="String" Name="Role" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Abbreviation" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="GetPowerZoneTime_Result">
+          <Property Type="Time" Name="Zone1FromTime" Nullable="true" />
+          <Property Type="Time" Name="Zone1ToTime" Nullable="true" />
+          <Property Type="Time" Name="Zone2FromTime" Nullable="true" />
+          <Property Type="Time" Name="Zone2ToTime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetBigScreenPowerZoneTime_Result">
+          <Property Type="Time" Name="Zone1FromTime" Nullable="true" />
+          <Property Type="Time" Name="Zone1ToTime" Nullable="true" />
+          <Property Type="Time" Name="Zone2FromTime" Nullable="true" />
+          <Property Type="Time" Name="Zone2ToTime" Nullable="true" />
+          <Property Type="String" Name="Header1Color" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Header2Color" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Row1Color" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Row2Color" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="FontColor" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Queue1" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Queue2" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SP_GetReportList_Result">
+          <Property Type="Int32" Name="idreport" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Abbreviation" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="SP_UserRoleDetails_Result">
+          <Property Type="Int32" Name="iduser" Nullable="false" />
+          <Property Type="String" Name="LoginID" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Role" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="managerqueue" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetQueues_Result">
+          <Property Type="String" Name="QueueNumber" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="iddn" Nullable="false" />
+          <Property Type="String" Name="QueueName" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SP_GetUserDetails_Result">
+          <Property Type="Int32" Name="iduser" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="511" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+          <Property Type="String" Name="Ext" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="role" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="queuenum" Nullable="true" />
+          <Property Type="String" Name="managerqueue" Nullable="true" />
+          <Property Type="String" Name="queuename" Nullable="true" />
+          <Property Type="Int32" Name="QueueCnt" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_GetExcludeUserByReport_Result">
+          <Property Type="Int32" Name="iduser" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="511" />
+          <Property Type="Boolean" Name="IsExclude" Nullable="false" />
+          <Property Type="Boolean" Name="IsEnable" Nullable="false" />
+          <Property Type="String" Name="Ext" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SP_GetSchduleUserDetails_Result">
+          <Property Type="Int32" Name="iduser" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="511" />
+          <Property Type="String" Name="Ext" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="queuenum" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="spExtensionByQueue_Result">
+          <Property Type="String" Name="extnum" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="firstname" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="lastname" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="spExtensions_Result">
+          <Property Type="String" Name="extnum" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="firstname" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="lastname" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="spExtensionsByPowerZone_Result">
+          <Property Type="String" Name="extnum" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="firstname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="lastname" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_GetMUInScheduleList_Result">
+          <Property Type="Int32" Name="ScheduleID" Nullable="false" />
+          <Property Type="Int32" Name="ReportID" Nullable="false" />
+          <Property Type="String" Name="ReportName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Abbreviation" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="QueueNum" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ScheduleTime" Nullable="false" MaxLength="25" />
+          <Property Type="Boolean" Name="IsSchedule" Nullable="false" />
+          <Property Type="String" Name="Users" Nullable="true" MaxLength="5000" />
+          <Property Type="Int32" Name="ScheduleType" Nullable="false" />
+          <Property Type="String" Name="EmailID" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="MultiUserID" Nullable="true" MaxLength="100" />
+          <Property Type="Time" Name="Zone1FromTime" Nullable="true" />
+          <Property Type="Time" Name="Zone1ToTime" Nullable="true" />
+          <Property Type="Time" Name="Zone2FromTime" Nullable="true" />
+          <Property Type="Time" Name="Zone2ToTime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetRecordingPath_Result">
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="511" />
+          <Property Type="Int32" Name="CallInterval" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="MAF" />
+        <Alias Key="Target" Value="MAF.Store" />
+        <EntityContainerMapping CdmEntityContainer="MAFContainer" StorageEntityContainer="MAFStoreContainer">
+          <EntitySetMapping Name="callcent_ag_dropped_calls">
+            <EntityTypeMapping TypeName="MAF.callcent_ag_dropped_calls">
+              <MappingFragment StoreEntitySet="callcent_ag_dropped_calls">
+                <ScalarProperty Name="q_call_history_id" ColumnName="q_call_history_id" />
+                <ScalarProperty Name="call_history_id" ColumnName="call_history_id" />
+                <ScalarProperty Name="reason_noanswerdesc" ColumnName="reason_noanswerdesc" />
+                <ScalarProperty Name="reason_noanswercode" ColumnName="reason_noanswercode" />
+                <ScalarProperty Name="time_end" ColumnName="time_end" />
+                <ScalarProperty Name="time_start" ColumnName="time_start" />
+                <ScalarProperty Name="ag_num" ColumnName="ag_num" />
+                <ScalarProperty Name="q_num" ColumnName="q_num" />
+                <ScalarProperty Name="idcallcent_ag_dropped_calls" ColumnName="idcallcent_ag_dropped_calls" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="callcent_ag_queuestatus">
+            <EntityTypeMapping TypeName="MAF.callcent_ag_queuestatus">
+              <MappingFragment StoreEntitySet="callcent_ag_queuestatus">
+                <ScalarProperty Name="is_loggedin_in_allqueues" ColumnName="is_loggedin_in_allqueues" />
+                <ScalarProperty Name="is_loggedin_in_queue" ColumnName="is_loggedin_in_queue" />
+                <ScalarProperty Name="timeofupdate" ColumnName="timeofupdate" />
+                <ScalarProperty Name="ag_num" ColumnName="ag_num" />
+                <ScalarProperty Name="q_num" ColumnName="q_num" />
+                <ScalarProperty Name="idcallcent_ag_queuestatus" ColumnName="idcallcent_ag_queuestatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="callcent_queuecalls">
+            <EntityTypeMapping TypeName="MAF.callcent_queuecalls">
+              <MappingFragment StoreEntitySet="callcent_queuecalls">
+                <ScalarProperty Name="is_visible" ColumnName="is_visible" />
+                <ScalarProperty Name="deal_status" ColumnName="deal_status" />
+                <ScalarProperty Name="call_result" ColumnName="call_result" />
+                <ScalarProperty Name="cb_num" ColumnName="cb_num" />
+                <ScalarProperty Name="to_dntype" ColumnName="to_dntype" />
+                <ScalarProperty Name="to_dn" ColumnName="to_dn" />
+                <ScalarProperty Name="to_dialednum" ColumnName="to_dialednum" />
+                <ScalarProperty Name="from_displayname" ColumnName="from_displayname" />
+                <ScalarProperty Name="from_userpart" ColumnName="from_userpart" />
+                <ScalarProperty Name="q_cal" ColumnName="q_cal" />
+                <ScalarProperty Name="call_history_id" ColumnName="call_history_id" />
+                <ScalarProperty Name="reason_faildesc" ColumnName="reason_faildesc" />
+                <ScalarProperty Name="reason_noanswerdesc" ColumnName="reason_noanswerdesc" />
+                <ScalarProperty Name="reason_failcode" ColumnName="reason_failcode" />
+                <ScalarProperty Name="reason_noanswercode" ColumnName="reason_noanswercode" />
+                <ScalarProperty Name="count_dials_timed" ColumnName="count_dials_timed" />
+                <ScalarProperty Name="count_rejected" ColumnName="count_rejected" />
+                <ScalarProperty Name="count_dialed" ColumnName="count_dialed" />
+                <ScalarProperty Name="count_polls" ColumnName="count_polls" />
+                <ScalarProperty Name="ts_locating" ColumnName="ts_locating" />
+                <ScalarProperty Name="ts_servicing" ColumnName="ts_servicing" />
+                <ScalarProperty Name="ts_polling" ColumnName="ts_polling" />
+                <ScalarProperty Name="ts_waiting" ColumnName="ts_waiting" />
+                <ScalarProperty Name="time_end" ColumnName="time_end" />
+                <ScalarProperty Name="time_start" ColumnName="time_start" />
+                <ScalarProperty Name="q_num" ColumnName="q_num" />
+                <ScalarProperty Name="idcallcent_queuecalls" ColumnName="idcallcent_queuecalls" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="calldetails">
+            <EntityTypeMapping TypeName="MAF.calldetail">
+              <MappingFragment StoreEntitySet="calldetails">
+                <ScalarProperty Name="billcost" ColumnName="billcost" />
+                <ScalarProperty Name="billrate" ColumnName="billrate" />
+                <ScalarProperty Name="billratename" ColumnName="billratename" />
+                <ScalarProperty Name="billprefix" ColumnName="billprefix" />
+                <ScalarProperty Name="otherparty" ColumnName="otherparty" />
+                <ScalarProperty Name="dest_dn" ColumnName="dest_dn" />
+                <ScalarProperty Name="is_tooutside" ColumnName="is_tooutside" />
+                <ScalarProperty Name="is_compl" ColumnName="is_compl" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="answertime" ColumnName="answertime" />
+                <ScalarProperty Name="dur" ColumnName="dur" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="specdsttype" ColumnName="specdsttype" />
+                <ScalarProperty Name="dest_num" ColumnName="dest_num" />
+                <ScalarProperty Name="parentdetailnum" ColumnName="parentdetailnum" />
+                <ScalarProperty Name="detailnum" ColumnName="detailnum" />
+                <ScalarProperty Name="idcallhistory2" ColumnName="idcallhistory2" />
+                <ScalarProperty Name="idcalldetail" ColumnName="idcalldetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="callhistory3">
+            <EntityTypeMapping TypeName="MAF.callhistory3">
+              <MappingFragment StoreEntitySet="callhistory3">
+                <ScalarProperty Name="caller_display_name" ColumnName="caller_display_name" />
+                <ScalarProperty Name="is_visible" ColumnName="is_visible" />
+                <ScalarProperty Name="callchain" ColumnName="callchain" />
+                <ScalarProperty Name="recfile" ColumnName="recfile" />
+                <ScalarProperty Name="grpanswdetail" ColumnName="grpanswdetail" />
+                <ScalarProperty Name="billratename" ColumnName="billratename" />
+                <ScalarProperty Name="billprefix" ColumnName="billprefix" />
+                <ScalarProperty Name="totalcost" ColumnName="totalcost" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="line_no" ColumnName="line_no" />
+                <ScalarProperty Name="group_no" ColumnName="group_no" />
+                <ScalarProperty Name="lastdialednumber" ColumnName="lastdialednumber" />
+                <ScalarProperty Name="lastcallerid" ColumnName="lastcallerid" />
+                <ScalarProperty Name="dialednumber" ColumnName="dialednumber" />
+                <ScalarProperty Name="callerid" ColumnName="callerid" />
+                <ScalarProperty Name="to_no" ColumnName="to_no" />
+                <ScalarProperty Name="from_no" ColumnName="from_no" />
+                <ScalarProperty Name="mediatype" ColumnName="mediatype" />
+                <ScalarProperty Name="is_fromoutside" ColumnName="is_fromoutside" />
+                <ScalarProperty Name="is_compl" ColumnName="is_compl" />
+                <ScalarProperty Name="is_fail" ColumnName="is_fail" />
+                <ScalarProperty Name="is_answ" ColumnName="is_answ" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="answertime" ColumnName="answertime" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="callid" ColumnName="callid" />
+                <ScalarProperty Name="idcallhistory3" ColumnName="idcallhistory3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chat_dest2chat_mess">
+            <EntityTypeMapping TypeName="MAF.chat_dest2chat_mess">
+              <MappingFragment StoreEntitySet="chat_dest2chat_mess">
+                <ScalarProperty Name="received" ColumnName="received" />
+                <ScalarProperty Name="is_visibleto_tono" ColumnName="is_visibleto_tono" />
+                <ScalarProperty Name="is_visibleto_src" ColumnName="is_visibleto_src" />
+                <ScalarProperty Name="to_name" ColumnName="to_name" />
+                <ScalarProperty Name="to_no" ColumnName="to_no" />
+                <ScalarProperty Name="fk_id_chat_mess" ColumnName="fk_id_chat_mess" />
+                <ScalarProperty Name="id_chat_dest2chat_mess" ColumnName="id_chat_dest2chat_mess" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chat_history_mess">
+            <EntityTypeMapping TypeName="MAF.chat_history_mess">
+              <MappingFragment StoreEntitySet="chat_history_mess">
+                <ScalarProperty Name="party" ColumnName="party" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="time_received" ColumnName="time_received" />
+                <ScalarProperty Name="from_name" ColumnName="from_name" />
+                <ScalarProperty Name="from_no" ColumnName="from_no" />
+                <ScalarProperty Name="id_chat_history" ColumnName="id_chat_history" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Depts">
+            <EntityTypeMapping TypeName="MAF.Dept">
+              <MappingFragment StoreEntitySet="Dept">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idDept" ColumnName="idDept" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dept2ext">
+            <EntityTypeMapping TypeName="MAF.Dept2ext">
+              <MappingFragment StoreEntitySet="Dept2ext">
+                <ScalarProperty Name="fkidextension" ColumnName="fkidextension" />
+                <ScalarProperty Name="fkidDept" ColumnName="fkidDept" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dns">
+            <EntityTypeMapping TypeName="MAF.dn">
+              <MappingFragment StoreEntitySet="dn">
+                <ScalarProperty Name="fkidtenant" ColumnName="fkidtenant" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="iddn" ColumnName="iddn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dngrps">
+            <EntityTypeMapping TypeName="MAF.dngrp">
+              <MappingFragment StoreEntitySet="dngrp">
+                <ScalarProperty Name="roletag" ColumnName="roletag" />
+                <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+                <ScalarProperty Name="fkidgrp" ColumnName="fkidgrp" />
+                <ScalarProperty Name="iddngrp" ColumnName="iddngrp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="extensions">
+            <EntityTypeMapping TypeName="MAF.extension">
+              <MappingFragment StoreEntitySet="extension">
+                <ScalarProperty Name="fallbackprofile" ColumnName="fallbackprofile" />
+                <ScalarProperty Name="overrideprofile" ColumnName="overrideprofile" />
+                <ScalarProperty Name="currentprofile" ColumnName="currentprofile" />
+                <ScalarProperty Name="hidepresence" ColumnName="hidepresence" />
+                <ScalarProperty Name="use_srtp" ColumnName="use_srtp" />
+                <ScalarProperty Name="enabled" ColumnName="enabled" />
+                <ScalarProperty Name="qstatus" ColumnName="qstatus" />
+                <ScalarProperty Name="castatus" ColumnName="castatus" />
+                <ScalarProperty Name="issupportreplaces" ColumnName="issupportreplaces" />
+                <ScalarProperty Name="issupportreinvite" ColumnName="issupportreinvite" />
+                <ScalarProperty Name="isbindtoms" ColumnName="isbindtoms" />
+                <ScalarProperty Name="isinternal" ColumnName="isinternal" />
+                <ScalarProperty Name="busydetection" ColumnName="busydetection" />
+                <ScalarProperty Name="noanswtimeout" ColumnName="noanswtimeout" />
+                <ScalarProperty Name="accconfig" ColumnName="accconfig" />
+                <ScalarProperty Name="accstatus" ColumnName="accstatus" />
+                <ScalarProperty Name="recrdin" ColumnName="recrdin" />
+                <ScalarProperty Name="recrdout" ColumnName="recrdout" />
+                <ScalarProperty Name="outcid" ColumnName="outcid" />
+                <ScalarProperty Name="authpswd" ColumnName="authpswd" />
+                <ScalarProperty Name="authid" ColumnName="authid" />
+                <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+                <ScalarProperty Name="idextension" ColumnName="idextension" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="group2ext">
+            <EntityTypeMapping TypeName="MAF.group2ext">
+              <MappingFragment StoreEntitySet="group2ext">
+                <ScalarProperty Name="fkidextension" ColumnName="fkidextension" />
+                <ScalarProperty Name="fkidGroup" ColumnName="fkidGroup" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="MAF.group">
+              <MappingFragment StoreEntitySet="groups">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idgroup" ColumnName="idgroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grps">
+            <EntityTypeMapping TypeName="MAF.grp">
+              <MappingFragment StoreEntitySet="grp">
+                <ScalarProperty Name="pv_users_role" ColumnName="pv_users_role" />
+                <ScalarProperty Name="pv_managers_role" ColumnName="pv_managers_role" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="fkidtenant" ColumnName="fkidtenant" />
+                <ScalarProperty Name="idgrp" ColumnName="idgrp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="queues">
+            <EntityTypeMapping TypeName="MAF.queue">
+              <MappingFragment StoreEntitySet="queue">
+                <ScalarProperty Name="pollingstrategy" ColumnName="pollingstrategy" />
+                <ScalarProperty Name="cidprefix" ColumnName="cidprefix" />
+                <ScalarProperty Name="ringtime" ColumnName="ringtime" />
+                <ScalarProperty Name="mastertimeout" ColumnName="mastertimeout" />
+                <ScalarProperty Name="onholdfile" ColumnName="onholdfile" />
+                <ScalarProperty Name="smtimeout" ColumnName="smtimeout" />
+                <ScalarProperty Name="enablesm" ColumnName="enablesm" />
+                <ScalarProperty Name="introfile" ColumnName="introfile" />
+                <ScalarProperty Name="enableintro" ColumnName="enableintro" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="noanswertoout" ColumnName="noanswertoout" />
+                <ScalarProperty Name="noanswertype" ColumnName="noanswertype" />
+                <ScalarProperty Name="fknoanswerdn" ColumnName="fknoanswerdn" />
+                <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+                <ScalarProperty Name="idqueue" ColumnName="idqueue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="queue2dn">
+            <EntityTypeMapping TypeName="MAF.queue2dn">
+              <MappingFragment StoreEntitySet="queue2dn">
+                <ScalarProperty Name="IsManager" ColumnName="IsManager" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="idqueue2dn" ColumnName="idqueue2dn" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+                <ScalarProperty Name="fkidqueue" ColumnName="fkidqueue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="specialmenus">
+            <EntityTypeMapping TypeName="MAF.specialmenu">
+              <MappingFragment StoreEntitySet="specialmenu">
+                <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+                <ScalarProperty Name="idspecialmenu" ColumnName="idspecialmenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MAF.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_UpdateUserReports" FunctionName="MAF.Store.SP_UpdateUserReports" />
+          <FunctionImportMapping FunctionImportName="SP_GetUserReports" FunctionName="MAF.Store.SP_GetUserReports">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetUserReports_Result">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="idreport" ColumnName="idreport" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_UpdateScheduleReport" FunctionName="MAF.Store.SP_UpdateScheduleReport" />
+          <FunctionImportMapping FunctionImportName="SP_GetUpdateScheduleRepotList" FunctionName="MAF.Store.SP_GetUpdateScheduleRepotList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetUpdateScheduleRepotList_Result">
+                <ScalarProperty Name="fkuserid" ColumnName="fkuserid" />
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+                <ScalarProperty Name="IsSchedule" ColumnName="IsSchedule" />
+                <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetUserInQueueList" FunctionName="MAF.Store.SP_GetUserInQueueList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetUserInQueueList_Result">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetUpdateScheduleRepotList1" FunctionName="MAF.Store.SP_GetUpdateScheduleRepotList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetUpdateScheduleRepotList_Result">
+                <ScalarProperty Name="fkuserid" ColumnName="fkuserid" />
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+                <ScalarProperty Name="IsSchedule" ColumnName="IsSchedule" />
+                <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+                <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetQueueNumbers" FunctionName="MAF.Store.SP_GetQueueNumbers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetQueueNumbers_Result">
+                <ScalarProperty Name="iddn" ColumnName="iddn" />
+                <ScalarProperty Name="QueueNumber" ColumnName="QueueNumber" />
+                <ScalarProperty Name="QueueName" ColumnName="QueueName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_InsertReportTransaction" FunctionName="MAF.Store.SP_InsertReportTransaction" />
+          <FunctionImportMapping FunctionImportName="SP_GetExtNum" FunctionName="MAF.Store.SP_GetExtNum" />
+          <FunctionImportMapping FunctionImportName="SP_GetQueueList" FunctionName="MAF.Store.SP_GetQueueList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetQueueList_Result">
+                <ScalarProperty Name="fkiddn" ColumnName="fkiddn" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idqueue" ColumnName="idqueue" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_UpdateExculdeUser" FunctionName="MAF.Store.SP_UpdateExculdeUser" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateMUInSReport" FunctionName="MAF.Store.SP_UpdateMUInSReport" />
+          <FunctionImportMapping FunctionImportName="spLogin" FunctionName="MAF.Store.spLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.spLogin_Result">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_UpdateUserRole" FunctionName="MAF.Store.SP_UpdateUserRole" />
+          <FunctionImportMapping FunctionImportName="spUpdatePowerZoneTime" FunctionName="MAF.Store.spUpdatePowerZoneTime" />
+          <FunctionImportMapping FunctionImportName="GetPowerZoneTime" FunctionName="MAF.Store.GetPowerZoneTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.GetPowerZoneTime_Result">
+                <ScalarProperty Name="Zone1FromTime" ColumnName="Zone1FromTime" />
+                <ScalarProperty Name="Zone1ToTime" ColumnName="Zone1ToTime" />
+                <ScalarProperty Name="Zone2FromTime" ColumnName="Zone2FromTime" />
+                <ScalarProperty Name="Zone2ToTime" ColumnName="Zone2ToTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetBigScreenPowerZoneTime" FunctionName="MAF.Store.GetBigScreenPowerZoneTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.GetBigScreenPowerZoneTime_Result">
+                <ScalarProperty Name="Zone1FromTime" ColumnName="Zone1FromTime" />
+                <ScalarProperty Name="Zone1ToTime" ColumnName="Zone1ToTime" />
+                <ScalarProperty Name="Zone2FromTime" ColumnName="Zone2FromTime" />
+                <ScalarProperty Name="Zone2ToTime" ColumnName="Zone2ToTime" />
+                <ScalarProperty Name="Header1Color" ColumnName="Header1Color" />
+                <ScalarProperty Name="Header2Color" ColumnName="Header2Color" />
+                <ScalarProperty Name="Row1Color" ColumnName="Row1Color" />
+                <ScalarProperty Name="Row2Color" ColumnName="Row2Color" />
+                <ScalarProperty Name="FontColor" ColumnName="FontColor" />
+                <ScalarProperty Name="Queue1" ColumnName="Queue1" />
+                <ScalarProperty Name="Queue2" ColumnName="Queue2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdateBigScreenPowerZoneTime" FunctionName="MAF.Store.spUpdateBigScreenPowerZoneTime" />
+          <FunctionImportMapping FunctionImportName="SP_GetReportList" FunctionName="MAF.Store.SP_GetReportList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetReportList_Result">
+                <ScalarProperty Name="idreport" ColumnName="idreport" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spResetPowerZoneColor" FunctionName="MAF.Store.spResetPowerZoneColor" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateEnableUser" FunctionName="MAF.Store.SP_UpdateEnableUser" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateUserInQueue" FunctionName="MAF.Store.SP_UpdateUserInQueue" />
+          <FunctionImportMapping FunctionImportName="SP_UpdateManagerInQueue" FunctionName="MAF.Store.SP_UpdateManagerInQueue" />
+          <FunctionImportMapping FunctionImportName="SP_UserRoleDetails" FunctionName="MAF.Store.SP_UserRoleDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_UserRoleDetails_Result">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="managerqueue" ColumnName="managerqueue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetQueues" FunctionName="MAF.Store.spGetQueues">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.spGetQueues_Result">
+                <ScalarProperty Name="QueueNumber" ColumnName="QueueNumber" />
+                <ScalarProperty Name="iddn" ColumnName="iddn" />
+                <ScalarProperty Name="QueueName" ColumnName="QueueName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetUserDetails" FunctionName="MAF.Store.SP_GetUserDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetUserDetails_Result">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Ext" ColumnName="Ext" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="queuenum" ColumnName="queuenum" />
+                <ScalarProperty Name="managerqueue" ColumnName="managerqueue" />
+                <ScalarProperty Name="queuename" ColumnName="queuename" />
+                <ScalarProperty Name="QueueCnt" ColumnName="QueueCnt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetExcludeUserByReport" FunctionName="MAF.Store.SP_GetExcludeUserByReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetExcludeUserByReport_Result">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsExclude" ColumnName="IsExclude" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Ext" ColumnName="Ext" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetSchduleUserDetails" FunctionName="MAF.Store.SP_GetSchduleUserDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetSchduleUserDetails_Result">
+                <ScalarProperty Name="iduser" ColumnName="iduser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Ext" ColumnName="Ext" />
+                <ScalarProperty Name="queuenum" ColumnName="queuenum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spExtensionByQueue" FunctionName="MAF.Store.spExtensionByQueue">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.spExtensionByQueue_Result">
+                <ScalarProperty Name="extnum" ColumnName="extnum" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spExtensions" FunctionName="MAF.Store.spExtensions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.spExtensions_Result">
+                <ScalarProperty Name="extnum" ColumnName="extnum" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spExtensionsByPowerZone" FunctionName="MAF.Store.spExtensionsByPowerZone">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.spExtensionsByPowerZone_Result">
+                <ScalarProperty Name="extnum" ColumnName="extnum" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_DeleteUser" FunctionName="MAF.Store.SP_DeleteUser" />
+          <FunctionImportMapping FunctionImportName="SP_GetMUInScheduleList" FunctionName="MAF.Store.SP_GetMUInScheduleList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.SP_GetMUInScheduleList_Result">
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+                <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="QueueNum" ColumnName="QueueNum" />
+                <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+                <ScalarProperty Name="IsSchedule" ColumnName="IsSchedule" />
+                <ScalarProperty Name="Users" ColumnName="Users" />
+                <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MultiUserID" ColumnName="MultiUserID" />
+                <ScalarProperty Name="Zone1FromTime" ColumnName="Zone1FromTime" />
+                <ScalarProperty Name="Zone1ToTime" ColumnName="Zone1ToTime" />
+                <ScalarProperty Name="Zone2FromTime" ColumnName="Zone2FromTime" />
+                <ScalarProperty Name="Zone2ToTime" ColumnName="Zone2ToTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_DeleteSchedule" FunctionName="MAF.Store.SP_DeleteSchedule" />
+          <FunctionImportMapping FunctionImportName="spGetRecordingPath" FunctionName="MAF.Store.spGetRecordingPath">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MAF.spGetRecordingPath_Result">
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="CallInterval" ColumnName="CallInterval" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSetRecordingPath" FunctionName="MAF.Store.spSetRecordingPath" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

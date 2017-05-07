@@ -1,0 +1,92 @@
+﻿@model MAF.BAL.Models.ManagementList
+
+
+<table border="0" cellspacing="0" cellpadding="0" class="table Usetable table-striped table-bordered data-grid" style="margin-bottom:0px;">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th >User Name</th>
+            <th >Ext</th>
+            @*<th >Queue Count</th>*@
+            <th >Queue Number</th>
+            <th>Manager Queue</th>
+            <th>Permission</th>
+            <th  style="text-align:center;">Enable</th>
+            <th>Role</th>
+            <th>Assign Queue</th>
+            <th >Assign Report</th>
+            <th  >Schedule Report</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody >
+        @{
+            int count = 0;
+            foreach (var item in Model.objManagementList)
+            {
+                count++;
+
+                <tr>
+                    <td width="4%" >@count</td>
+                    <td>@item.UserName</td>
+                    <td >@item.Ext</td>
+                    @*<td  width="8%">@item.QueueCnt</td>*@
+                    <td width="15%" >@item.QueueNum</td>
+                    <td width="10%">@item.ManagerQueue</td>
+                    <td width="7%">@item.Role</td>
+                    <td align="center">
+                        @{if (item.IsEnable == 1)
+                {   <input id="chk@(item.UserId)" type="checkbox" onclick="ShowUserConfirmYesNo('@item.UserId', '@item.UserName','1');"  checked="checked"  style="cursor:pointer;" />}
+                          else { <input id="chk@(item.UserId)" type="checkbox" onclick="ShowUserConfirmYesNo('@item.UserId', '@item.UserName','0');"   style="cursor:pointer;" /> }
+                                                                                                                                                                                  }                                                                                                        
+                    </td>
+                    <td><input type="button" class="btn btn-default" value="Assign" onclick="Role('@item.UserId','@item.UserName','@item.Ext')"></td>
+                    <td ><input type="button" class="btn btn-default" value="Assign" onclick="Queuelist('@item.UserId','@item.UserName','@item.Ext')"></td>
+                    <td ><input type="button" class="btn btn-default" value="Assign" onclick="AddReport('@item.UserId','@item.UserName');"></td>
+                    <td ><input type="button" value="Schedule" class="btn btn-default" onclick="ScheduleReport('@item.UserId','@item.UserName');"></td>
+                    <td><input type="button" value="Delete" class="btn btn-warning" onclick="DeleteUserConfirmYesNo('@item.UserId','@item.UserName')"></td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@
+<script type="text/javascript">
+    function ShowUserConfirmYesNo(userid, username,active) {
+        var $confirm = $("#modalConfirmYesNo");       
+        $confirm.modal('show');
+        $("#lblTitleConfirmYesNo").html('Confirmation');
+        $("#lblMsgConfirmYesNo").html('Are you sure to change for '+ username + ' user?');
+        $("#btnYesConfirmYesNo").off('click').click(function () {
+            UpdateEnableUser(userid, username,active);
+            $confirm.modal("hide");
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+        $("#btnNoConfirmYesNo").off('click').click(function () {
+            if (active == '1') {
+                $('#chk' + userid).prop("checked", true);
+            }
+            else { $('#chk' + userid).prop("checked", false); }
+            $confirm.modal("hide");        
+        });       
+    }  
+
+    function DeleteUserConfirmYesNo(userid, username) {
+        var $confirm = $("#modalConfirmYesNo");       
+        $confirm.modal('show');
+        $("#lblTitleConfirmYesNo").html('Confirmation');
+        $("#lblMsgConfirmYesNo").html('Are you sure to delete '+ username + ' user?');
+        $("#btnYesConfirmYesNo").off('click').click(function () {
+            DeleteUser(userid);
+            $confirm.modal("hide");
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+        $("#btnNoConfirmYesNo").off('click').click(function () {           
+            $confirm.modal("hide");        
+        });       
+    }  
+</script>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@

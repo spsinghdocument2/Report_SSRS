@@ -1,0 +1,21 @@
+﻿ <style>.DispRoleNav{width:200px; display:none;}</style>
+<ul id="nav">
+    <li >
+        <a href="@Url.Action("Index","Home")" data-toggle="tooltip" data-placement="right" title="Home" class="tooltip-cus @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")"><i class="fa fa-home"></i></a>
+
+    </li>
+    <li  style="@Session["Management"]"><a id="LinkAdmin" href="@Url.Action("Index","Management")" data-toggle="tooltip" data-placement="right" title="Management" class="tooltip-cus @(ViewContext.RouteData.Values["Controller"].ToString() == "Management" ? "active" : "")"><i class="fa fa-cogs"></i></a>  </li>
+    <li>
+        <a href="javascript:void" class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Report" ? "active" : "")"><i class="fa fa-newspaper-o"></i> <span class="right-arrow"><i class="fa fa-caret-right" style="font-size:15px;"></i></span></a>
+        <ul>
+            <li class="DispRoleNav" style="@Session["QueueLog"]"><a href="@Url.Action("QueueLog","Report")" class="@(ViewContext.RouteData.Values["Action"].ToString() == "QueueLog" ? "active" : "")"><i class="fa fa-chevron-right"></i>Queue Calls Log</a></li>
+            <li class="DispRoleNav" style="@Session["AgentLog"]"><a href="@Url.Action("AgentLog","Report")" class="@(ViewContext.RouteData.Values["Action"].ToString() == "AgentLog" ? "active" : "")"><i class="fa fa-chevron-right"></i>Agent Calls Log</a></li>
+            <li class="DispRoleNav" style="@Session["SearchByPhone"]"><a href="@Url.Action("SearchbyPhone", "Report")" class="@(ViewContext.RouteData.Values["Action"].ToString() == "SearchbyPhone" ? "active" : "")"><i class="fa fa-chevron-right"></i>Search by Phone</a></li>
+            <li class="DispRoleNav" style="@Session["Collection"]"><a href="@Url.Action("Collection", "Report")" class="@(ViewContext.RouteData.Values["Action"].ToString() == "Collection" ? "active" : "")"><i class="fa fa-chevron-right"></i>Collection Report</a></li>
+            <li class="DispRoleNav" style="@Session["PowerZone"]"><a href="@Url.Action("PowerZone", "Report")" class="@(ViewContext.RouteData.Values["Action"].ToString() == "PowerZone" ? "active" : "")"><i class="fa fa-chevron-right"></i>Power Zone Report</a></li>
+            <li class="DispRoleNav" style="@Session["ScoreCard"]"><a href="@Url.Action("ScoreCard", "Report")" class="@(ViewContext.RouteData.Values["Action"].ToString() == "ScoreCard" ? "active" : "")"><i class="fa fa-chevron-right"></i>Score Card Report</a></li>
+            <li class="DispRoleNav" style="@Session["ChatLog"]"><a href="@Url.Action("ChatLog", "Report")" class="@(ViewContext.RouteData.Values["Action"].ToString() == "ChatLog" ? "active" : "")"><i class="fa fa-chevron-right"></i>Chat Log Report</a></li>
+        </ul>
+    </li>
+
+</ul>

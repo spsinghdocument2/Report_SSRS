@@ -1,0 +1,321 @@
+﻿@model MAF.BAL.Models.BigScreeViewModel
+<link href="~/Content/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" />
+<link href="~/Content/plugins/bootstrap-colorpicker-master/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+<style type="text/css">
+    /*.btn-group {
+        display: block;
+    }*/
+
+    /*.multiselect.btn-default {
+        -ms-text-shadow: 0;
+        text-shadow: 0;
+        background-image: none;
+        border-color: #ccc;
+    }
+
+    .multiselect.btn-default:hover, .multiselect.btn-default:focus {
+        background-color: none;
+    }*/
+
+    .btn .caret {
+        float: right;
+        margin-top: 8px;
+    }
+
+    .multiselect-selected-text {
+        float: left;
+    }
+
+    .multiselect-container {
+        position: absolute;
+        /*margin-top: 34px;*/
+    }
+
+    .btn-default:hover, .btn-default:focus,
+    .btn-default.focus, .btn-default:active,
+    .btn-default.active, .open > .dropdown-toggle.btn-default {
+        background: none;
+        box-shadow: none;
+    }
+
+    .dropdown-menu > li > a:hover,
+    .dropdown-menu > li > a:focus {
+        background-color: #357ebd;
+        background-image: none;
+        color: white;
+        background-repeat: repeat-x;
+    }
+
+    .dropdown-menu > .active > a,
+    .dropdown-menu > .active > a:hover,
+    .dropdown-menu > .active > a:focus {
+        background-color: #357ebd;
+        background-image: none;
+    }
+</style>
+<div style="width: 600px; padding: 20px 20px 10px 20px;">
+    <div>
+        <label id="required-error-message" style="display: none; background: none; font-weight: normal; font-size: 15px;" class="alert-danger"></label>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Power Zone Queues:</label>
+                    @Html.ListBoxFor(m => m.Queues, ViewBag.QueueList as MultiSelectList, new { @class = "form-control", id = "ddlQueues" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Zone1 From Time:</label>
+                    <div class="inner-addon right-addon">
+                        <i class="fa fa-calendar"></i>
+                        @Html.TextBoxFor(m => m.Zone1FromTime, "{0:hh:mm tt}", new { id = "zone1fromtime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Zone1 To Time:</label>
+                    <div class="inner-addon right-addon">
+                        <i class="fa fa-calendar"></i>
+                        @Html.TextBoxFor(m => m.Zone1ToTime, "{0:hh:mm tt}", new { id = "zone1totime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Zone2 From Time:</label>
+                    <div class="inner-addon right-addon">
+                        <i class="fa fa-calendar"></i>
+                        @Html.TextBoxFor(m => m.Zone2FromTime, "{0:hh:mm tt}", new { id = "zone2fromtime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Zone2 To Time:</label>
+                    <div class="inner-addon right-addon">
+                        <i class="fa fa-calendar"></i>
+                        @Html.TextBoxFor(m => m.Zone2ToTime, "{0:hh:mm tt}", new { id = "zone2totime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Header 1:</label>
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Header1Color, new { @class = "form-control" })
+                        <span class="input-group-addon"><i></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Header 2:</label>
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Header2Color, new { @class = "form-control" })
+                        <span class="input-group-addon"><i></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Row:</label>
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.RowColor, new { @class = "form-control" })
+                        <span class="input-group-addon"><i></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Alternate Row:</label>
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.AlternateRowColor, new { @class = "form-control" })
+                        <span class="input-group-addon"><i></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Font:</label>
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.FontColor, new { @class = "form-control" })
+                        <span class="input-group-addon"><i></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="button" value="Reset Colors" style="width: 100px; margin-top: 25px;" class="btn btn-default" onclick="resetColors();" />
+                    <span style="float: right; margin-top: 25px;">
+                        <input type="button" value="Save" style="width: 70px;" class="btn btn-default" onclick="SaveBigScreenZoneTime();" />
+                        <input type="button" value="Cancel" style="width: 70px; margin-left: 10px;" class="btn btn-default" onclick="$('#BigScreenpopup').hide();" />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    @{
+                        string zone1Url = String.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~/Reports/PowerZone/Zone1"));
+                        string zone2Url = String.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~/Reports/PowerZone/Zone2"));
+
+                        <div>
+                            <label>Big Screen 1: </label>&nbsp;<a href="@zone1Url" target="_blank">@zone1Url</a>
+                        </div>
+                        <div>
+                            <label>Big Screen 2: </label>&nbsp;<a href="@zone2Url" target="_blank">@zone2Url</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+<script src="~/Content/plugins/bootstrap-colorpicker-master/dist/js/bootstrap-colorpicker.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.input-group').colorpicker();
+        $('.zonetime').datetimepicker({
+            timepicker: true,
+            datepicker: false,
+            step: 30,
+            formatTime: 'g:i A',
+            format: 'h:i A'
+        });
+        $('#ddlQueues').multiselect(
+        {
+            nonSelectedText: 'Select Queues',
+            disableIfEmpty: true,
+            enableFiltering: true,
+            numberDisplayed: 1,
+            buttonWidth: '100%',
+            maxHeight: 300,
+            enableCaseInsensitiveFiltering: true,
+            onInitialized: function (option, checked) {
+                // Get selected options.
+                var selectedOptions = $('#ddlQueues option:selected');
+
+                if (selectedOptions.length >= 2) {
+                    // Disable all other checkboxes.
+                    var nonSelectedOptions = $('#ddlQueues option').filter(function () {
+                        return !$(this).is(':selected');
+                    });
+
+                    var dropdown = $('#ddlQueues').siblings('.multiselect-container');
+                    nonSelectedOptions.each(function () {
+                        var input = $('input[value="' + $(this).val() + '"]');
+                        input.prop('disabled', true);
+                        input.parent('li').addClass('disabled');
+                    });
+                }
+            },
+            onChange: function (option, checked) {
+                // Get selected options.
+                var selectedOptions = $('#ddlQueues option:selected');
+
+                if (selectedOptions.length >= 2) {
+                    // Disable all other checkboxes.
+                    var nonSelectedOptions = $('#ddlQueues option').filter(function () {
+                        return !$(this).is(':selected');
+                    });
+
+                    var dropdown = $('#ddlQueues').siblings('.multiselect-container');
+                    nonSelectedOptions.each(function () {
+                        var input = $('input[value="' + $(this).val() + '"]');
+                        input.prop('disabled', true);
+                        input.parent('li').addClass('disabled');
+                    });
+                } else {
+                    // Enable all checkboxes.
+                    var dropdown = $('#ddlQueues').siblings('.multiselect-container');
+                    $('#ddlQueues option').each(function () {
+                        var input = $('input[value="' + $(this).val() + '"]');
+                        input.prop('disabled', false);
+                        input.parent('li').addClass('disabled');
+                    });
+                }
+            }
+        });
+    });
+    function SaveBigScreenZoneTime() {
+        var zone1from = $('#zone1fromtime').val();
+        var zone1to = $('#zone1totime').val();
+        var zone2from = $('#zone2fromtime').val();
+        var zone2to = $('#zone2totime').val();
+        var header1Color = $('#Header1Color').val();
+        var header2Color = $('#Header2Color').val();
+        var row1Color = $('#RowColor').val();
+        var row2Color = $('#AlternateRowColor').val();
+        var fontColor = $('#FontColor').val();
+        var queues = $('#ddlQueues').val();
+        var isValidForm;
+        if (queues) {
+            if (zone1from && zone1to && zone2from && zone2to) {
+                if (header1Color && header2Color && row1Color && row2Color && fontColor) {
+                    if (isValidColor(header1Color) && isValidColor(header2Color) &&
+                        isValidColor(row1Color) && isValidColor(row2Color) && isValidColor(fontColor)) {
+                        $('#required-error-message').hide();
+                        var data = {
+                            "zone1FromTime": ConvertTimeformat("24", zone1from), "zone1ToTime": ConvertTimeformat("24", zone1to),
+                            "zone2FromTime": ConvertTimeformat("24", zone2from), "zone2ToTime": ConvertTimeformat("24", zone2to),
+                            "header1Color": header1Color, "header2Color": header2Color,
+                            "row1Color": row1Color, "row2Color": row2Color,
+                            "fontColor": fontColor, "queues": queues.join(',')
+                        };
+
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "/Management/UpdateBigScreenZoneTime",
+                            data: data,
+                            success: function () {
+                                $('#BigScreenpopup').hide();
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                ShowErrorPoup('Failed to update big screen power zone time . Please refresh this page');
+                            }
+                        });
+                    }
+                    else {
+                        $('#required-error-message').text('Invalid color code.');
+                        $('#required-error-message').show();
+                    }
+                }
+                else {
+                    $('#required-error-message').text('Please enter color code.');
+                    $('#required-error-message').show();
+                }
+            }
+            else {
+                $('#required-error-message').text('Please select zone time.');
+                $('#required-error-message').show();
+            }
+        }
+        else {
+            $('#required-error-message').text('Please select queue(s).');
+            $('#required-error-message').show();
+        }
+    }
+    var resetColors = function () {
+        $.get("/Management/ResetPowerZoneColor", function () {
+            AjaxBigScreenZoneTime();
+        });
+    }
+
+    var isValidColor = function (colorHex) {
+        return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(colorHex);
+    }
+</script>

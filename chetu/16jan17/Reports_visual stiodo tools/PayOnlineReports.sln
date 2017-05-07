@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "PayOnlineReports", "PayOnlineReports\PayOnlineReports.rptproj", "{E9DD6554-4178-41B9-9EC5-C00F807FC250}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs01:8080/tfs/chetuprojects
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PayOnlineReports\\PayOnlineReports.rptproj
+		SccProjectName1 = PayOnlineReports
+		SccLocalPath1 = PayOnlineReports
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.Debug|Default.ActiveCfg = Debug
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.Debug|Default.Build.0 = DebugLocal
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.Debug|Default.Deploy.0 = DebugLocal
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.DebugLocal|Default.Build.0 = DebugLocal
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.Release|Default.ActiveCfg = Release
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.Release|Default.Build.0 = Release
+		{E9DD6554-4178-41B9-9EC5-C00F807FC250}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

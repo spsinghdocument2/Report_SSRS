@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Pay Online Reporting - @ViewBag.Title</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700' rel='stylesheet' type='text/css'>
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+    @System.Web.Optimization.Styles.Render("~/Content/custom")
+</head>
+<body>
+    <div class="box-holder site-holder">
+        <section id="header">
+            <nav class="navbar navbar-default no-margin navbar-fixed-top">
+                <div class="navbar-header fixed-brand pull-left"> <a href="#" class="navbar-brand"><i class="fa fa-list btn-nav-toggle-responsive text-white"></i><span><img alt="" src="~/images/logo.png" width="190"></span></a> </div>
+                <div id="" class="pull-right">
+
+                    <ul id="RightMenuId" class="nav navbar-top-links navbar-right user_panel heder_nav" style="">
+
+                        <li><a href="@Url.Action("LogOut", "Account")"><i class=" fa fa-sign-out"></i> Log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="clearfix"></div>
+        </section>
+        <div class="clearfix"></div>
+
+        <div id="wrapper" class="">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper" class="hide_sidebar">
+                <ul class="sidebar-nav">
+                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Home")"><img src="~/images/home.png" /></a>
+                        <ul class="submenu">
+                            <li class="menu_head">Dashboard</li>
+                        </ul>
+                    </li>
+                    @*<li>
+                        <a href="#"><img src="~/images/setting.png" /></a>
+                        <ul class="submenu">
+                            <li class="menu_head">Management</li>
+                        </ul>
+                    </li>*@
+                    <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString() == "Report" ? "active" : "")">
+                        <a href="#"><img src="~/images/report.png" /></a>
+                        <ul class="submenu">
+                            <li class="menu_head">Reports <i class="fa fa-angle-down submenu_icon" aria-hidden="true"></i></li>
+                            <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "UserLogin" ? "submenu-active" : "")"><a href="@Url.Action("UserLogin", "Report")">User Login Report</a></li>
+                            <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "CardPayment" ? "submenu-active" : "")"><a href="@Url.Action("CardPayment", "Report")">Card Payment Report</a></li>
+                            <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "TextNessage" ? "submenu-active" : "")"><a href="@Url.Action("TextMessage", "Report")">Text Message Report</a></li>
+                            <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "AllPayment" ? "submenu-active" : "")"><a href="@Url.Action("AllPayment", "Report")">All Payment Report</a></li>
+                            <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "AutoPay" ? "submenu-active" : "")"><a href="@Url.Action("AutoPay", "Report")">AutoPay Report</a></li>
+                            <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "AutoPayEnrollment" ? "submenu-active" : "")"><a href="@Url.Action("AutoPayEnrollment", "Report")">AutoPay Enrollment Report</a></li>
+                            <li class="@(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"].ToString() == "AutoPaySchedule" ? "submenu-active" : "")"><a href="#">AutoPay Schedule Report</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                @RenderBody()
+            </div>
+            <!-- /#page-content-wrapper -->
+
+        </div>
+
+        <div id="footer" class="footer">
+            <label class="f_mainwhite">
+                Copyright © @DateTime.Now.Year
+                <a href="">Mid-Atlantic Finance</a>
+                All Right Reserved
+                <a href="">Privacy Statement</a>
+                <a href="">MAF Disclaimer</a>
+                <a href="">Terms Of Service</a>
+            </label>
+
+        </div>
+    </div>
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    @System.Web.Optimization.Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        $(".btn-nav-toggle-responsive").click(function () {
+            if ($(window).width() <= 768) {
+                $('#sidebar-wrapper').toggleClass('show-fullsidebar');
+            }
+        });
+    </script>
+    @RenderSection("scripts", false)
+
+</body>
+</html>

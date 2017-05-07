@@ -1,0 +1,65 @@
+﻿@model MAF.BAL.Models.RecordingViewModel
+<div style="width: 400px; padding: 20px 20px 10px 20px;">
+    <div>
+        <label id="required-error-message" style="display: none; background: none; font-weight: normal; font-size: 15px;" class="alert-danger"></label>
+        <label id="required-success-message" style="display: none; background: none; font-weight: normal; font-size: 15px; color: green;" class="alert-success"></label>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>Recording Path:</label>
+                        @Html.TextBoxFor(m => m.Path, new { id = "recordingPath", @class = "form-control", placeholder = "Recording Path" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <span style="float: right;">
+                        <input type="button" value="Save" class="btn btn-default" onclick="UpdateRecordingPath();" />
+                        <span style="padding-left: 10px;"> <input type="button" value="Cancel" class="btn btn-default" onclick="$('#RecordingPopup').hide();" /> </span>
+                    </span> <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //update recording path
+    function UpdateRecordingPath() {
+        var recordingPath = $('#recordingPath').val();
+        if (recordingPath) {
+            //var regex = /^(?:[\w]\:|\\)(\\[a-z_\-\s0-9\.$]+)$/i;
+            //var isValid = regex.test(recordingPath);
+            //console.log(regex.test(recordingPath));
+            //if (isValid) {
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "Management/UpdateRecordingPath",
+                    data: {"path":recordingPath},
+                    success: function (data) {
+                        if (data.Success) {
+                            $('#required-error-message').hide();
+                            $('#required-success-message').text(data.Message);
+                            $('#required-success-message').show();
+                        } else {
+                            $('#required-success-message').hide();
+                            $('#required-error-message').text(data.Message);
+                            $('#required-error-message').show();
+                        }
+                        //$('#RecordingPopupopup').hide();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        ShowErrorPoup('Failed to update recording path . Please refresh this page');
+                    }
+                });
+            //} else {
+            //    $('#required-error-message').text('Invalid recording path.');
+            //    $('#required-error-message').show();
+            //}
+        } else {
+            $('#required-error-message').text('Please enter path.');
+            $('#required-error-message').show();
+        }
+    }
+</script>

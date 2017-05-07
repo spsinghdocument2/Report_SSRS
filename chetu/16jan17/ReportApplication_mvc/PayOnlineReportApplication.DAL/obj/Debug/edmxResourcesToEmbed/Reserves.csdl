@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ReservesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ReservesEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_rpt_AdminLogin" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_rpt_GetAccountInfo" ReturnType="Collection(ReservesModel.sp_rpt_GetAccountInfo_Result)" />
+    <FunctionImport Name="sp_rpt_GetPaymentStatus" ReturnType="Collection(String)" />
+  </EntityContainer>
+  <ComplexType Name="sp_rpt_GetAccountInfo_Result">
+    <Property Type="String" Name="AccountNumber" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

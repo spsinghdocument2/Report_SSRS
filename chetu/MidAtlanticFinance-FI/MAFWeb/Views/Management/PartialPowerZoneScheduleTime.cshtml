@@ -1,0 +1,108 @@
+﻿@model MAF.BAL.Models.PowerZoneTimeViewModel
+<div style="width: 400px; padding: 20px 20px 10px 20px;">
+    <div class="form-horizontal">
+        <label id="required-error-message" style="display:none; background:none;font-weight:normal;font-size:15px;" class="alert-danger"></label>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label>Zone1 From Time:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="inner-addon right-addon">
+                            <i class="fa fa-calendar"></i>
+                            @Html.TextBoxFor(m => m.Zone1FromTime, "{0:hh:mm tt}", new { id = "zone1fromtime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                            @Html.ValidationMessageFor(m => m.Zone1FromTime)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label>Zone1 To Time:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="inner-addon right-addon">
+                            <i class="fa fa-calendar"></i>
+                            @Html.TextBoxFor(m => m.Zone1ToTime, "{0:hh:mm tt}", new { id = "zone1totime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                            @Html.ValidationMessageFor(m => m.Zone1ToTime)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label>Zone2 From Time:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="inner-addon right-addon">
+                            <i class="fa fa-calendar"></i>
+                            @Html.TextBoxFor(m => m.Zone2FromTime, "{0:hh:mm tt}", new { id = "zone2fromtime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                            @Html.ValidationMessageFor(m => m.Zone2FromTime)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label>Zone2 To Time:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="inner-addon right-addon">
+                            <i class="fa fa-calendar"></i>
+                            @Html.TextBoxFor(m => m.Zone2ToTime, "{0:hh:mm tt}", new { id = "zone2totime", @class = "form-control zonetime", placeholder = "hh:mm tt" })
+                            @Html.ValidationMessageFor(m => m.Zone2ToTime)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <span style=" float:right; margin-right:16px;">  <input type="button" value="Save" class="btn btn-default" onclick="SetHiddenFieldForPowerZoneScheduleTime();"/> <span style="padding-left:10px;"> <input type="button" value="Cancel" class="btn btn-default" onclick="$('#PowerZonepopup').hide();" /> </span></span> <br />
+                    <div style="margin-left:16px; margin-top:20px;" id="msg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.zonetime').datetimepicker({
+            timepicker: true,
+            datepicker: false,
+            step: 30,
+            formatTime: 'g:i A',
+            format: 'h:i A'
+        });
+    });
+
+    function SetHiddenFieldForPowerZoneScheduleTime() {
+        var zone1from = $('#zone1fromtime').val();
+        var zone1to = $('#zone1totime').val();
+        var zone2from = $('#zone2fromtime').val();
+        var zone2to = $('#zone2totime').val();
+        if (zone1from && zone1to && zone2from && zone2to) {
+            $('#Zone1FromTime' + UserReportid).val(zone1from);
+            $('#Zone1ToTime' + UserReportid).val(zone1to);
+            $('#Zone2FromTime' + UserReportid).val(zone2from);
+            $('#Zone2ToTime' + UserReportid).val(zone2to);
+            $('#required-error-message').hide();
+            $('#PowerZonepopup').hide();
+        }
+        else {
+            $('#required-error-message').text('Please select zone time.');
+            $('#required-error-message').show();
+        }
+    }
+</script>

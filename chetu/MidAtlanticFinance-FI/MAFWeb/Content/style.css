@@ -1,0 +1,670 @@
+*{ outline:none !important;}
+.marR-5{ margin-right:5px;}
+html, body{ width:100%; height:100%;}
+body{ font: 14px/21px Helvetica,Arial,sans-serif; background:#fff; margin:0; padding:0;}
+.float-left{float:left;}
+.float-right{float:right;}
+.padd-LR-0{ padding-left:0 !important; padding-right:0 !important;}
+.brd-B{ border-bottom:1px solid #e4e4e4;}
+.dark-sky-color{ color:#408fb0; font-size:22px;}
+.mar-B28{ margin-bottom:28px;}
+.mar-B35{ margin-bottom:35px;}
+.marB-5{margin-bottom:5px !important;}
+.marT-8{margin-top:8px !important;}
+.marT-15{margin-top:15px;}
+.marT-20{margin-top:20px;}
+.marT-30{ margin-top:30px;}
+.marT-40{ margin-top:40px;}
+.marT-65{ margin-top:65px;}
+.marTB-30{ margin-top:30px; margin-bottom:30px !important;}
+.marB-25{ margin-bottom:25px;}
+.padd-L0{ padding-left:0 !important;}
+.padd-R5{ padding-right:5px !important;}
+.padd-T7{ padding-top:7px;}
+.full-width{ width:100% !important;}
+.auto-width{ width:auto !important;}
+.padd-R0{padding-right:0 !important;}
+
+
+
+/*========================================================= LOGIN PAGE CSS START ==============================================================================================*/
+
+/*----------header css start-------------*/
+header {padding: 10px 0 0;}
+.logo a{display:block;}
+.logo{/*margin-top: 1.5%;*/ height: 93px;}
+
+.login{ text-align:right; position:relative; z-index:2;}
+.log-btn{ background-color: rgb(247, 247, 247); background-image: -moz-linear-gradient(center bottom , rgb(247, 247, 247) 0%, rgb(255, 255, 255) 100%);
+ border: 1px solid rgb(221, 221, 221);  color: rgb(68, 68, 68);  text-shadow:0 none; border-radius: 3px; font-size: 12px; line-height: 16px; padding: 6px 12px;}
+.btn-default.log-btn{box-shadow:none;}
+.log-btn > i{font-size: 14px; margin-right: 8px;}
+.log-btn:hover, .log-btn:focus {background: rgb(251, 251, 251) none repeat scroll 0 0; border: 1px solid rgb(221, 221, 221); text-decoration:none;}
+
+.menu-wrap{ margin-top:20px; padding-left:0 !important; padding-right:0 !important;}
+.menu-btn{display:none;}
+.top-menu.navbar{ margin-bottom:0;}
+.top-menu.navbar-inverse {background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%); border-radius: 0; border:0;  background-color: transparent;}
+.menu-block{float:right;}
+.nav.navbar-nav.menu-block > li{ margin-right:5px; position:relative;}
+.nav.navbar-nav.menu-block > li:last-child{ margin-right:0 !important;}
+.nav.navbar-nav.menu-block > li > a{ color: rgb(136, 136, 136);  display: inline-block; font-size: 12px; margin:0; padding: 11px 10px 18px; text-decoration: none; background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%); box-shadow:none; text-shadow: inherit; }
+.nav.navbar-nav.menu-block > li > a:hover{border-bottom: 3px solid rgb(0, 102, 153);}
+.nav.navbar-nav.menu-block > li > a:hover, .nav.navbar-nav.menu-block li > a:focus{ color:#000; border-bottom: 3px solid rgb(0, 102, 153);  background-color: transparent;}
+.nav.navbar-nav.menu-block > li.active > a{ border-bottom: 3px solid rgb(245, 128, 34); font-weight:bold; color:#000;  background-color: transparent;}
+.menu-block .dropdown-menu{right:0 !important; left:auto; box-shadow: inherit; top: 49px; border-radius: 0; border-top:3px solid rgb(0, 102, 153); } 
+.menu-block .dropdown-menu > li > a {font-size: 12px; color: rgb(136, 136, 136); border-bottom: 1px solid rgb(221, 221, 221); margin: 0 16px; padding: 8px 0;}
+.menu-block .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%); font-size: 12px; color:#000}
+.menu-block .dropdown-menu > li:last-child > a{ border-bottom:0 !important;}
+/*----------header css  start-------------*/
+
+
+/*----------login-mandatory start-------------*/
+.login-mandatory{-moz-border-bottom-colors: none;
+    border: 1px solid #e2e2e2;
+    border-left: none;
+    border-right: none;
+    background-image: linear-gradient(bottom,#fafafa 0%,#fcfcfc 100%);
+    background-image: -o-linear-gradient(bottom,#fafafa 0%,#fcfcfc 100%);
+    background-image: -moz-linear-gradient(bottom,#fafafa 0%,#fcfcfc 100%);
+    background-image: -webkit-linear-gradient(bottom,#fafafa 0%,#fcfcfc 100%);
+    background-image: -ms-linear-gradient(bottom,#fafafa 0%,#fcfcfc 100%);
+    background-color: #fafafa;
+    padding: 11px 0;
+	}
+.login-mandatory h3{ font-weight:bold; margin:0; font-size: 22px;}
+.login-mandatory h3 span{font-weight:normal;}
+/*----------login mandator end-------------*/
+
+
+/*----login-form css start ---------*/
+.login-form-wrap {margin-top: 20px; margin-bottom:30px;}
+.login-form-container {max-width: 30%;}
+.login-form-container > .form-group > input{ border: 1px solid rgb(226, 226, 226); box-sizing: border-box; color: rgb(51, 51, 51); font-size: 1.2em;  margin: 5px 0 6px;  padding: 5px;  width: 100%;box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1);	border-radius: 0; display: inline-block;}
+.login-form-container > .form-group > label {display: block;  font-size: 1.2em;  font-weight: 600; color:#606060; margin-bottom: 0;}
+.login-form-container > .form-group{margin-bottom: 10px; position: relative;}
+.down-arrow{position: absolute; right: 15%;  top: 43%;}
+.btn.btn-default.login-btn{
+    -webkit-appearance: none;
+    display: inline-block;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 1px 0 0 rgba(255,255,255,.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.3);
+    padding: 6px 5px;
+    font-size: 12px;
+    line-height: 16px;
+    width: auto!important;
+    float: left;
+    margin: 0 5px 5px 0;
+    border: 1px solid #1f70ad;
+    background-image: linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -o-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -moz-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -webkit-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -ms-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-color: #2778c8;
+    color: #fff;
+    text-shadow: 1px -1px 0 #1c6396;
+    filter: dropshadow(color=#1c6396,offx=1,offy=1);
+}
+.data-base-input{ max-width:85%;}
+.refresh-btn{  bottom: 12%; position: absolute; right: 7%;}
+.dropdown.combobox-selecter.data {width: 85%;}
+.combobox-result {
+    background-image: linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -o-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -moz-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -webkit-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -ms-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-color: #2985c7;
+    line-height: 21px;
+    margin-top: 3px;
+    padding: 3px 7px 4px;
+    color:#fff;
+}
+
+.data-base-input {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to top, rgb(238, 238, 238) 0%, rgb(255, 255, 255) 50%);
+    border: 1px solid rgb(226, 226, 226);
+   border-radius: 4px 0 0 4px !important;
+    color: rgb(68, 68, 68);
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    padding: 0 0 0 8px;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/*----login-form css end ---------*/
+
+/*========================================================= LOGIN PAGE CSS END ================================================================================================*/
+
+
+
+/*========================================================= JOB PAGE CSS START ================================================================================================*/
+
+
+
+
+.tab-wrap {margin-top: 20px;}
+
+.general-block h3{ padding-bottom:5px; margin-top:0; padding-top:20px;}
+
+.btn.btn-default.orange-btn {
+    -webkit-appearance: none;
+    display: inline-block;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 1px 0 0 rgba(255,255,255,.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.3);
+    padding: 6px 5px;
+    font-size: 12px;
+    line-height: 16px;
+    width: auto;
+    /*float: left;
+    margin: 0 5px 5px 0;*/
+     border: 1px solid #b23730;
+    background-image: linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -o-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -moz-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -webkit-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -ms-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-color: #db701e;
+    color: #fff;
+    text-shadow: 1px -1px 0 #a43b37;
+    filter: dropshadow(color=#a43b37,offx=1,offy=1);
+}
+.orange-btn span{margin-right:5px;}
+ 
+.general-form-container > .form-group > label, .area-detail label{font-size: 1.2em; margin-bottom: 0;}
+.general-form-container > .form-group > input, .drop-box select {border: 1px solid rgb(226, 226, 226);  border-radius: 0; box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1); box-sizing: border-box;
+ color: rgb(51, 51, 51); font-size: 1.2em; margin: 5px 0 6px; padding: 5px; width: 100%;}
+ 
+ .general-form-container > .form-group > input:focus{border-color:#7ac0da; outline: 0 none; color:rgb(96, 96, 96);}
+ .area-detail input:focus, .contact-info select:focus, .contact-info input:focus, .login-form-container > .form-group > input:focus, .drop-box select:focus {border-color:#7ac0da; outline: 0 none; color:rgb(96, 96, 96); box-shadow: inherit;}
+ 
+.general-form-container > .form-group {position: relative;}
+.general-form-container .down-arrow {position: absolute;  right: 0; top: 49%;}
+.general-form-container .data-base-input {max-width: 100%;}
+.full-width{display: block;  margin-bottom: 5px;  width: 100%;}
+.checkbox > span {font-size: 16px; font-weight: bold; margin-right: 10%;}
+
+.claim-block h3{ padding-bottom:5px;}
+.address-txt{width: 100%; position:relative}
+.psa-btn{position: absolute; right: 0; top: -6px;}
+
+.area-detail input {border: 1px solid rgb(226, 226, 226);  border-radius: 0; box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1); box-sizing: border-box; color:#000; font-size: 1.2em; margin: 5px 0 6px; padding: 5px; width: 100%;}
+.contact-info {font-size: 16px; font-weight: bold;  margin-top:10px; margin-bottom:10px; }
+.contact-info a{margin-left:5px;}
+.white-txt{color:#fff;}
+.marT-7{margin-top:7px;}
+.marT-48{margin-top:48px;}
+.font24{font-size:24px;}
+.tab-buttons{ margin-left:20px; margin-top:9px; position: absolute; left:920px; z-index:3}
+.correct-ic{margin-right:5px;}
+.marR-0{margin-right:0 !important;}
+.check-panel span{font-size: 15px; font-weight: bold; /*padding-left: 10px;*/}
+
+.contact-info select {border: 1px solid rgb(226, 226, 226);  border-radius: 0; box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1); box-sizing: border-box;
+ color: rgb(51, 51, 51);  padding: 5px; width: 100%; font-size:16px; font-weight:normal;}
+.contact-info input{border: 1px solid rgb(226, 226, 226);  border-radius: 0; box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1); box-sizing: border-box;
+ color: rgb(51, 51, 51);  padding: 5px; width: 100%; font-size:16px; font-weight:normal;}
+.btn.btn-default.minus-btn {
+    -webkit-appearance: none;
+    display: inline-block;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 1px 0 0 rgba(255,255,255,.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.3);
+    padding:2px 0;
+    font-size: 12px;
+    line-height: 16px;
+    width: 40%;
+	margin-top:5px;
+
+    border: 1px solid #b23730;
+    background-image: linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -o-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -moz-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -webkit-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-image: -ms-linear-gradient(bottom,#db701e 0%,#f58022 100%);
+    background-color: #db701e;
+    color: #fff;
+    text-shadow: 1px -1px 0 #a43b37;
+    filter: dropshadow(color=#a43b37,offx=1,offy=1);
+}
+
+
+.tab-container{background: rgb(255, 255, 255); border: 1px solid rgb(221, 221, 221); color: rgb(68, 68, 68); padding: 0.2%;  border-radius: 2px; }
+.tab-block{ position:relative;  background: #ddd url(/Content/themes/base/images/tab-nav-bg.png) repeat-x scroll 50% 50%; color: #444; font-weight: bold; border-radius: 2px; padding: 4px 4px 0; width:auto; float:left;  margin-bottom:20px;}
+.nav.tab-block > li{ background: #ddd url(/Content/themes/base/images/tab-li-bg.png) repeat-x scroll 50% 50%; border: 1px solid rgb(221, 221, 221); color: rgb(39, 120, 200); font-weight: bold; margin-right:3px;}
+.nav.tab-block > li > a {padding: 0.5em 1em; border-radius:0; border: 0 none; margin-right:0;}
+.nav.tab-block > li > a:hover, .nav.tab-block > li:hover > a {border-radius:0; color:#fff;
+ 
+    background-image: linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -o-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -moz-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -webkit-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -ms-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-color: #2778c8;
+    color: #fff;
+    text-shadow: 1px -1px 0 #1c6396;
+    filter: dropshadow(color=#1c6396,offx=1,offy=1);
+
+}
+.nav.tab-block > li.active a:hover {color:#fff;}
+.nav.tab-block > li.active{background: rgb(255, 255, 255) none repeat scroll 0 0; border-bottom:transparent; padding-bottom: 1px;}
+.nav.tab-block > li:last-child > a, .nav.tab-block > li:last-child{margin-right:0 !important;}
+.nav.tab-block > li.active > a{border-radius:0; border:0; color: rgb(245, 128, 34);}
+.nav.tab-block > li:focus > a, .nav.tab-block > li > a:focus{border-radius: 0;}
+
+.tab-content .accordion-link {font-size: 1.2em; font-weight: bold;}
+.tab-content .accordion-link:hover{
+	border: 1px solid #1f70ad;
+    background-image: linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -o-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -moz-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -webkit-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-image: -ms-linear-gradient(bottom,#2778c8 0%,#2b8ec7 100%);
+    background-color: #2778c8;
+    color: #fff;
+    text-shadow: 1px -1px 0 #1c6396;
+    filter: dropshadow(color=#1c6396,offx=1,offy=1);
+	
+	}
+.tab-content .accordion-link:hover, .tab-content .accordion-link:focus{text-decoration:none;}	
+.tab-content .accordion-link:hover a{color:#fff;}	
+.tab-content .accordion-link.active{color: rgb(245, 128, 34);}
+.tab-content .accordion-link.active:hover{color:#fff;}
+
+/*================== Combobox Selecter css start ================================================================================================================*/
+.dropdown.combobox-selecter{
+    -moz-user-select: none;
+    background-clip: padding-box;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to top, rgb(238, 238, 238) 0%, rgb(255, 255, 255) 50%);
+    border: 1px solid rgb(226, 226, 226);
+   border-radius: 4px 0 0 4px !important;
+    color: rgb(68, 68, 68);
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 0 0 8px;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+	margin: 5px 0 6px;
+	font-size: 1.2em;
+	
+}
+.dropdown.combobox-selecter .select-item{ float:left; width:100%; color:#333333}
+.dropdown.combobox-selecter.open{ border-radius: 4px 4px 0 0 !important; border-bottom:0; background-image: linear-gradient(to top, rgb(255, 253, 253) 0%, rgb(234, 234, 234) 50%);}
+.dropdown.combobox-selecter.open .arrow-block{background-color:transparent; background-image:none; border:0 none;}
+.dropdown.combobox-selecter .select-item:hover, .dropdown.combobox-selecter .select-item:focus{ text-decoration:none;}
+.caret.select-arrow-down {color: rgb(153, 153, 153); /*position: absolute; right: 8px; top: 14px;*/}
+.arrow-block {
+	background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(to top, rgb(206, 202, 202) 0%, rgb(239, 239, 239) 50%);
+    border-radius: 0 5px 5px 0;
+    padding: 0px 8px 0 5px;
+    position: absolute;
+    right: -2px;
+    top: -1px;
+    border: 1px solid rgb(226, 226, 226);
+    height: 35px;
+    line-height: 28px;
+	}
+
+.dropdown-menu.combobox-menu input {
+    background:linear-gradient(to bottom, rgb(255, 255, 255) 85%, rgb(238, 238, 238) 99%) repeat scroll 0 0;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1em;
+    height: auto !important;
+    margin: 0;
+    min-height: 32px;
+    outline: 0 none;
+    padding: 4px 30px 4px 5px;
+    width: 100%;
+}
+.search-ic {
+    color: rgb(153, 153, 153);
+    position: absolute;
+    right: 15px;
+    top: 4px;
+	cursor:pointer;
+}
+	
+.dropdown-menu.combobox-menu{ width:100.5%; background-image: linear-gradient(to top, rgb(251, 248, 248) 0%, rgb(249, 249, 249) 50%); border-radius: 0 0 4px 4px; padding: 1%;
+ top: 93%; border-top:0; left: -1px;}
+ 
+.combobox-info {
+    background: rgb(242, 242, 242) none repeat scroll 0 0;
+    line-height: 21px;
+    margin-top: 3px;
+    padding-left: 5px;
+}	
+
+.up-arrow {position: absolute; right: 8px; top: -4px; display:none;}
+.fa.fa-caret-up {color: rgb(153, 153, 153);  font-size: 13px;}
+
+/*================== Combobox Selecter css start ================================================================================================================*/
+
+
+.overlay-wrap {background: rgba(230, 230, 230, 0.7) none repeat scroll 0 0; display: block;  height: 100%; margin: 0;  overflow: auto;  padding: 0; width: 100%; z-index: 8;}
+.overlay-container {padding:1%; background:#fff; border:1px solid #333;}
+.overlay-inner-block {border: 1px solid rgb(51, 51, 51); border-bottom:0;}
+
+.room-btn-col {float: left; margin:10px 0 0; width: 100%;}
+.room-heading {list-style: outside none none;  margin: 0; padding: 0; width: 100%; border-bottom: 1px solid rgb(51, 51, 51);}
+.room-heading > li {display: block; float: left; font-size: 1.2em; font-weight: bold; padding: 1.5% 0; text-align: center; width: 80%;}
+.room-heading > li:first-child{border-right: 1px solid rgb(51, 51, 51); width: 20%;}
+
+.room-list {list-style: outside none none;  margin: 0; padding: 0; width: 100%;}
+.room-list > .block {display: block; width: 100%;}
+.room-list > .block > li { float: left;  width: 33%; border-right:1px solid #333; border-bottom:1px solid #333; text-align:center; padding: 1.5% 0; font-weight:bold; color:#333;}
+.room-list > .block > li:first-child{width:20%;}
+.room-list > .block > li:nth-child(2){width:80%; border-right:0; }
+.room-list > .block > li:nth-child(3){width:10%; border-right:0;}
+.room-btn {float: left; width: 50%;}
+
+/*================== Combobox Selecter css end ================================================================================================================*/
+
+/*========================================================= JOB PAGE CSS END ================================================================================================*/
+	
+/*========================================================= CREATE ALBUM START CSS============================================================================================*/	
+.create-album-wraper {margin-top: 20px; margin-bottom: 40px;}	
+.drop-box{ margin:10px 5px;}
+
+.canvas-panel {margin:0px 6px;}
+canvas {border : 1px gray solid;}
+
+.album-searh-panel { margin-bottom: 45px;}
+.block-title {font-size: 1.2em; font-weight: bold; padding-left: 14%;}
+.save-btn { float: left;  width: 13%;}
+.search-photos {float: right; width: 87%;}
+.scroll-box {height: 480px;  overflow-x: hidden;  overflow-y: scroll; white-space: nowrap;}
+/*========================================================= CREATE ALBUM END CSS============================================================================================*/	
+
+
+/*========================================================= CONTENT INVENTORY START CSS ======================================================================================*/	
+.content-inventory-wrap{ margin-top:15px; border-bottom: 1px solid rgb(226, 226, 226); padding-bottom:5px;}
+.inventory-heading {float: left; margin-right: 20px;}
+.inventory-heading h4{ font-weight:bold; font-size:1.2em; margin:8px 0 0;}
+
+.content-inventory-table {margin-top: 20px; margin-bottom: 40px;}
+
+tr input {border: 1px solid rgb(226, 226, 226);  color: rgb(51, 51, 51);  outline: medium none; width: 100%; font-weight: normal; padding:0;}
+tr input:focus{ border-color: rgb(122, 192, 218); color: rgb(96, 96, 96); outline: 0 none;}
+.fa.fa-pencil-square-o {font-size:14px;
+}
+
+/*========================================================= CONTENT INVENTORY END CSS ======================================================================================*/	
+
+
+/*========================================================= Contacts START CSS =============================================================================================*/	
+.tab-content {clear: both;}
+.dataTables_info {clear: both; float: left;  margin-top: 10px;}
+.dataTables_paginate {float: right;  text-align: right;  margin-top: 10px;}
+.paginate_disabled_previous {background:rgba(0, 0, 0, 0) url(/Content/themes/base/images/back_disabled.png) no-repeat left top;}
+.paginate_disabled_next {background:rgba(0, 0, 0, 0) url("/Content/themes/base/images/forward_disabled.png") no-repeat right top;}
+.paginate_disabled_previous, .paginate_enabled_previous {padding-left: 23px;}
+.paginate_disabled_next, .paginate_enabled_next {margin-left: 10px; padding-right: 23px;}
+.paginate_disabled_previous, .paginate_disabled_next {color: rgb(102, 102, 102);  padding-top: 2px;}
+
+.contact-dropdown .dropdown-block{float: left; margin-right: 5px; width: 20%;}
+.contact-dropdown .dropdown-block .form-group{ margin-bottom:0;}
+
+.tb-data-responsive th.sorting_asc {
+	 background-image: url('/Content/themes/base/images/sort_asc.png'),linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: url('/Content/themes/base/images/sort_asc.png'),-o-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: url('/Content/themes/base/images/sort_asc.png'),-moz-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: url('/Content/themes/base/images/sort_asc.png'),-webkit-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: url('/Content/themes/base/images/sort_asc.png'),-ms-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-color: #f7f7f7;
+    background-repeat: no-repeat,repeat;
+    background-position: center right,top left;
+	
+}
+.tb-data-responsive th.sorting {
+	
+	background-image: url('/Content/themes/base/images/sort_both.png'),linear-gradient(bottom,#f7f7f7 0%,#fff 100%),;
+    background-image: url('/Content/themes/base/images/sort_both.png'),-o-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: url('/Content/themes/base/images/sort_both.png'),-moz-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: url('/Content/themes/base/images/sort_both.png'),-webkit-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-image: url('/Content/themes/base/images/sort_both.png'),-ms-linear-gradient(bottom,#f7f7f7 0%,#fff 100%);
+    background-color: #f7f7f7;
+    background-repeat: no-repeat,repeat;
+    background-position: center right,top left;
+}
+
+.six-col-table{ margin-top:10px; margin-bottom:35px;}
+/*========================================================= Contacts START end =============================================================================================*/	
+
+/*========================================================= Contacts Page START CSS =====================================================================================*/
+
+.move-block {float: left; width: 100%;}
+.move-block > span {float: left; margin-bottom: 10px; margin-right: 5px;}
+
+/*========================================================= Contacts Page END CSS =====================================================================================*/
+/*========================================================= PHOT EDIT AND CLEANING START CSS ================================================================================*/	
+
+.edit-heading{float: left; font-size: 22px; font-weight: bold; line-height: 25px;margin-right: 30px;}
+.phot-edit-container{ margin-top:20px; margin-bottom: 40px;}
+
+.three-col {font-size: 16px; font-weight: bold; margin-bottom: 10px; margin-top: 10px;}
+
+.customselect-box {border: 1px solid rgb(226, 226, 226); border-radius: 0; box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1); box-sizing: border-box; color: rgb(51, 51, 51);    font-size: 16px; font-weight: normal; padding: 5px; width: 100%;}
+.customselect-box:focus{border-color: rgb(122, 192, 218); box-shadow: inherit; color: rgb(96, 96, 96);  outline: 0 none;}
+.three-col label{ line-height:35px;}
+.tow-col > .block-1{ float:left; padding:0 15px; width: 33%;}
+
+
+/*========================================================= PHOT EDIT AND CLEANING END CSS ================================
+
+/*========================================================= Comapany Form cSS Start =====================================================================================*/
+
+.scroll-box{max-height: 213px; overflow: hidden;}
+.scroll-box .scroll-content-block {max-height: 213px; overflow-x: hidden; overflow-y: scroll;}
+.scroll-box .scroll-content-block li a{ color:rgb(96, 96, 96); font-size:1.2em; margin:0; padding:0; display:block; line-height:21px;  padding:6px;} 
+
+.scroll-box .scroll-content-block li:hover a  {
+    background-image: linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -o-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -moz-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -webkit-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-image: -ms-linear-gradient(bottom,#185D8E 0%,#2985c7 100%);
+    background-color: #2985c7;
+    color:#fff;
+   display:block;
+   text-decoration:none;
+   margin:0;
+}
+.dropdown-menu.combobox-menu.scroll-box{width: 100.3%;}
+/*========================================================= Comapany Form cSS end =====================================================================================*/
+
+
+
+/*-----footer css start---------------------------------------------------------------------------*/
+
+footer {background: rgb(44, 44, 44) none repeat scroll 0 0; bottom: 0; height: 28px; position: fixed;  width: 100%;  z-index: 9999;}
+footer p{color:#fff; line-height:28px; color: rgb(204, 204, 204);}
+footer a, footer a:hover, footer a:focus{color:#fff; text-decoration:none;}
+
+/*-----footer css end-------------------------------------------------------------------------*/
+
+
+/* #Media Queries
+================================================== */
+
+ /* All Mobile Sizes (devices and browser) */
+  @media only screen and (max-width: 1024px) {
+	  
+	  .tab-buttons{ left:60%; }
+	  .tab-block{width: 60%;}
+	  
+	  .block-title {padding-left: 9.3%;}
+	  .save-btn {width: 8%;}
+	  .search-photos {width:91%;}
+	  .dropdown-menu.combobox-menu{width: 100.2%;}
+      .dropdown-menu.combobox-menu.scroll-box{width: 100.2%;}
+	  
+	  }
+ 
+  /* Smaller than standard 960 (devices and browsers) */
+  @media only screen and (max-width: 959px) {}
+ 
+  /* Tablet Portrait size to standard 960 (devices and browsers) */
+  @media only screen and (min-width: 768px) and (max-width: 959px) {
+	  
+	  .login-mandatory h3 {font-size:18px;}
+	  .login-form-container {max-width: 50%;}
+	  .general-block h3{padding-top:0px;}
+	  
+	  .tab-buttons {left: inherit;  margin-left: 20px; margin-top: 6px;  position: absolute;  right: 15px; z-index: 3;}
+	  .tab-content{ margin-top:50px;}
+	  .tab-container{border: 0 none;}
+	  
+	  .block-title {padding-left:11.3%;}
+	  .save-btn {width:11%;}
+	  .search-photos {width:89%;}
+	  .tab-content.album-content{margin-top: 10px;}
+	  .dropdown-menu.combobox-menu{width: 100.3%;}
+	 
+      .btn.btn-default.login-btn.table-btn, .btn.btn-default.orange-btn.white-txt.table-btn{ float:none; margin:0}
+	  }
+ 
+  /* All Mobile Sizes (devices and browser) */
+  @media only screen and (max-width: 767px) {
+	  .logo {position: absolute; z-index: 1;}
+	  .head-right-section{margin-top: 2%;}
+	  .menu-wrap {margin-top: 40px;}
+	  .login-form-container {max-width: 100%;}
+	  .menu-btn {display: block;}
+	  .menu-block {margin:0; width:100%;}
+	  .menu-btn > a.navbar-brand, .menu-btn > a:hover.navbar-brand, .menu-btn > a:focus.navbar-brand{text-shadow: inherit; color:#000; padding: 15px 0;}
+	  .menu-btn > .navbar-toggle{margin-right: 0;}
+	  .top-menu.navbar-inverse{ border:1px solid #f2f2f2;  padding: 0 10px 1px; margin-bottom:20px;}
+	  .nav.navbar-nav.menu-block > li > a { display:block;}
+	  .menu-btn .navbar-toggle {border:0 none; border-radius: 0;}
+	  .menu-btn .navbar-toggle .icon-bar {background-color: rgb(245, 149, 40); }
+	  .menu-btn .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {background-color:#fff;}
+	  .menu-block.navbar-nav .open .dropdown-menu > li > a {background-color:transparent; color:rgb(136, 136, 136);}
+	  .menu-block.navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {background-color:transparent; color:#000;
+	   /*border-top: 3px solid rgb(0, 102, 153) !important;*/}
+	   .login-form-wrap {margin-bottom: 28px;}
+	   
+	   .tab-buttons {left: inherit;  margin-left: 20px; margin-top: 6px;  position: absolute;  right: 15px; z-index: 3;}
+	   .tab-content{ margin-top:50px;}
+	   
+	   .general-block h3{padding-top:0px;}
+	   .tab-container{border: 0 none;}
+	   .navbar.navbar-inverse.top-menu{ margin-top:35px;}
+	   
+	  .block-title {padding-left:12.4%;}
+	  .save-btn {width:12%;}
+	  .search-photos {width:88%;}
+	  .tab-content.album-content{margin-top: 10px;}
+	  .hight {height: 133px;}
+	  .dropdown-menu.combobox-menu{width: 100.3%;}
+
+      .btn.btn-default.login-btn.table-btn, .btn.btn-default.orange-btn.white-txt.table-btn{ float:none; margin:0}
+	  
+	  }
+	  
+	  
+ 
+  /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+	  .login { margin-top: 15px;}
+	  .login-mandatory h3 {font-size: 16px; line-height: 21px;}
+	  
+	  .tab-buttons {left: inherit;  margin-left: 20px; margin-top: 6px;  position: absolute;  right: 15px; z-index: 3;}
+	  .tab-content{ margin-top:50px;}
+	  
+	  .general-block h3{padding-top:0px;}
+	  .logo > a > img{ height: auto; margin-top: 3%; width: 50%;}
+	  .navbar.navbar-inverse.top-menu{ margin-top:20px;}
+	  
+	  .block-title {padding-left:14.4%;}
+	  .save-btn {width:14%;}
+	  .search-photos {width:86%;}
+	  .tab-content.album-content{margin-top: 10px;}
+	  .hight {height: 113px;}
+
+      .btn.btn-default.login-btn.table-btn, .btn.btn-default.orange-btn.white-txt.table-btn{ float:none; margin:0}
+
+      canvas {width: 100%;}
+	  
+	  }
+	  
+	   @media only screen and (max-width: 480px){
+		   .navbar.navbar-inverse.top-menu{ margin-top:0px;}
+		   
+		   .block-title {padding-left:19.4%;}
+	       .save-btn {width:19%;}
+	       .search-photos {width:81%;}
+	       .tab-content.album-content{margin-top: 10px;}
+		   footer > .container-fluid > .row div.last{display:none;}
+		   .hight {height:90px;}
+		   .dropdown-menu.combobox-menu{width: 100.4%;}
+
+           .btn.btn-default.login-btn.table-btn, .btn.btn-default.orange-btn.white-txt.table-btn{ float:none; margin:0}
+
+           canvas {width: 100%;}
+		   
+		   }
+ 
+  /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+  @media only screen and (max-width: 479px) {
+	   header {height: auto;}
+      .login { margin-top: 60px; text-align:center;}
+      .logo a { text-align:center;}
+      .logo > a > img{ height: auto; margin-top:0%; width: 80%;}
+      .menu-wrap {margin-top:20px;}
+
+	  .login-mandatory h3 {font-size: 16px; line-height: 21px;}
+	  
+	  .tab-buttons {left: inherit;  margin-left: 20px; margin-top: 6px;  position: absolute;  right: 15px; z-index: 3;}
+	  .tab-content{ margin-top:50px;}
+	  .general-block h3{padding-top:0px;}
+	  .navbar.navbar-inverse.top-menu{ margin-top:0px;}
+	  
+	   .block-title {padding-left:0;}
+	   .save-btn {width:100%;}
+	   .search-photos {width:100%;}
+	   .tab-content.album-content{margin-top: 10px;}
+	   .album-searh-panel {margin-bottom: 86px;}
+	   footer > .container-fluid > .row div.last{display:none;}
+	   .hight {height:75px;}
+	   .dropdown-menu.combobox-menu{width: 100.5%;}
+
+       .room-heading > li:first-child {width: 25%;}
+       .room-heading > li { width: 75%;}
+       .room-list > .block > li:first-child {width: 25%;}
+       .room-list > .block > li:nth-child(2) {width: 75%;}
+
+        .btn.btn-default.login-btn.table-btn, .btn.btn-default.orange-btn.white-txt.table-btn{ float:none; margin:0}
+	   .inventory-heading {margin-bottom: 10px;  width: 100%;}
+
+	  }

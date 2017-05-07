@@ -1,0 +1,124 @@
+﻿@model MAF.BAL.Models.ScoreCardParameterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Score Card";
+}
+<link href="~/Content/plugins/select2/css/select2.min.css" rel="stylesheet" />
+<link href="~/Content/plugins/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<style>
+    .select2-container--default .select2-selection--single {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 3px 0px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            top: 4px;
+        }
+
+    .right-panel {
+        /*margin-left: 200px;*/
+        padding: 0px 15px 0;
+    }
+
+    .inner-content h3 {
+        margin: 5px 0 10px;
+    }
+
+    .search-wrapper {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        /*padding: 3px 12px;*/
+        margin-top: 25px;
+    }
+
+    .select2 {
+        display: block;
+        width: 100% !important;
+    }
+		.form-control[readonly]{
+    cursor: auto;
+    background-color: #fff;
+    opacity: 1;
+	}
+</style>
+<div class="right-panel">
+    <div class="inner-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5><strong>Score Card</strong></h5>
+                @using (Html.BeginForm("ScoreCard", "Report", FormMethod.Post, new { id = "filterform" }))
+                {
+                    @*@Html.AntiForgeryToken()*@
+                    @Html.ValidationSummary(true)
+                    <div class="search-wrapper">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.Date, "{0:MM/dd/yyyy}", new { id = "Date", @class = "form-control", @readonly="readonly", placeholder = "mm/dd/yyyy" })
+                                    @Html.ValidationMessageFor(m => m.Date)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Extension</label>
+                                @Html.DropDownListFor(m => m.ExtNumber, ViewBag.ExtensionList as SelectList, new { @class = "form-control", @readonly="readonly", id = "ddlExt" })
+                                @Html.ValidationMessageFor(m => m.ExtNumber)
+                            </div>
+                        </div>
+                        <div class="col-sm-2" style="float:right;">
+                            <div class="form-group text-right">
+                                <input type="submit" class="btn btn-warning view-report" value="View Report" style="width:100px;" />
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.ShowIframe)
+                {
+                    <iframe src='@Url.Content("~/Reports/ScoreCardReport.aspx")' width="100%" style="border: none;" id="report-frame"></iframe>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/plugins/select2/js/select2.min.js"></script>
+    <script src="~/Content/plugins/datepicker/js/jquery-datetimepicker.js"></script>
+    <script>
+        $(function () {
+            $('#Date').datetimepicker({
+                timepicker: false,
+                maxDate: new Date,
+                format: 'm/d/Y'
+            });
+            $('#ddlExt').select2();
+        });       
+    </script>
+}
+
+
+

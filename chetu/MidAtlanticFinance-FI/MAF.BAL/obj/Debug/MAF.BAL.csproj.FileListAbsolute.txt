@@ -1,0 +1,14 @@
+D:\Projects\MidAtlanticFinance-FI\MAFWeb\bin\MAF.BAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAFWeb\bin\MAF.BAL.pdb
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.csprojResolveAssemblyReference.cache
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.ResourceFile.Common.resources
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.csproj.GenerateResource.Cache
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.pdb
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAFWeb\bin\MAF.BAL.dll
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAFWeb\bin\MAF.BAL.pdb
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.csprojResolveAssemblyReference.cache
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.ResourceFile.Common.resources
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.csproj.GenerateResource.Cache
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.dll
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.BAL\obj\Debug\MAF.BAL.pdb

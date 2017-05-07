@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25f85ccf0e364251aa6baec381524f50" Name="Diagram1" ZoomLevel="67" >
+        <EntityTypeShape EntityType="MAF.callcent_ag_dropped_calls" Width="1.5" PointX="6" PointY="7.625" />
+        <EntityTypeShape EntityType="MAF.callcent_ag_queuestatus" Width="1.5" PointX="9.375" PointY="0.625" />
+        <EntityTypeShape EntityType="MAF.callcent_queuecalls" Width="1.5" PointX="4.375" PointY="4.5" />
+        <EntityTypeShape EntityType="MAF.calldetail" Width="1.5" PointX="6" PointY="2.75" />
+        <EntityTypeShape EntityType="MAF.callhistory3" Width="1.5" PointX="7.75" PointY="2.5" />
+        <EntityTypeShape EntityType="MAF.chat_dest2chat_mess" Width="1.5" PointX="9.375" PointY="2.875" />
+        <EntityTypeShape EntityType="MAF.chat_history_mess" Width="1.5" PointX="2.625" PointY="10.375" />
+        <EntityTypeShape EntityType="MAF.Dept" Width="1.5" PointX="2.625" PointY="8.625" />
+        <EntityTypeShape EntityType="MAF.Dept2ext" Width="1.5" PointX="2.625" PointY="6.5" />
+        <EntityTypeShape EntityType="MAF.dn" Width="1.5" PointX="6" PointY="0.625" />
+        <EntityTypeShape EntityType="MAF.dngrp" Width="1.5" PointX="6" PointY="12.625" />
+        <EntityTypeShape EntityType="MAF.extension" Width="1.5" PointX="2.625" PointY="0.5" />
+        <EntityTypeShape EntityType="MAF.group2ext" Width="1.5" PointX="4.375" PointY="0.5" />
+        <EntityTypeShape EntityType="MAF.group" Width="1.5" PointX="4.375" PointY="2.75" />
+        <EntityTypeShape EntityType="MAF.grp" Width="1.5" PointX="7.625" PointY="9.25" />
+        <EntityTypeShape EntityType="MAF.queue" Width="1.5" PointX="9.375" PointY="8.25" />
+        <EntityTypeShape EntityType="MAF.queue2dn" Width="1.5" PointX="4.375" PointY="10.875" />
+        <EntityTypeShape EntityType="MAF.specialmenu" Width="1.5" PointX="7.75" PointY="0.625" />
+        <EntityTypeShape EntityType="MAF.sysdiagram" Width="1.5" PointX="6" PointY="10.5" />
+        <AssociationConnector Association="MAF.FK_calldetails_callhistory3" />
+        <AssociationConnector Association="MAF.FK_Dept2ext_Group" />
+        <AssociationConnector Association="MAF.FK_Dept2ext_extension" />
+        <AssociationConnector Association="MAF.specialmenu_fkiddn_fkey" />
+        <AssociationConnector Association="MAF.FK_Group2ext_extension" />
+        <AssociationConnector Association="MAF.FK_Group2ext_Group" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,63 @@
+﻿@model MAF.BAL.Models.ManagementList
+<style>    .SContent {border: 1px solid gray;background-color: none;border: none;font-family: Arial;font-size: 13px;overflow: auto;overflow-x: hidden;max-height: 220px;
+    }.Scont_table {width:500px; border-collapse: collapse;margin: auto;}.Scont_table th {border: 1px solid gray;padding: 5px;}.Scont_table td {border: 1px solid gray;padding: 5px;}</style>
+
+<script>
+   
+</script>
+<div class="SContent" >   
+    <table class="Scont_table table table-striped table-bordered"  border="0" cellspacing="0" cellpadding="0" >
+        <tr>
+            <th >S.No</th>
+            <th >Report Name</th>
+            <th>Add</th>
+        </tr>
+        @{
+            int count = 0;
+            foreach (var item in Model.objReportList)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>               
+                    <td >@item.ReportName</td>
+                    <td >
+                        @{ var val = (from reportlist in Model.objUserReportList where reportlist.ReportId == item.ReportId select reportlist.UserId).FirstOrDefault();
+                             if (val > 0)
+                             {
+                                <input type="checkbox" id="chk@(item.ReportId)" onchange="ShowReportConfirmYesNo('@item.ReportId','1')" checked="checked" />
+                             }
+
+                             else
+                             {
+                                <input type="checkbox" id="chk@(item.ReportId)" onchange="ShowReportConfirmYesNo('@item.ReportId','2')" />
+                             }
+                            }
+                    </td>
+
+                </tr>       
+                 
+            }}
+    </table>
+</div>
+<div class="clear-height"></div>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@
+<script type="text/javascript">
+    function ShowReportConfirmYesNo(Reportid, id) {
+        var $confirm = $("#modalConfirmYesNo");
+        var UserName = $('#usernamehidden').val();
+        $confirm.modal('show');
+        $("#lblTitleConfirmYesNo").html('Confirmation');
+        $("#lblMsgConfirmYesNo").html('Are you sure to chanage this report for ' + UserName + ' user?');
+        $("#btnYesConfirmYesNo").off('click').click(function () {
+            UpdateUserReports(Reportid);
+            $confirm.modal("hide");
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+        $("#btnNoConfirmYesNo").off('click').click(function () {
+            if (id == 1) { $('#chk' + Reportid).prop("checked", true); } else { $('#chk' + Reportid).prop("checked", false); }
+            $confirm.modal("hide");
+        });
+    }
+</script>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@

@@ -1,0 +1,251 @@
+﻿@model MAF.BAL.Models.ManagementList
+<link href="~/Content/plugins/bootstrap-multiselect/css/bootstrap-multiselect.css" rel="stylesheet" /> 
+<style>
+    .main-assign {padding: 20px;width: 400px; padding-bottom:10px; padding-top:0px;}
+    .main-assign table{width:100%; height:100%;}
+  .select2-container--default .select2-selection--single {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 3px 0px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 4px;
+    }
+
+    .right-panel {
+        padding: 0px 15px 0;
+    }
+
+    .inner-content h3 {
+        margin: 5px 0 10px;
+    }
+
+    .search-wrapper {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .padding-top-custom {
+        padding-top: 25px;
+    }
+
+    /*.btn-group {
+        display: block;
+    }*/    
+    .btn .caret {
+        float: right;
+        margin-top: 8px;
+    }
+
+    .multiselect-selected-text {
+        float: left;
+    }
+
+    .multiselect-container {
+        position: absolute;
+        /*margin-top: 34px;*/
+        height:200px;
+    }
+
+    .btn-default:hover, .btn-default:focus,
+    .btn-default.focus, .btn-default:active,
+    .btn-default.active, .open > .dropdown-toggle.btn-default {
+        background: none;
+        box-shadow: none;
+    }
+
+    .dropdown-menu > li > a:hover,
+    .dropdown-menu > li > a:focus {
+        background-color: #357ebd;
+        background-image: none;
+        color: white;
+        background-repeat: repeat-x;
+    }
+
+    .dropdown-menu > .active > a,
+    .dropdown-menu > .active > a:hover,
+    .dropdown-menu > .active > a:focus {
+        background-color: #357ebd;
+        background-image: none;
+    }
+</style>
+  @{}
+  @foreach(var item in Model.objManagementList)
+  {
+      var User = string.Empty; var Admin = string.Empty;var Manager=string.Empty; 
+      if(!string.IsNullOrEmpty(item.Role))
+      {
+      if (item.Role.Contains("Admin")) { Admin = "checked"; }  
+      if (item.Role.Contains("User")) { User = "checked"; } 
+       if (item.Role.Contains("Manager")) { Manager = "checked"; }  }
+    <div class="main-assign">
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-lg-4"> <label>Login ID :</label> </div>                    
+                    <div class="right col-lg-12"><input type="text" id="txtloginid@(item.UserId)" class="form-control"  readonly placeholder="Login ID"/></div> 
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label>Password :</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <input type="password" id="txtpassword@(item.UserId)" class="form-control" placeholder="Password" value="@item.Password" />
+                    </div>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label>Confirm Password :</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <input type="password" id="txtConpassword@(item.UserId)" class="form-control" placeholder="Confirm Password" value="@item.Password" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="ManagerQueue" style="display:none;">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-7">
+                        <label>Select Queue for Manager :</label>
+                    </div>
+                    <div class="col-sm-12">
+                        @Html.ListBox("Queue", ViewBag.QueueList as MultiSelectList, new { @class = "form-control", id = "ddlqueue" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    @*<div class="col-sm-2">
+                        <label>Role :</label>
+                    </div>*@
+                    <div class="col-sm-7">                                             
+                        <input type="radio" class="chkrole" id="chkadmin@(item.UserId)" value="Admin" @Admin name="chk@(item.UserId)" /> <label for="chkadmin@(item.UserId)">Admin </label>                        
+                        <span style="padding-left:8px;"><input type="radio" class="chkrole" id="chkmanager@(item.UserId)" name="chk@(item.UserId)" value="Manager" @Manager /> <label for="chkmanager@(item.UserId)">Manager</label></span>
+                        <span style="padding-left:8px;"><input type="radio" class="chkrole" id="chkuser@(item.UserId)" name="chk@(item.UserId)" value="User" @User /> <label for="chkuser@(item.UserId)">User</label> </span>
+</div>
+                    <span style=" float:right; margin-right:16px;">  <input type="button" value="Save" class="btn btn-default" onclick="UserRoleConfirmYesNo('@item.UserId');" /> 
+                    <span style="padding-left:10px;"> <input type="button" value="Cancel" class="btn btn-default" onclick="$('#Rolepopup').hide();" /> </span></span> <br/>
+                    <div style="margin-left:16px; margin-top:20px;" id="msg"></div>
+                    </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+  }
+
+   
+    <script src="~/Content/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+    <script>
+        $('#ddlqueue').multiselect(
+              {
+                  nonSelectedText: 'Select Queue',
+                  disableIfEmpty: true,
+                  //disabledText: 'No Extension',
+                  //includeSelectAllOption: true,
+                  enableFiltering: true,
+                  numberDisplayed: 1,
+                  buttonWidth: '100%',
+                  maxHeight: 300,
+                  enableCaseInsensitiveFiltering: true
+              });       
+    </script>
+
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+        $('.chkrole:checked').map(function () {
+            if (this.value == "Manager")
+            $('#ManagerQueue').css('display', 'block');
+        });
+        $(".chkrole").click(function () {
+            if(this.value=="Manager")
+            {
+                $('#ManagerQueue').css('display', 'block');
+            }
+            else
+            {
+                $('#ManagerQueue').css('display', 'none');
+            }
+
+        });        
+
+    });
+    function UserRoleConfirmYesNo(Userid) {
+        var $confirm = $("#modalConfirmYesNo");
+        var error = 0, errortxt = "";
+        var txtloginid = $('#txtloginid' + Userid);
+        var txtpassword = $('#txtpassword' + Userid);
+        var txtConpassword = $('#txtConpassword' + Userid);
+        var Role = "";
+        $('.chkrole:checked').map(function () { Role += this.value + ","; });
+        $("#lblTitleConfirmYesNo").html('Confirmation');
+        $("#lblMsgConfirmYesNo").html('Are you sure to change for this user?');
+        if (txtloginid.val() == "") { txtloginid.css('border', '1px solid red'); error = 1; errortxt = "\n Please enter login id </br>"; } else { txtloginid.css('border-color', ''); }
+        if (txtpassword.val() == "") { txtpassword.css('border', '1px solid red'); error = 1; errortxt += "\n Please enter password </br>"; } else { txtpassword.css('border-color', ''); }
+        if (txtConpassword.val() != txtpassword.val()) { txtConpassword.css('border', '1px solid red'); error = 1; errortxt += "\n Confirm password don't match </br>"; } else { txtConpassword.css('border-color', ''); }
+        if (Role == "") { error = 1; errortxt += "\n Please select role </br>"; }
+        $('.chkrole:checked').map(function () {if (this.value == "Manager"){if($('#ddlqueue').val()==null) error = 1; errortxt += "\n Please select Queue";}});
+
+        if (error == 1) {
+            $confirm.modal('show');
+            $("#lblTitleConfirmYesNo").html('Validation');
+            $("#lblMsgConfirmYesNo").html(errortxt);
+            $("#btnYesConfirmYesNo").hide();
+            $("#btnNoConfirmYesNo").text("Ok");
+        }
+        else {            
+            $("#lblTitleConfirmYesNo").html('Confirmation');
+            $("#lblMsgConfirmYesNo").html('Are you sure to change for this user?');
+            $("#btnYesConfirmYesNo").show();
+            $("#btnNoConfirmYesNo").text("No");
+            $confirm.modal('show');
+        }
+        $("#btnYesConfirmYesNo").off('click').click(function () {
+            AjaxUpdateRole(Userid)
+            $confirm.modal("hide");
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+        $("#btnNoConfirmYesNo").off('click').click(function () {
+            $confirm.modal("hide");
+        });
+    }
+</script>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@
+
+
+
+       
+

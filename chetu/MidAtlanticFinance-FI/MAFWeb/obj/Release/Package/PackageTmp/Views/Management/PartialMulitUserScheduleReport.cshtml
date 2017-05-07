@@ -1,0 +1,316 @@
+﻿@model MAF.BAL.Models.ManagementList
+
+<style>
+    .RSContent {
+        padding-top: 5px;
+        border: 1px solid gray;
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 1158px;
+        background-color: none;
+        border: none;
+        font-family: Arial;
+        font-size: 13px;
+        max-height: 200px;
+    }
+
+    .RScont_table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+        .RScont_table tr th {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .RScont_table tr td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+    .txt2 {
+        width: 90px;
+        padding-left: 5px;
+    }
+
+    .txt3 {
+        width: 275px;
+        padding-left: 5px;
+    }
+</style>
+<script src="~/Content/plugins/select2/js/select2.min.js"></script>
+<link href="~/Content/plugins/select2/css/select2.min.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ddlQueue').select2();
+        $('.btns').click(function () { $('#Scheduleuserpopup').hide(); });
+        $('#ddlQueue').change(function () { $('#Usersid1').val(''); });
+    });
+    function chkchange(id) // On checkbox Change
+    {
+        if ($('#chk' + id).is(':checked')) { $('#IsSchedule'+id).val('1'); }
+        else { $('#IsSchedule'+id).val('0'); }
+    }
+
+    function EditValue(val,SID,IsSchedule,MultiUserid) //Edit Of Multi User Report
+    {
+        var Queueid=$('#Queue' + SID).html();
+        if(Queueid!='' && Queueid!=undefined){$('#ddlQueue').val(Queueid).trigger("change");}
+        $('#SSID' + val).val(SID);
+        if (IsSchedule == 'onclick') {  $('#chk' + val).prop("checked", true);$('#IsSchedule'+val).val('1');}
+        else { $('#chk' + val).prop("checked", false);$('#IsSchedule'+val).val('0'); }
+        $('#emailstxt' + val).val($('#txtemail' + SID).html().trim());
+        $('#ScheduleUseridHidden').val("");
+        $('#Usersid'+val).val(MultiUserid);
+        $('#stimetxt'+val).val($('#txttime' + SID).html().trim());
+
+    }
+    function ClearData(val)
+    {
+        if(val==1)$('#ddlQueue').val("").trigger("change");
+        $('#SSID' + val).val(0);
+        $('#chk' + val).prop("checked", false); $('#IsSchedule' + val).val('0');
+        $('#emailstxt' + val).val("");
+        $('#Usersid' + val).val("");
+        $('#emailstxt' + val).css('border-color', '');
+        $('#stimetxt'+val).val("08:00 AM");
+    }
+
+</script>
+
+
+
+<div class="RSContent" style="margin-bottom:10px;">
+    @*<table class="RScont_table table table-striped table-bordered">
+            <tr>
+                <th>S.No</th>
+                <th >Report Name</th>
+                <th>Schedule Time</th>
+                <th >Schedule Type</th>
+                <th >EmailID</th>
+                <th >Select Users</th>
+                <th >Schedule Report</th>
+            </tr>
+        </table>*@
+    <table class="RScont_table table table-striped table-bordered">
+        <tr>
+            <th>S.No</th>
+            <th>Report Name</th>
+            <th>Schedule Time</th>
+            <th>Schedule Type</th>
+            <th>EmailID</th>
+            <th>Select Users</th>
+            <th>Schedule Report</th>
+        </tr>
+        @{
+            int count = 0;
+            foreach (var item in Model.objReportList)// 3 = Collection Report, 4 = Power Zone Report.
+            {
+                 if (item.ReportId != 7)
+                { 
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>
+                        @{
+                    if (item.Abbreviation == "QueueLog")
+                            {
+                                @item.ReportName    <span class="SelectUser" style="padding-left:5px;">
+                                    @Html.DropDownList("Queue", ViewBag.QueueList as SelectList, "-- Select Queue --", new { style = "width:160px", id = "ddlQueue" })
+                                </span>
+                            }
+                    else if (item.Abbreviation == "PowerZone")
+                            {
+                                @item.ReportName    <span class="SelectUser" style="padding-left:10px;">
+                                                        <input type="button" class="btn btn-warning" value="Set Zone Time" onclick="PowerZoneTime('@item.ReportId');" style=" font-size:12px; " />
+                                </span>
+                            <input id="Zone1FromTime@(item.ReportId)" type="hidden" />
+                            <input id="Zone1ToTime@(item.ReportId)" type="hidden" />
+                            <input id="Zone2FromTime@(item.ReportId)" type="hidden" />
+                            <input id="Zone2ToTime@(item.ReportId)" type="hidden" />
+                            }
+                            else
+                            {
+                                @item.ReportName 
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @*@if (item.Abbreviation == "PowerZone")
+                        {
+                            <input id="stimetxt@(item.ReportId)" value="05:00 PM" disabled style="background-color:lightgray;" class="txt2" type="text" />
+                        }
+                        else
+                        {*@
+                            <input id="stimetxt@(item.ReportId)" value="08:00 AM"  readonly  class="txt2 scheduletime" type="text" />
+                        @*}*@
+
+                    </td>
+                    <td>
+                        <select disabled id="ddl@(item.ReportId)" style="background-color:lightgray;">
+                            @*<option>Select</option>*@
+                            <option value="1">Daily</option>
+                            @*<option>Weekly</option>*@
+                        </select>
+                    </td>
+
+                    <td><input type="text" id="emailstxt@(item.ReportId)" class="txt3" value="" placeholder="EmailID" /> </td>
+                    <td>
+                        @if (item.Abbreviation != "Collection" && item.Abbreviation != "PowerZone")
+                        {
+                            <input type="button" class="btn btn-warning" value="Select Users" onclick="ScheduleUserList('@item.ReportId','@item.Abbreviation');" style=" font-size:12px; " />
+                        }
+                    </td>
+                    <td>
+                        <input id="chk@(item.ReportId)" type="checkbox" onclick="chkchange('@item.ReportId');" /> 
+                        <span style="padding-left:10px;" id="Upbtn@(item.ReportId)">
+                        <input type="button" onclick="ShowSMReportConfirmYesNo('@item.ReportId','@item.Abbreviation');" value="Save" /> 
+                        </span>
+                        <span style="padding-left:10px;"><input type="button" onclick="ClearData('@item.ReportId')" value="Cancel" /> </span>
+                        <input id="SSID@(item.ReportId)" value="0" type="hidden" />
+                        <input id="Usersid@(item.ReportId)" type="hidden" />
+                        <input id="IsSchedule@(item.ReportId)" type="hidden" value="0" />
+                    </td>
+                </tr>
+        }
+            }
+        }
+
+    </table>
+</div>
+
+
+
+<div class="RSContent" style="margin-top:0px;  max-height:230px;">
+    @*<table class="RScont_table table table-striped table-bordered" style="margin-bottom:0px;">
+            <tr>
+                <th width="60px;">S.No</th>
+                <th width="235px">Report Name</th>
+                <th width="114px">Schedule Time</th>
+                <th width="113px">Schedule Type</th>
+                <th width="237px">EmailID</th>
+                <th width="235px">Users</th>
+                <th width="91px">Action</th>
+            </tr>
+        </table>*@
+    <table class="RScont_table table table-striped table-bordered">
+        <tr>
+            <th style="width:50px;">S.No</th>
+            <th style="min-width:100px;">Report Name</th>
+            <th style="min-width:100px;">Schedule Time</th>
+            <th style="min-width:100px;">Schedule Type</th>
+            <th>EmailID</th>
+            <th>Users</th>
+            <th style="min-width:150px;">Zone Time</th>
+            <th>Action</th>
+        </tr>
+        @{
+            int counts = 0;
+            foreach (var item in Model.objMultiuserScheduleReportlist)
+            {
+                counts++;
+                <tr>
+                    <td>@counts</td>
+                    <td>
+                        @{if (!string.IsNullOrEmpty(item.QueueNumber))
+                          {@item.ReportName <span>(<span id="Queue@(item.ScheduleId)">@item.QueueNumber</span>)</span> }
+                          else
+                          { @item.ReportName}}
+                    </td>
+                    <td><span id="txttime@(item.ScheduleId)"> @item.ScheduleTime</span> </td>
+
+                    <td><span id="txttype@(item.ScheduleId)">Daily </span></td>
+
+                    <td><span id="txtemail@(item.ScheduleId)"> @item.EmailId</span></td>
+
+                    <td><span id="txtusername@(item.ScheduleId)"> @item.UserName </span> </td>
+                    <td>
+                    @{
+                        if (item.ReportId == 4)
+                        {
+                            string zone1FromTime = new DateTime(@item.Zone1FromTime.Value.Ticks).ToShortTimeString();
+                            string zone1ToTime = new DateTime(@item.Zone1ToTime.Value.Ticks).ToShortTimeString();
+                            string zone2FromTime = new DateTime(@item.Zone2FromTime.Value.Ticks).ToShortTimeString();
+                            string zone2ToTime = new DateTime(@item.Zone2ToTime.Value.Ticks).ToShortTimeString();
+                            <span>
+                        @zone1FromTime - @zone1ToTime </span><br/><span>@zone2FromTime - @zone2ToTime </span> 
+                        }
+                      }
+                    </td>
+
+                    <td><input type="button" value="Edit" class="btns btn btn-default" onclick="EditValue(@item.ReportId,'@item.ScheduleId','@item.IsSchedule','@item.MultiuserId');" /></td>
+                </tr>
+
+            }
+        }
+
+    </table>
+</div>
+<div class="clear-height"></div>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.scheduletime').datetimepicker({
+            timepicker: true,
+            datepicker: false,
+           // step: 30,
+            formatTime: 'g:i A',
+            format: 'h:i A'
+             
+        });
+    });
+    function ShowSMReportConfirmYesNo(Reportid, Abbreviation) {
+        var $confirm = $("#modalConfirmYesNo");
+        var UserName = $('#usernamehidden').val();
+        var error=0,errortxt="";
+        var emailtxt=$('#emailstxt'+Reportid);
+        var stimetxt=$('#stimetxt'+Reportid);
+        $("#lblTitleConfirmYesNo").html('Confirmation');
+        $("#lblMsgConfirmYesNo").html('Are you sure to change mulit user schedule report?');
+        if (stimetxt.val() == "") { stimetxt.css('border', '1px solid red'); error = 1;  errortxt =  "Please enter schedule time </br>"; } else { stimetxt.css('border-color', ''); }
+        if (emailtxt.val() == "") { emailtxt.css('border', '1px solid red'); error = 1; errortxt += "Please enter email id </br>"; } else { emailtxt.css('border-color', ''); }       
+        if (Abbreviation == "QueueLog" && $('#ddlQueue').val() == '') { error = 1; errortxt += "\n Please select Queue </br>"; }
+        if (Abbreviation != "Collection" && Abbreviation != "PowerZone")
+        {
+            if ($('#Usersid' + Reportid).val() == "") {
+                error = 1;
+                errortxt += "\n Please select users";
+            }
+        }
+        if (Abbreviation == "PowerZone" && $('#Zone1FromTime' + Reportid).val() == '')
+        {
+            error = 1;
+            errortxt += "\n Please set zone time.";
+        }
+        if(error==1){$confirm.modal('show');
+            $("#lblTitleConfirmYesNo").html('Validation');
+            $("#lblMsgConfirmYesNo").html(errortxt);
+            $("#btnYesConfirmYesNo").hide();
+            $("#btnNoConfirmYesNo").text("Ok");}
+        else
+        {
+            emailtxt.css('border-color','');
+            $("#lblTitleConfirmYesNo").html('Confirmation');
+            $("#lblMsgConfirmYesNo").html('Are you sure to change mulit user schedule report?');
+            $("#btnYesConfirmYesNo").show();
+            $("#btnNoConfirmYesNo").text("No");
+            $confirm.modal('show');
+        }
+        $("#btnYesConfirmYesNo").off('click').click(function () {
+            UpdateMultiUserScheduleReports(Reportid);
+            $confirm.modal("hide");
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+            AjaxSheduleMultiUserReport("");
+        });
+        $("#btnNoConfirmYesNo").off('click').click(function () {
+            $confirm.modal("hide");
+        });
+    }
+</script>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@

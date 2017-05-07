@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>EntLibContrib.Data.MySql</id>
+    <version>5.0.505.0</version>
+    <title>EntLibContrib 5.0 - MySql Data Provider</title>
+    <authors>EntLibContrib Project Contributors</authors>
+    <owners>EntLibContrib Project Contributors</owners>
+    <licenseUrl>http://entlibcontrib.codeplex.com/license</licenseUrl>
+    <projectUrl>http://entlibcontrib.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The EntLibContrib MySql Data Provider allow to use the MySql .NET Connector with the Microsoft Enterprise Library Data Access Application Block.</description>
+    <summary>The EntLibContrib MySql Data Provider allow to use the MySql .NET Connector with the Microsoft Enterprise Library Data Access Application Block.</summary>
+    <tags>entlib enterprise library entlibcontrib contrib application block mysql data provider dataaccess</tags>
+    <dependencies>
+      <dependency id="EnterpriseLibrary.Data" version="5.0" />
+      <dependency id="MySql.Data" version="6.4" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework3.5, .NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

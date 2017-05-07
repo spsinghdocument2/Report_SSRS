@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62EBC157-6166-4091-8ACF-E334DAF67463}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MAF.DAL</RootNamespace>
+    <AssemblyName>MAF.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\MAFWeb\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="callcent_ag_dropped_calls.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="callcent_ag_queuestatus.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="callcent_queuecalls.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="calldetail.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="callhistory3.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="chat_dest2chat_mess.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="chat_history_mess.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dept.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dept2ext.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dn.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dngrp.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="extension.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBigScreenPowerZoneTime_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPowerZoneTime_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="group.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="group2ext.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="grp.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MAF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MAF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Management.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="queue.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="queue2dn.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="specialmenu.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spExtensionByQueue_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spExtensionsByPowerZone_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spExtensions_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetQueues_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetRecordingPath_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spLogin_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetExcludeUserByReport_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetMUInScheduleList_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetQueueList_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetQueueNumbers_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetReportList_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetSchduleUserDetails_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetUpdateScheduleRepotList_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetUserDetails_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetUserInQueueList_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetUserINQueue_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetUserReports_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_UserRoleDetails_Result.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>MAF.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="MAF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MAF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="MAF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MAF.Context.cs</LastGenOutput>
+      <DependentUpon>MAF.edmx</DependentUpon>
+    </None>
+    <None Include="MAF.edmx.diagram">
+      <DependentUpon>MAF.edmx</DependentUpon>
+    </None>
+    <None Include="MAF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MAF.cs</LastGenOutput>
+      <DependentUpon>MAF.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

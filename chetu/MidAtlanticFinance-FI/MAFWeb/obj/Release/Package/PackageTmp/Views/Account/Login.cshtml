@@ -1,0 +1,129 @@
+﻿@model MAF.BAL.Models.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+      ================================================== -->
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+      ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+      ================================================== -->
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Favicons
+        ================================================== -->
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+    <link rel="apple-touch-icon" href="i~/mages/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/images/apple-touch-icon-114x114.png">
+<style>
+    body {
+        padding-bottom:0;
+    }
+
+</style>
+
+</head>
+
+
+<body >
+
+    <!--Strat Main Container-->
+    <div id="body-wrapper" style="height:100%;" >
+        <!--Start Top Header-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><img src="~/images/logo.png"></a>
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--End Top Header-->
+        <!--Start login wrapper-->
+        <div id="log-wrapper">
+            <div class="login-wrapper">
+                <div class="login-box">
+                    <div class="login-logo">
+                        <h3>LOGIN</h3>
+                    </div>
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-form" }))
+                    {
+                        <div class="form-group">
+                            <label for="txtusername">Username</label>
+                            @Html.TextBoxFor(s => s.Loginid, new { @class = "form-control", id = "txtusername", placeholder = "Username" })
+                            <span class="envelope-ico"><img src="~/images/envelope-icon.jpg" alt="" class="img-responsive"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPassword">Password</label>
+                            @Html.TextBoxFor(s => s.Password, new { @class = "form-control", id = "txtPassword", placeholder = "Password", type = "password" })
+                            <span class="lock-ico"><img src="~/images/lock-icon.jpg" alt="" class="img-responsive"></span>
+                        </div>
+                        @*<div class="checkbox">
+                            <label class="chkbx-label">
+                                <input type="checkbox" class="chkbx"> Keep me logeed in
+                            </label>
+                            <span class="pull-right"><a href="" title="">Forgot password?</a></span>
+                        </div>*@
+                        <button type="submit" class="btn btn-warning login-btn pull-right">Login</button>
+                        <div style="color:red; font-size:12px;"> @ViewBag.error</div>
+                    }
+                </div>
+            </div>
+
+        </div> <!--end login wrapper-->
+
+        <div class="clearfix"></div>
+
+        <div class="footer" style="position:fixed; bottom:0; width:100%;"><p>© Copyright 2015 MidAtlanticFinance. All Rights Reserved. Disclaimer | Terms of Use | Privacy Policy</p></div>
+    </div>
+    <!--End Main container-->
+    <!-- All Javascript include here for fast loading of page -->
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/js/custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#nav > li > a').click(function () {
+                if ($(this).attr('class') != 'active') {
+                    $('#nav li ul').slideUp();
+                    $(this).next().slideToggle();
+                    $('#nav li a').removeClass('active');
+                    $(this).addClass('active');
+                }
+                else {
+                    $('#nav li ul').slideUp();
+                    $(this).removeClass('active');
+
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

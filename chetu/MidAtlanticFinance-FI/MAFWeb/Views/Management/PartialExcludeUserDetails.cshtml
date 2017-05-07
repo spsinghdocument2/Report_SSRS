@@ -1,0 +1,65 @@
+﻿@model MAF.BAL.Models.ManagementList
+
+<style>
+    .EContent {border: 1px solid gray;background-color: none;border: none;font-family: Arial;font-size: 13px;max-height: 250px;overflow-y: auto; overflow-x:hidden;}
+    .Scont_table {width: 500px;border-collapse: collapse;margin: auto;}.Scont_table tr th {border: 1px solid #ddd;padding: 10px;}
+        .Scont_table tr td {border: 1px solid #ddd;padding: 10px;}
+</style>
+
+<div class="EContent">
+    <table class="Scont_table table table-striped table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>S.No</th>
+            <th>User Name</th>
+            <th>Role</th>
+            <th>Exclude</th>
+        </tr>
+        @{
+            int count = 0; 
+            foreach (var item in Model.objManagementList)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td >@item.UserName</td>
+                    <td><input type="button"  value="Assign" onclick="Role('@item.UserId','@item.UserName','@item.Ext')"></td>
+                    <td>
+                        @{
+                if (item.IsExclude == 1)
+                {<input id="chk@(item.UserId)" type="checkbox" checked onchange="ShowExcludeUserConfirmYesNo('@item.UserId','@item.UserName','1');" /> }
+                else
+                { <input id="chk@(item.UserId)" type="checkbox"  onchange="ShowExcludeUserConfirmYesNo('@item.UserId','@item.UserName','2');" />}
+                        }
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+
+
+</div>
+<div class="clear-height"></div>
+
+
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@
+<script type="text/javascript">
+    function ShowExcludeUserConfirmYesNo(userid, username,Active) {
+        var $confirm = $("#modalConfirmYesNo");
+        $confirm.modal('show');
+        $("#lblTitleConfirmYesNo").html('Confirmation');
+        $("#lblMsgConfirmYesNo").html('Are you sure to include ' + username + ' user?');
+        $("#btnYesConfirmYesNo").off('click').click(function () {
+            UpdateExcludeManagementUser(userid, Active);
+            $confirm.modal("hide");
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+            UserInfo();
+        });
+        $("#btnNoConfirmYesNo").off('click').click(function () {            
+            if (Active == 1) { $('#chk' + userid).prop("checked", true); } else { $('#chk' + userid).prop("checked", false); }
+            $confirm.modal("hide");
+        });
+    }
+</script>
+@*----------------------Start Confirmation PopUp--------------------------------------------------*@

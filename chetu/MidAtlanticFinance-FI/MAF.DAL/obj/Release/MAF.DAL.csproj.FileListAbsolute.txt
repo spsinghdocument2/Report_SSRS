@@ -1,0 +1,6 @@
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\bin\Release\MAF.DAL.dll.config
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\bin\Release\MAF.DAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\bin\Release\MAF.DAL.pdb
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\bin\Release\EntityFramework.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\obj\Release\MAF.DAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\obj\Release\MAF.DAL.pdb

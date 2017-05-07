@@ -1,0 +1,851 @@
+ERROR 2016-02-18 22:22:52,806 [8]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 22:24:07,440 [8]  MAFWeb.BAL.Models.Logger - Error in PartialView Big Screen Power Zone Time Info
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Queue1'.
+Invalid column name 'Queue2'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.DAL.Management.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 463
+   at MAF.BAL.Models.ManagementInfo.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 558
+   at MAFWeb.Controllers.ManagementController.PartialBigScreenZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 114
+ERROR 2016-02-18 22:27:25,027 [19]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 22:27:25,675 [19]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 22:27:28,395 [17]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 22:27:29,271 [17]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 22:27:29,835 [19]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 22:43:20,797 [64]  MAFWeb.BAL.Models.Logger - Error in PartialView Big Screen Power Zone Time Info
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Queue1'.
+Invalid column name 'Queue2'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.DAL.Management.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 463
+   at MAF.BAL.Models.ManagementInfo.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 558
+   at MAFWeb.Controllers.ManagementController.PartialBigScreenZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 114
+ERROR 2016-02-18 22:43:36,197 [66]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Procedure or function spGetQueues has too many arguments specified.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.spGetQueues(Nullable`1 ext, String role) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 466
+   at MAF.DAL.Management.GetQueues(Int32 extNumber, String role) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 367
+   at MAF.BAL.Models.ManagementInfo.GetQueueList(Int32 extNumber, String role) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 235
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 77
+ERROR 2016-02-18 22:43:38,402 [66]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 23:07:51,443 [55]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 23:07:52,079 [70]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 23:07:52,532 [55]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 23:07:53,147 [70]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-18 23:07:54,714 [53]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-19 16:15:56,132 [9]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'role', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 295
+ERROR 2016-02-19 16:18:57,802 [10]  MAFWeb.BAL.Models.Logger - Error in PartialView Big Screen Power Zone Time Info
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Queue1'.
+Invalid column name 'Queue2'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.DAL.Management.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 463
+   at MAF.BAL.Models.ManagementInfo.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 558
+   at MAFWeb.Controllers.ManagementController.PartialBigScreenZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 114
+ERROR 2016-02-19 16:19:24,682 [9]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Procedure or function spGetQueues has too many arguments specified.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.spGetQueues(Nullable`1 ext, String role) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 466
+   at MAF.DAL.Management.GetQueues(Int32 extNumber, String role) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 367
+   at MAF.BAL.Models.ManagementInfo.GetQueueList(Int32 extNumber, String role) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 235
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 77
+ERROR 2016-02-19 16:19:55,013 [9]  MAFWeb.BAL.Models.Logger - Error in PartialView Assign Role Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_UserRoleDetails_Result'. A member of the type, 'managerqueue', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_UserRoleDetails(String userid) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 440
+   at MAF.DAL.Management.GetUserRoleDetails(String userId) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 55
+   at MAF.BAL.Models.ManagementInfo.GetUserRoleDetails(String userId) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 53
+   at MAFWeb.Controllers.ManagementController.PartialAssignRole(String userId) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 248
+ERROR 2016-02-19 16:20:01,525 [8]  MAFWeb.BAL.Models.Logger - Error in PartialView Assign Role Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_UserRoleDetails_Result'. A member of the type, 'managerqueue', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_UserRoleDetails(String userid) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 440
+   at MAF.DAL.Management.GetUserRoleDetails(String userId) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 55
+   at MAF.BAL.Models.ManagementInfo.GetUserRoleDetails(String userId) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 53
+   at MAFWeb.Controllers.ManagementController.PartialAssignRole(String userId) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 248
+ERROR 2016-02-19 16:23:13,017 [19]  MAFWeb.BAL.Models.Logger - Error in PartialView Big Screen Power Zone Time Info
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Invalid column name 'Queue1'.
+Invalid column name 'Queue2'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.DAL.Management.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 463
+   at MAF.BAL.Models.ManagementInfo.GetBigScreenPowerZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 558
+   at MAFWeb.Controllers.ManagementController.PartialBigScreenZoneTime() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 114
+ERROR 2016-02-19 19:57:31,784 [10]  MAFWeb.BAL.Models.Logger - Error in PartialView schedule user Info
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAF.BAL.Models.ManagementInfo.<>c__DisplayClass19.<GetScheduleUserDetails>b__d(ManagementModel s) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 96
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.BAL.Models.ManagementInfo.GetScheduleUserDetails(String serachUser, String searchQueue, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 104
+   at MAFWeb.Controllers.ManagementController.PartialScheduleUser(String userName, String scheduleId, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 438
+ERROR 2016-02-19 19:57:36,041 [10]  MAFWeb.BAL.Models.Logger - Error in PartialView schedule user Info
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAF.BAL.Models.ManagementInfo.<>c__DisplayClass19.<GetScheduleUserDetails>b__d(ManagementModel s) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 96
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.BAL.Models.ManagementInfo.GetScheduleUserDetails(String serachUser, String searchQueue, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 104
+   at MAFWeb.Controllers.ManagementController.PartialScheduleUser(String userName, String scheduleId, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 438
+ERROR 2016-02-19 19:57:38,619 [8]  MAFWeb.BAL.Models.Logger - Error in PartialView schedule user Info
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAF.BAL.Models.ManagementInfo.<>c__DisplayClass19.<GetScheduleUserDetails>b__d(ManagementModel s) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 96
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.BAL.Models.ManagementInfo.GetScheduleUserDetails(String serachUser, String searchQueue, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 104
+   at MAFWeb.Controllers.ManagementController.PartialScheduleUser(String userName, String scheduleId, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 438
+ERROR 2016-02-19 19:58:11,745 [10]  MAFWeb.BAL.Models.Logger - Error in PartialView schedule user Info
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAF.BAL.Models.ManagementInfo.<>c__DisplayClass19.<GetScheduleUserDetails>b__d(ManagementModel s) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 96
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at MAF.BAL.Models.ManagementInfo.GetScheduleUserDetails(String serachUser, String searchQueue, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 104
+   at MAFWeb.Controllers.ManagementController.PartialScheduleUser(String userName, String scheduleId, String queueNum, String reportId, String abbreviation) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 438
+ERROR 2016-02-23 15:58:07,113 [81]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'seq', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 298
+ERROR 2016-02-23 15:58:13,401 [81]  MAFWeb.BAL.Models.Logger - Error in PartialView Management Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetUserDetails_Result'. A member of the type, 'seq', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetUserDetails(String userName, String queue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 492
+   at MAF.DAL.Management.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 37
+   at MAF.BAL.Models.ManagementInfo.GetUserDetails(String serachUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 35
+   at MAFWeb.Controllers.ManagementController.PartialUserDetails(String searchUser, String searchQueue) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 298
+ERROR 2016-02-26 18:56:50,614 [5]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 74
+ERROR 2016-03-04 15:19:18,196 [8]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 225
+ERROR 2016-03-04 15:20:12,062 [8]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.Net.WebException: The request failed with HTTP status 401: Unauthorized.
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.Report.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\Report.aspx.cs:line 67
+ERROR 2016-03-04 15:24:45,528 [16]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 225
+ERROR 2016-03-04 15:35:04,953 [10]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 225
+ERROR 2016-03-07 16:16:43,126 [9]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 225
+ERROR 2016-03-07 16:21:23,668 [11]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.Net.WebException: The request failed with HTTP status 503: Service Unavailable.
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.Report.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\Report.aspx.cs:line 67
+ERROR 2016-03-07 16:27:25,600 [11]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.Net.WebException: The request failed with HTTP status 503: Service Unavailable.
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.Report.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\Report.aspx.cs:line 67
+ERROR 2016-03-07 16:32:01,451 [8]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 225
+ERROR 2016-03-07 16:34:46,696 [8]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.Net.WebException: The request failed with HTTP status 503: Service Unavailable.
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.Report.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\Report.aspx.cs:line 67
+ERROR 2016-03-08 23:13:42,617 [5]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 225
+ERROR 2016-03-09 15:45:53,577 [23]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 74
+ERROR 2016-03-09 16:20:00,862 [17]  MAFWeb.BAL.Models.Logger - Error in PartialView Multi User Schedule Report Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetMUInScheduleList_Result'. A member of the type, 'Abbreviation', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetMUInScheduleList() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 526
+   at MAF.DAL.Management.GetMultiUserScheduleReportList() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 368
+   at MAF.BAL.Models.ManagementInfo.GetMultiUserReportList(String scheduleId) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 440
+   at MAFWeb.Controllers.ManagementController.PartialMulitUserScheduleReport(String reportName) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 400
+ERROR 2016-03-09 16:20:36,192 [17]  MAFWeb.BAL.Models.Logger - Error in PartialView Multi User Schedule Report Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetMUInScheduleList_Result'. A member of the type, 'Abbreviation', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetMUInScheduleList() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 526
+   at MAF.DAL.Management.GetMultiUserScheduleReportList() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 368
+   at MAF.BAL.Models.ManagementInfo.GetMultiUserReportList(String scheduleId) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 440
+   at MAFWeb.Controllers.ManagementController.PartialMulitUserScheduleReport(String reportName) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 400
+ERROR 2016-03-09 16:21:46,043 [17]  MAFWeb.BAL.Models.Logger - Error in PartialView Multi User Schedule Report Info
+System.Data.EntityCommandExecutionException: The data reader is incompatible with the specified 'MAF.SP_GetMUInScheduleList_Result'. A member of the type, 'Abbreviation', does not have a corresponding column in the data reader with the same name.
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetMemberOrdinalFromReader(DbDataReader storeDataReader, EdmMember member, EdmType currentType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.GetColumnMapsForType(DbDataReader storeDataReader, EdmType edmType, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateColumnMapFromReaderAndType(DbDataReader storeDataReader, EdmType edmType, EntitySet entitySet, Dictionary`2 renameList)
+   at System.Data.Query.InternalTrees.ColumnMapFactory.CreateFunctionImportStructuralTypeColumnMap(DbDataReader storeDataReader, FunctionImportMappingNonComposable mapping, Int32 resultSetIndex, EntitySet entitySet, StructuralType baseStructuralType)
+   at System.Data.EntityClient.EntityCommandDefinition.FunctionColumnMapGenerator.System.Data.EntityClient.EntityCommandDefinition.IColumnMapGenerator.CreateColumnMap(DbDataReader reader)
+   at System.Data.Objects.ObjectContext.MaterializedDataRecord[TElement](EntityCommand entityCommand, DbDataReader storeReader, Int32 resultSetIndex, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.SP_GetMUInScheduleList() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 526
+   at MAF.DAL.Management.GetMultiUserScheduleReportList() in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 368
+   at MAF.BAL.Models.ManagementInfo.GetMultiUserReportList(String scheduleId) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 440
+   at MAFWeb.Controllers.ManagementController.PartialMulitUserScheduleReport(String reportName) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 400
+ERROR 2016-03-10 19:10:50,883 [8]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 74
+ERROR 2016-03-10 19:32:28,556 [15]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 165
+ERROR 2016-03-10 19:33:57,017 [6]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+Microsoft.Reporting.WebForms.ReportServerException: The item '/MAFReports/HourlyCallReport' cannot be found. (rsItemNotFound)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.ServerReportSoapProxy.OnSoapException(SoapException e)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.Report.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\Report.aspx.cs:line 67
+ERROR 2016-03-10 19:38:01,787 [14]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+Microsoft.Reporting.WebForms.ReportServerException: The item '/MAFReports/HourlyCallReport' cannot be found. (rsItemNotFound)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.ServerReportSoapProxy.OnSoapException(SoapException e)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 60
+ERROR 2016-03-10 19:39:14,870 [20]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+Microsoft.Reporting.WebForms.ReportServerException: The item '/MAFReports/HourlyCallReport' cannot be found. (rsItemNotFound)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.ServerReportSoapProxy.OnSoapException(SoapException e)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 60
+ERROR 2016-03-10 19:45:24,801 [5]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 165
+ERROR 2016-03-10 19:52:39,340 [24]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 165
+ERROR 2016-03-11 18:19:08,287 [27]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.PowerZoneReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\PowerZoneReport.aspx.cs:line 68
+ERROR 2016-03-17 16:57:00,166 [8]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 307
+ERROR 2016-03-21 15:22:16,920 [7]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:23:18,851 [11]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:24:09,898 [5]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 15:24:22,730 [11]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:35:17,255 [22]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 15:35:43,000 [22]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:35:45,205 [22]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:35:45,937 [17]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:35:46,713 [22]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:35:47,326 [22]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:35:47,918 [22]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:38:42,744 [22]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 15:38:54,111 [20]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:45:19,610 [7]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 15:45:20,117 [7]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 15:45:30,699 [9]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.HourlyCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\HourlyCallReport.aspx.cs:line 47
+ERROR 2016-03-21 15:47:22,027 [5]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:48:25,839 [13]  MAFWeb.BAL.Models.Logger - Error in Post ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog(HourlyCallLogParameterModel reportParams) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 213
+ERROR 2016-03-21 15:51:46,376 [13]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 15:52:00,278 [25]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:52:02,670 [28]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:52:02,954 [13]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:52:03,198 [28]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:52:03,446 [27]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:52:03,738 [21]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-21 15:52:41,972 [9]  MAFWeb.BAL.Models.Logger - Error in Post ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog(HourlyCallLogParameterModel reportParams) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 213
+ERROR 2016-03-21 15:53:02,237 [7]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 15:53:07,385 [7]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-21 21:35:38,565 [64]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult HourlyCallLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.HourlyCallLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 168
+ERROR 2016-03-22 19:12:09,517 [65]  MAFWeb.BAL.Models.Logger - Error in Login Page
+System.Data.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: Login failed for user 'MidAtlantic'.
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   at System.Data.EntityClient.EntityConnection.Open()
+   at System.Data.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.spLogin(String loginUserID, String loginPassword) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 245
+   at MAF.DAL.Management.CheckLogin(String loginId, String password) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 202
+   at MAF.BAL.Models.ManagementInfo.CheckLogin(String loginId, String password) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 163
+   at MAFWeb.Controllers.AccountController.Login(LoginModel model) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\AccountController.cs:line 71
+ERROR 2016-03-22 19:12:19,060 [9]  MAFWeb.BAL.Models.Logger - Error in Login Page
+System.Data.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: Login failed for user 'MidAtlantic'.
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   at System.Data.EntityClient.EntityConnection.Open()
+   at System.Data.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Objects.ObjectContext.CreateFunctionObjectResult[TElement](EntityCommand entityCommand, ReadOnlyMetadataCollection`1 entitySets, EdmType[] edmTypes, MergeOption mergeOption)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, MergeOption mergeOption, ObjectParameter[] parameters)
+   at System.Data.Objects.ObjectContext.ExecuteFunction[TElement](String functionName, ObjectParameter[] parameters)
+   at MAF.DAL.MAFContainer.spLogin(String loginUserID, String loginPassword) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\MAF.Context.cs:line 245
+   at MAF.DAL.Management.CheckLogin(String loginId, String password) in d:\Projects\MidAtlanticFinance-FI\MAF.DAL\Management.cs:line 202
+   at MAF.BAL.Models.ManagementInfo.CheckLogin(String loginId, String password) in d:\Projects\MidAtlanticFinance-FI\MAF.BAL\Models\ManagementInfo.cs:line 163
+   at MAFWeb.Controllers.AccountController.Login(LoginModel model) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\AccountController.cs:line 71
+ERROR 2016-03-28 16:12:33,678 [8]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-28 16:14:11,083 [14]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.QueueLogReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\QueueLogReport.aspx.cs:line 45
+ERROR 2016-03-28 16:14:13,243 [8]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.QueueLogReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\QueueLogReport.aspx.cs:line 45
+ERROR 2016-03-28 16:14:15,195 [9]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Reports.DropCallReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DropCallReport.aspx.cs:line 44
+ERROR 2016-03-29 19:11:28,350 [8]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 348
+ERROR 2016-03-29 20:12:28,060 [9]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 348
+ERROR 2016-03-30 19:51:30,790 [5]  MAFWeb.BAL.Models.Logger - Error in PartialView Recording path
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at MAFWeb.Controllers.ManagementController.PartialRecordingPath() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ManagementController.cs:line 192
+ERROR 2016-04-04 17:38:13,046 [8]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 76
+ERROR 2016-04-04 17:40:30,499 [10]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.Net.WebException: The request failed with HTTP status 401: Unauthorized.
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.DNDStatusReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DNDStatusReport.aspx.cs:line 59
+ERROR 2016-04-04 17:53:28,437 [16]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.DNDCall() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 900
+ERROR 2016-04-04 17:54:28,722 [18]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+System.Net.WebException: The request failed with HTTP status 401: Unauthorized.
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.GetSecureMethods()
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.IsSecureMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.SetConnectionSSLForMethod(String methodname)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.DNDStatusReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DNDStatusReport.aspx.cs:line 59
+ERROR 2016-04-04 17:54:57,917 [16]  MAFWeb.BAL.Models.Logger - Error in Post ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.DNDCall(DNDParameterModel reportParams) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 948
+ERROR 2016-04-04 17:55:00,362 [18]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.DNDCall() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 900
+ERROR 2016-04-04 17:56:00,132 [18]  MAFWeb.BAL.Models.Logger - Error in Report page while generating report
+Microsoft.Reporting.WebForms.ReportServerException: The item '/MAFReports/DNDStatusReport' cannot be found. (rsItemNotFound)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.ServerReportSoapProxy.OnSoapException(SoapException e)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.ProxyMethodInvocation.Execute[TReturn](RSExecutionConnection connection, ProxyMethod`1 initialMethod, ProxyMethod`1 retryMethod)
+   at Microsoft.Reporting.WebForms.Internal.Soap.ReportingServices2005.Execution.RSExecutionConnection.LoadReport(String Report, String HistoryID)
+   at Microsoft.Reporting.WebForms.SoapReportExecutionService.LoadReport(String report, String historyId)
+   at Microsoft.Reporting.WebForms.ServerReport.EnsureExecutionSession()
+   at Microsoft.Reporting.WebForms.ServerReport.SetParameters(IEnumerable`1 parameters)
+   at MAFWeb.Reports.DNDStatusReport.RenderReportModels() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Reports\DNDStatusReport.aspx.cs:line 59
+ERROR 2016-04-04 21:54:44,062 [119]  MAFWeb.BAL.Models.Logger - Error in Post ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.DNDCall(DNDParameterModel reportParams) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 948
+ERROR 2016-04-04 21:54:47,551 [116]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.DNDCall() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 900
+ERROR 2016-04-05 16:22:12,045 [5]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 76
+ERROR 2016-04-05 20:18:29,982 [82]  MAFWeb.BAL.Models.Logger - Error in Post ActionResult DND Status Report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.DNDCall(DNDParameterModel reportParams) in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 948
+ERROR 2016-04-05 20:18:33,564 [82]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult DND Status Report
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.DNDCall() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 900
+ERROR 2016-04-11 15:53:06,898 [6]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 76
+ERROR 2016-04-11 15:57:19,796 [16]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult QueueLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.QueueLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 76
+ERROR 2016-04-13 15:48:57,976 [7]  MAFWeb.BAL.Models.Logger - Error in Get ActionResult AgentLog
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MAFWeb.Controllers.ReportController.AgentLog() in d:\Projects\MidAtlanticFinance-FI\MAFWeb\Controllers\ReportController.cs:line 348

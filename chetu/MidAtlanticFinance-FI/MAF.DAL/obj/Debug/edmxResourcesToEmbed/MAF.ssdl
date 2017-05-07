@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MAF.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="callcent_ag_dropped_calls">
+    <Key>
+      <PropertyRef Name="idcallcent_ag_dropped_calls" />
+    </Key>
+    <Property Name="idcallcent_ag_dropped_calls" Type="int" Nullable="false" />
+    <Property Name="q_num" Type="varchar" MaxLength="255" />
+    <Property Name="ag_num" Type="varchar" MaxLength="255" />
+    <Property Name="time_start" Type="datetime" Nullable="false" />
+    <Property Name="time_end" Type="datetime" Nullable="false" />
+    <Property Name="reason_noanswercode" Type="int" Nullable="false" />
+    <Property Name="reason_noanswerdesc" Type="varchar" MaxLength="255" />
+    <Property Name="call_history_id" Type="varchar" MaxLength="255" />
+    <Property Name="q_call_history_id" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="callcent_ag_queuestatus">
+    <Key>
+      <PropertyRef Name="idcallcent_ag_queuestatus" />
+    </Key>
+    <Property Name="idcallcent_ag_queuestatus" Type="int" Nullable="false" />
+    <Property Name="q_num" Type="varchar" MaxLength="255" />
+    <Property Name="ag_num" Type="varchar" MaxLength="255" />
+    <Property Name="timeofupdate" Type="datetime" Nullable="false" />
+    <Property Name="is_loggedin_in_queue" Type="bit" />
+    <Property Name="is_loggedin_in_allqueues" Type="bit" />
+  </EntityType>
+  <EntityType Name="callcent_queuecalls">
+    <Key>
+      <PropertyRef Name="idcallcent_queuecalls" />
+    </Key>
+    <Property Name="idcallcent_queuecalls" Type="int" Nullable="false" />
+    <Property Name="q_num" Type="varchar" MaxLength="255" />
+    <Property Name="time_start" Type="datetime" Nullable="false" />
+    <Property Name="time_end" Type="datetime" Nullable="false" />
+    <Property Name="ts_waiting" Type="time" Precision="7" />
+    <Property Name="ts_polling" Type="time" Precision="7" />
+    <Property Name="ts_servicing" Type="time" Precision="7" />
+    <Property Name="ts_locating" Type="time" Precision="7" />
+    <Property Name="count_polls" Type="int" Nullable="false" />
+    <Property Name="count_dialed" Type="int" Nullable="false" />
+    <Property Name="count_rejected" Type="int" Nullable="false" />
+    <Property Name="count_dials_timed" Type="int" Nullable="false" />
+    <Property Name="reason_noanswercode" Type="int" Nullable="false" />
+    <Property Name="reason_failcode" Type="int" Nullable="false" />
+    <Property Name="reason_noanswerdesc" Type="varchar" MaxLength="255" />
+    <Property Name="reason_faildesc" Type="varchar" MaxLength="255" />
+    <Property Name="call_history_id" Type="varchar" MaxLength="255" />
+    <Property Name="q_cal" Type="varchar" MaxLength="255" />
+    <Property Name="from_userpart" Type="varchar" MaxLength="255" />
+    <Property Name="from_displayname" Type="varchar" MaxLength="255" />
+    <Property Name="to_dialednum" Type="varchar" MaxLength="255" />
+    <Property Name="to_dn" Type="varchar" MaxLength="255" />
+    <Property Name="to_dntype" Type="int" Nullable="false" />
+    <Property Name="cb_num" Type="varchar" MaxLength="255" />
+    <Property Name="call_result" Type="text" />
+    <Property Name="deal_status" Type="int" Nullable="false" />
+    <Property Name="is_visible" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="calldetails">
+    <Key>
+      <PropertyRef Name="idcalldetail" />
+    </Key>
+    <Property Name="idcalldetail" Type="int" Nullable="false" />
+    <Property Name="idcallhistory2" Type="int" Nullable="false" />
+    <Property Name="detailnum" Type="int" Nullable="false" />
+    <Property Name="parentdetailnum" Type="int" />
+    <Property Name="dest_num" Type="nvarchar" MaxLength="255" />
+    <Property Name="specdsttype" Type="int" Nullable="false" />
+    <Property Name="starttime" Type="datetime" Nullable="false" />
+    <Property Name="dur" Type="time" Precision="7" Nullable="false" />
+    <Property Name="answertime" Type="datetime" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="is_compl" Type="bit" Nullable="false" />
+    <Property Name="is_tooutside" Type="bit" Nullable="false" />
+    <Property Name="dest_dn" Type="nvarchar" MaxLength="255" />
+    <Property Name="otherparty" Type="nvarchar" MaxLength="255" />
+    <Property Name="billprefix" Type="nvarchar" MaxLength="255" />
+    <Property Name="billratename" Type="nvarchar" MaxLength="255" />
+    <Property Name="billrate" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="billcost" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="callhistory3">
+    <Key>
+      <PropertyRef Name="idcallhistory3" />
+    </Key>
+    <Property Name="idcallhistory3" Type="int" Nullable="false" />
+    <Property Name="callid" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="starttime" Type="datetime" Nullable="false" />
+    <Property Name="answertime" Type="datetime" />
+    <Property Name="endtime" Type="datetime" Nullable="false" />
+    <Property Name="duration" Type="time" Precision="7" Nullable="false" />
+    <Property Name="is_answ" Type="bit" Nullable="false" />
+    <Property Name="is_fail" Type="bit" Nullable="false" />
+    <Property Name="is_compl" Type="bit" Nullable="false" />
+    <Property Name="is_fromoutside" Type="bit" />
+    <Property Name="mediatype" Type="int" />
+    <Property Name="from_no" Type="nvarchar" MaxLength="255" />
+    <Property Name="to_no" Type="nvarchar" MaxLength="255" />
+    <Property Name="callerid" Type="nvarchar" MaxLength="255" />
+    <Property Name="dialednumber" Type="nvarchar" MaxLength="255" />
+    <Property Name="lastcallerid" Type="nvarchar" MaxLength="255" />
+    <Property Name="lastdialednumber" Type="nvarchar" MaxLength="255" />
+    <Property Name="group_no" Type="nvarchar" MaxLength="255" />
+    <Property Name="line_no" Type="nvarchar" MaxLength="255" />
+    <Property Name="rate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="totalcost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="billprefix" Type="nvarchar" MaxLength="255" />
+    <Property Name="billratename" Type="nvarchar" MaxLength="255" />
+    <Property Name="grpanswdetail" Type="int" />
+    <Property Name="recfile" Type="nvarchar" MaxLength="511" />
+    <Property Name="callchain" Type="nvarchar" MaxLength="255" />
+    <Property Name="is_visible" Type="bit" Nullable="false" />
+    <Property Name="caller_display_name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="chat_dest2chat_mess">
+    <Key>
+      <PropertyRef Name="id_chat_dest2chat_mess" />
+    </Key>
+    <Property Name="id_chat_dest2chat_mess" Type="int" Nullable="false" />
+    <Property Name="fk_id_chat_mess" Type="int" Nullable="false" />
+    <Property Name="to_no" Type="nvarchar" MaxLength="255" />
+    <Property Name="to_name" Type="nvarchar(max)" />
+    <Property Name="is_visibleto_src" Type="bit" Nullable="false" />
+    <Property Name="is_visibleto_tono" Type="bit" Nullable="false" />
+    <Property Name="received" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="chat_history_mess">
+    <Key>
+      <PropertyRef Name="id_chat_history" />
+    </Key>
+    <Property Name="id_chat_history" Type="int" Nullable="false" />
+    <Property Name="from_no" Type="nvarchar" MaxLength="255" />
+    <Property Name="from_name" Type="nvarchar(max)" />
+    <Property Name="time_received" Type="datetime" Nullable="false" />
+    <Property Name="message" Type="nvarchar(max)" />
+    <Property Name="party" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Dept">
+    <Key>
+      <PropertyRef Name="idDept" />
+    </Key>
+    <Property Name="idDept" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dept2ext">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkidDept" Type="int" Nullable="false" />
+    <Property Name="fkidextension" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dn">
+    <Key>
+      <PropertyRef Name="iddn" />
+    </Key>
+    <Property Name="iddn" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="value" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="fkidtenant" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dngrp">
+    <Key>
+      <PropertyRef Name="iddngrp" />
+    </Key>
+    <Property Name="iddngrp" Type="int" Nullable="false" />
+    <Property Name="fkidgrp" Type="int" Nullable="false" />
+    <Property Name="fkiddn" Type="int" Nullable="false" />
+    <Property Name="roletag" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="extension">
+    <Key>
+      <PropertyRef Name="idextension" />
+    </Key>
+    <Property Name="idextension" Type="int" Nullable="false" />
+    <Property Name="fkiddn" Type="int" Nullable="false" />
+    <Property Name="authid" Type="varchar" MaxLength="255" />
+    <Property Name="authpswd" Type="varchar" MaxLength="255" />
+    <Property Name="outcid" Type="varchar" MaxLength="255" />
+    <Property Name="recrdout" Type="bit" Nullable="false" />
+    <Property Name="recrdin" Type="bit" Nullable="false" />
+    <Property Name="accstatus" Type="bit" Nullable="false" />
+    <Property Name="accconfig" Type="bit" Nullable="false" />
+    <Property Name="noanswtimeout" Type="int" />
+    <Property Name="busydetection" Type="int" />
+    <Property Name="isinternal" Type="bit" Nullable="false" />
+    <Property Name="isbindtoms" Type="bit" Nullable="false" />
+    <Property Name="issupportreinvite" Type="bit" Nullable="false" />
+    <Property Name="issupportreplaces" Type="bit" Nullable="false" />
+    <Property Name="castatus" Type="int" Nullable="false" />
+    <Property Name="qstatus" Type="int" Nullable="false" />
+    <Property Name="enabled" Type="bit" Nullable="false" />
+    <Property Name="use_srtp" Type="bit" Nullable="false" />
+    <Property Name="hidepresence" Type="bit" Nullable="false" />
+    <Property Name="currentprofile" Type="int" />
+    <Property Name="overrideprofile" Type="int" />
+    <Property Name="fallbackprofile" Type="int" />
+  </EntityType>
+  <EntityType Name="group2ext">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkidGroup" Type="int" Nullable="false" />
+    <Property Name="fkidextension" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="groups">
+    <Key>
+      <PropertyRef Name="idgroup" />
+    </Key>
+    <Property Name="idgroup" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="grp">
+    <Key>
+      <PropertyRef Name="idgrp" />
+    </Key>
+    <Property Name="idgrp" Type="int" Nullable="false" />
+    <Property Name="fkidtenant" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="pv_managers_role" Type="nvarchar(max)" />
+    <Property Name="pv_users_role" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="queue">
+    <Key>
+      <PropertyRef Name="idqueue" />
+    </Key>
+    <Property Name="idqueue" Type="int" Nullable="false" />
+    <Property Name="fkiddn" Type="int" Nullable="false" />
+    <Property Name="fknoanswerdn" Type="int" />
+    <Property Name="noanswertype" Type="int" Nullable="false" />
+    <Property Name="noanswertoout" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="enableintro" Type="bit" />
+    <Property Name="introfile" Type="varchar" MaxLength="255" />
+    <Property Name="enablesm" Type="bit" Nullable="false" />
+    <Property Name="smtimeout" Type="int" Nullable="false" />
+    <Property Name="onholdfile" Type="varchar" MaxLength="255" />
+    <Property Name="mastertimeout" Type="int" Nullable="false" />
+    <Property Name="ringtime" Type="int" Nullable="false" />
+    <Property Name="cidprefix" Type="varchar" MaxLength="255" />
+    <Property Name="pollingstrategy" Type="int" />
+  </EntityType>
+  <EntityType Name="queue2dn">
+    <Key>
+      <PropertyRef Name="idqueue2dn" />
+    </Key>
+    <Property Name="fkidqueue" Type="int" Nullable="false" />
+    <Property Name="fkiddn" Type="int" Nullable="false" />
+    <Property Name="priority" Type="int" Nullable="false" />
+    <Property Name="idqueue2dn" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsManager" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="specialmenu">
+    <Key>
+      <PropertyRef Name="idspecialmenu" />
+    </Key>
+    <Property Name="idspecialmenu" Type="int" Nullable="false" />
+    <Property Name="fkiddn" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_calldetails_callhistory3">
+    <End Role="callhistory3" Type="Self.callhistory3" Multiplicity="1" />
+    <End Role="calldetails" Type="Self.calldetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="callhistory3">
+        <PropertyRef Name="idcallhistory3" />
+      </Principal>
+      <Dependent Role="calldetails">
+        <PropertyRef Name="idcallhistory2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dept2ext_extension">
+    <End Role="extension" Type="Self.extension" Multiplicity="1" />
+    <End Role="Dept2ext" Type="Self.Dept2ext" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extension">
+        <PropertyRef Name="idextension" />
+      </Principal>
+      <Dependent Role="Dept2ext">
+        <PropertyRef Name="fkidextension" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dept2ext_Group">
+    <End Role="Dept" Type="Self.Dept" Multiplicity="1" />
+    <End Role="Dept2ext" Type="Self.Dept2ext" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dept">
+        <PropertyRef Name="idDept" />
+      </Principal>
+      <Dependent Role="Dept2ext">
+        <PropertyRef Name="fkidDept" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group2ext_extension">
+    <End Role="extension" Type="Self.extension" Multiplicity="1" />
+    <End Role="group2ext" Type="Self.group2ext" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extension">
+        <PropertyRef Name="idextension" />
+      </Principal>
+      <Dependent Role="group2ext">
+        <PropertyRef Name="fkidextension" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group2ext_Group">
+    <End Role="groups" Type="Self.groups" Multiplicity="1" />
+    <End Role="group2ext" Type="Self.group2ext" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="groups">
+        <PropertyRef Name="idgroup" />
+      </Principal>
+      <Dependent Role="group2ext">
+        <PropertyRef Name="fkidGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="specialmenu_fkiddn_fkey">
+    <End Role="dn" Type="Self.dn" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="specialmenu" Type="Self.specialmenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dn">
+        <PropertyRef Name="iddn" />
+      </Principal>
+      <Dependent Role="specialmenu">
+        <PropertyRef Name="fkiddn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetBigScreenPowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Zone1FromTime" Type="time" Precision="7" />
+          <Property Name="Zone1ToTime" Type="time" Precision="7" />
+          <Property Name="Zone2FromTime" Type="time" Precision="7" />
+          <Property Name="Zone2ToTime" Type="time" Precision="7" />
+          <Property Name="Queue1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Queue2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Header1Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Header2Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Row1Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Row2Color" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FontColor" Type="varchar" MaxLength="10" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="GetPowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Zone1FromTime" Type="time" Precision="7" />
+          <Property Name="Zone1ToTime" Type="time" Precision="7" />
+          <Property Name="Zone2FromTime" Type="time" Precision="7" />
+          <Property Name="Zone2ToTime" Type="time" Precision="7" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="SP_DeleteSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="scheduleid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetExcludeUserByReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetExtNum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginUserID" Type="varchar" Mode="In" />
+    <Parameter Name="LoginPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetMUInScheduleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetQueueList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Queuename" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetQueueNumbers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetReportList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reportname" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetSchduleUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="abbreviation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetUpdateScheduleRepotList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="queue" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetUserInQueueList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetUserReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_InsertReportTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fkscheduleid" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="Description" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateEnableUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="active" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateExculdeUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Active" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateManagerInQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="extnum" Type="int" Mode="In" />
+    <Parameter Name="queueid" Type="varchar(max)" Mode="In" />
+    <Parameter Name="role" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateMUInSReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="reportid" Type="int" Mode="In" />
+    <Parameter Name="emailid" Type="varchar" Mode="In" />
+    <Parameter Name="scheduletime" Type="varchar" Mode="In" />
+    <Parameter Name="scheduletype" Type="int" Mode="In" />
+    <Parameter Name="selectUser" Type="varchar" Mode="In" />
+    <Parameter Name="queuenum" Type="varchar" Mode="In" />
+    <Parameter Name="scheduleid" Type="int" Mode="In" />
+    <Parameter Name="IsSchedule" Type="int" Mode="In" />
+    <Parameter Name="Zone1FromTime" Type="time" Mode="In" />
+    <Parameter Name="Zone1ToTime" Type="time" Mode="In" />
+    <Parameter Name="Zone2FromTime" Type="time" Mode="In" />
+    <Parameter Name="Zone2ToTime" Type="time" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateScheduleReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="reportid" Type="int" Mode="In" />
+    <Parameter Name="emailid" Type="varchar" Mode="In" />
+    <Parameter Name="scheduletime" Type="varchar" Mode="In" />
+    <Parameter Name="scheduletype" Type="int" Mode="In" />
+    <Parameter Name="IsSchedule" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateUserInQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="extnum" Type="int" Mode="In" />
+    <Parameter Name="queueid" Type="int" Mode="In" />
+    <Parameter Name="active" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateUserReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idreport" Type="int" Mode="In" />
+    <Parameter Name="iduser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Userid" Type="varchar" Mode="In" />
+    <Parameter Name="Loginid" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Role" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_UserRoleDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spExtensionByQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="qnum" Type="varchar" Mode="In" />
+    <Parameter Name="extnum" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spExtensions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Ext" Type="int" Mode="In" />
+    <Parameter Name="role" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spExtensionsByPowerZone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Ext" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetQueues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Ext" Type="int" Mode="In" />
+    <Parameter Name="role" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetRecordingPath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginUserID" Type="varchar" Mode="In" />
+    <Parameter Name="LoginPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spResetPowerZoneColor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spSetRecordingPath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="path" Type="nvarchar" Mode="In" />
+    <Parameter Name="callInterval" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateBigScreenPowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="zone1FromTime" Type="time" Mode="In" />
+    <Parameter Name="zone1ToTime" Type="time" Mode="In" />
+    <Parameter Name="zone2FromTime" Type="time" Mode="In" />
+    <Parameter Name="zone2ToTime" Type="time" Mode="In" />
+    <Parameter Name="header1Color" Type="varchar" Mode="In" />
+    <Parameter Name="header2Color" Type="varchar" Mode="In" />
+    <Parameter Name="row1Color" Type="varchar" Mode="In" />
+    <Parameter Name="row2Color" Type="varchar" Mode="In" />
+    <Parameter Name="fontColor" Type="varchar" Mode="In" />
+    <Parameter Name="queues" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdatePowerZoneTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="zone1FromTime" Type="time" Mode="In" />
+    <Parameter Name="zone1ToTime" Type="time" Mode="In" />
+    <Parameter Name="zone2FromTime" Type="time" Mode="In" />
+    <Parameter Name="zone2ToTime" Type="time" Mode="In" />
+  </Function>
+  <EntityContainer Name="MAFStoreContainer">
+    <EntitySet Name="callcent_ag_dropped_calls" EntityType="Self.callcent_ag_dropped_calls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="callcent_ag_queuestatus" EntityType="Self.callcent_ag_queuestatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="callcent_queuecalls" EntityType="Self.callcent_queuecalls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="calldetails" EntityType="Self.calldetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="callhistory3" EntityType="Self.callhistory3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chat_dest2chat_mess" EntityType="Self.chat_dest2chat_mess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chat_history_mess" EntityType="Self.chat_history_mess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dept" EntityType="Self.Dept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dept2ext" EntityType="Self.Dept2ext" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dn" EntityType="Self.dn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dngrp" EntityType="Self.dngrp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="extension" EntityType="Self.extension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="group2ext" EntityType="Self.group2ext" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grp" EntityType="Self.grp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="queue" EntityType="Self.queue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="queue2dn" EntityType="Self.queue2dn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="specialmenu" EntityType="Self.specialmenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_calldetails_callhistory3" Association="Self.FK_calldetails_callhistory3">
+      <End Role="callhistory3" EntitySet="callhistory3" />
+      <End Role="calldetails" EntitySet="calldetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dept2ext_extension" Association="Self.FK_Dept2ext_extension">
+      <End Role="extension" EntitySet="extension" />
+      <End Role="Dept2ext" EntitySet="Dept2ext" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dept2ext_Group" Association="Self.FK_Dept2ext_Group">
+      <End Role="Dept" EntitySet="Dept" />
+      <End Role="Dept2ext" EntitySet="Dept2ext" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group2ext_extension" Association="Self.FK_Group2ext_extension">
+      <End Role="extension" EntitySet="extension" />
+      <End Role="group2ext" EntitySet="group2ext" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group2ext_Group" Association="Self.FK_Group2ext_Group">
+      <End Role="groups" EntitySet="groups" />
+      <End Role="group2ext" EntitySet="group2ext" />
+    </AssociationSet>
+    <AssociationSet Name="specialmenu_fkiddn_fkey" Association="Self.specialmenu_fkiddn_fkey">
+      <End Role="dn" EntitySet="dn" />
+      <End Role="specialmenu" EntitySet="specialmenu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

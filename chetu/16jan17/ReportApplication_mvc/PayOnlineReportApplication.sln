@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayOnlineReportApplication.DAL", "PayOnlineReportApplication.DAL\PayOnlineReportApplication.DAL.csproj", "{FA620116-C3CA-4FBF-88A2-4F2AC4324528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayOnlineReportApplication.BAL", "PayOnlineReportApplication.BAL\PayOnlineReportApplication.BAL.csproj", "{86EE47ED-6E36-45BB-8A05-DD30AA144B52}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FA620116-C3CA-4FBF-88A2-4F2AC4324528} = {FA620116-C3CA-4FBF-88A2-4F2AC4324528}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayOnlineReportApplication.Web", "PayOnlineReportApplication.Web\PayOnlineReportApplication.Web.csproj", "{44690DB8-08E3-4A45-971A-7E7911C6EDBC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{86EE47ED-6E36-45BB-8A05-DD30AA144B52} = {86EE47ED-6E36-45BB-8A05-DD30AA144B52}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs01:8080/tfs/chetuprojects
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PayOnlineReportApplication.DAL\\PayOnlineReportApplication.DAL.csproj
+		SccProjectName1 = PayOnlineReportApplication.DAL
+		SccLocalPath1 = PayOnlineReportApplication.DAL
+		SccProjectUniqueName2 = PayOnlineReportApplication.BAL\\PayOnlineReportApplication.BAL.csproj
+		SccProjectName2 = PayOnlineReportApplication.BAL
+		SccLocalPath2 = PayOnlineReportApplication.BAL
+		SccProjectUniqueName3 = PayOnlineReportApplication.Web\\PayOnlineReportApplication.Web.csproj
+		SccProjectName3 = PayOnlineReportApplication.Web
+		SccLocalPath3 = PayOnlineReportApplication.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA620116-C3CA-4FBF-88A2-4F2AC4324528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA620116-C3CA-4FBF-88A2-4F2AC4324528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA620116-C3CA-4FBF-88A2-4F2AC4324528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA620116-C3CA-4FBF-88A2-4F2AC4324528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86EE47ED-6E36-45BB-8A05-DD30AA144B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86EE47ED-6E36-45BB-8A05-DD30AA144B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86EE47ED-6E36-45BB-8A05-DD30AA144B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86EE47ED-6E36-45BB-8A05-DD30AA144B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44690DB8-08E3-4A45-971A-7E7911C6EDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44690DB8-08E3-4A45-971A-7E7911C6EDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44690DB8-08E3-4A45-971A-7E7911C6EDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44690DB8-08E3-4A45-971A-7E7911C6EDBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

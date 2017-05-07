@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WebMatrix.Data.StronglyTyped</id>
+    <version>0.2.0.0</version>
+    <title>WebMatrix.Data.StronglyTyped</title>
+    <authors>Jeremy Skinner</authors>
+    <owners>Jeremy Skinner</owners>
+    <licenseUrl>https://github.com/JeremySkinner/WebMatrix.Data.StronglyTyped/blob/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/JeremySkinner/WebMatrix.Data.StronglyTyped</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Strongly typed extensions for WebMatrix.Data</description>
+    <summary>Strongly typed extensions for WbMatrix.Data</summary>
+  </metadata>
+</package>

@@ -1,0 +1,333 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,400italic,700,700italic);
+
+html, body{ width:100%; height:100%;}
+body{ font-family: 'Roboto Condensed', sans-serif; background:#FFF; padding-bottom:95px;}
+.float-L{float:left;}
+.float-R{float:right;}
+#body-wrapper, .content-wrapper{ height:100%;}
+
+/*********************dashboard********************/
+
+.navbar-brand {
+    height: 60px;
+    padding: 5px 15px;
+}
+.navbar-nav > li > a{ padding: 20px;}
+ul.navbar-right li{ border-left:1px solid #e6e9eb;}
+.navbar{  background: #f2f5f8; margin-bottom:0;}
+.left-panel{ width:60px; background:#135ba5; height:100%; float:left;}
+.right-panel{ margin-left:60px; height:100%; background:#fff; padding:15px 30px 0;	}
+
+.inner-content h3{ font-size:22px; color:#264463; margin:10px 0 20px;}
+.user-sec{ background:#0d4178; padding:10px; height:90px; box-shadow: 0 0 3px #acd2fa; margin-bottom:5px;}
+#sidebar ul.nav li a{ color:#fff; font-size-adjust:14px;}
+#sidebar ul.nav li:hover a, #sidebar ul.nav li.active a, #sidebar ul.nav li a:focus{ background:#0d4178;}
+.username{ font-size:18px; font-weight:normal; color:#fff; line-height:20px; margin-bottom:5px; }
+.sub-head{ font-size:11px; color:#b2d0e7; margin-bottom:5px;}
+.signout-btn{ background:#ff7e1e; border-radius:15px; padding:1px 15px 3px; color:#fff; font-size:12px;}
+.signout-btn:hover{ color:#fff;}
+.profile-pic{ padding:5px 0;}
+.profile-pic img{ border-radius:50%; border:1px solid #b2d0e7; width:60px; height:60px; }
+.search-sec, .search-wrapper{ background: #f4f4f4; border-left: 1px solid #ddd; border-right: 1px solid #ddd;border-top: 1px solid #ddd; width: 100%; float: left;}
+.search-wrapper{ border-bottom:1px solid #ddd; padding:10px;}
+.list-group-item-success{ background:none;}	
+.menu-text{ padding-left:10px;}
+.fa{ width:30px; text-align:center;}
+.navbar .fa,.left-panel .fa {font-size:20px;}
+.bs-example p{ padding:15px; font-size:16px;}
+.data-grid  input[type="button"]{ width:100%;}
+.inner-addon { 
+    position: relative; 
+}
+
+ul#nav li{ position:relative;}
+ul#nav li ul{ position:absolute; left:100%; top:0; z-index:5; width:200px;}
+
+
+/* style icon */
+.inner-addon .fa {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .fa  { left:  0px;}
+.right-addon .fa { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; } 
+
+
+.footer{ background:#323232; color:#ccc; text-align:center;}
+.footer p{ line-height: 30px; margin-bottom:0; font-size:11px;}
+.pad-0{ padding:0;}
+
+#leftMenu .accordion-group {
+    margin-bottom: 0px;
+    border:0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}    
+
+#leftMenu .accordion-heading {
+    height: 34px;
+    border-top: 1px solid #717171; /* inner stroke */
+    border-bottom: 1px solid #5A5A5A; /* inner stroke */
+    background-color: #353535; /* layer fill content */
+    background-image: -moz-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
+    background-image: -o-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
+    background-image: -webkit-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
+    background-image: linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
+    list-style-type:none;
+}  
+
+#leftMenu .accordion-heading  a{  
+    color: #cbcbcb; /* text color */
+    text-shadow: 0 1px 0 #3b3b3b; /* drop shadow */
+    text-decoration:none;
+    font-weight:bold;  
+}
+
+#leftMenu .accordion-heading  a:hover{  
+    color:#ccc     
+}
+
+#leftMenu .accordion-heading .active {
+    width: 182px;
+    height: 34px;
+    border: 1px solid #5b5b5b; /* inner stroke */
+    background-color: #353535; /* layer fill content */
+    background-image: -moz-linear-gradient(90deg, #4b4b4b 0%, #555 100%); /* gradient overlay */
+    background-image: -o-linear-gradient(90deg, #4b4b4b 0%, #555 100%); /* gradient overlay */
+    background-image: -webkit-linear-gradient(90deg, #4b4b4b 0%, #555 100%); /* gradient overlay */
+    background-image: linear-gradient(90deg, #4b4b4b 0%, #555 100%); /* gradient overlay */
+}
+
+
+
+
+#nav {
+	margin:0;
+	padding:0;
+    float: left;
+    width: 100%;
+	text-decoration:none;
+	list-style:none;
+}
+#nav li a {
+    display: block;
+    padding:15px;
+    background: none;
+    text-decoration: none;
+    color: #fff;
+}
+#nav li a:hover, #nav li a.active {
+    background: #0e447c;
+    color: #fff;
+}
+#nav li ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+	width:100%;
+    display: none; // used to hide sub-menus
+
+}
+#nav li ul li a {
+    padding: 10px 8px;
+    background:#3381d3;
+
+}
+
+#nav li:hover ul{ display:block; }
+
+.right-arrow{  position: absolute;
+    right: -6px;
+	top: 30%;}
+.fa-chevron-right{ font-size:11px;}
+
+
+.tooltip-cus + .tooltip > .tooltip-inner {background:#3381d3; padding:6px 20px; font-size:14px; color:#fff;}
+.tooltip-cus + .tooltip > .tooltip-arrow { border-right-color:#3381d3;  }
+
+
+.inner-content .thumbnail{padding:0;}
+.content-menu{ width:160px; display:inline-block; margin:30px 20px 0;}
+.large_icon {
+   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f2f2f2+80 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 80%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(242,242,242,1) 80%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(242,242,242,1) 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.large_icon .icon-imge{background: #00a3e4 none repeat scroll 0 0;
+    border: 7px solid #e0ebf7;
+    border-radius: 50%;
+    height: 110px;
+    margin: 15px auto;
+    width: 110px; position:relative;}
+	.large_icon .icon-imge img{ top: 0; left: 0; bottom: 0; margin: auto;
+    position: absolute;
+    right: 0;}
+	.large_icon h3{ margin:10px 0; text-transform:uppercase; color:#1d1d1d; font-size:15px; text-align:center;  border-top: 1px solid #d6d6d6;
+    margin:0;
+    padding: 8px !important; 
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 13%, rgba(237,237,237,1) 48%, rgba(255,255,255,1) 88%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 13%,rgba(237,237,237,1) 48%,rgba(255,255,255,1) 88%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 13%,rgba(237,237,237,1) 48%,rgba(255,255,255,1) 88%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
+
+.large_icon .thumbnail .caption{ padding:0;}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+/**********************Login*************************/
+#log-wrapper{ width:100%; height:auto;}
+.login-wrapper{ width:473px; margin:0px auto;}
+.login-box{ 
+	width:100%; 
+	float:left; 
+	height:auto;
+	padding:20px 35px;
+	margin-top:25%; 
+	background: #fff; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#fff, #eae9e9); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fff, #eae9e9); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fff, #eae9e9); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#fff, #eae9e9); /* Standard syntax */
+	border:1px solid #cfcfcf;
+	border-radius:5px;
+	}
+.login-logo{ width:100%; float:left;}
+.login-logo h3{ text-align:center; color:#0D6493; font-size:35px; margin:0px;  text-shadow: 1px 0px 0px #fff;}
+.login-form{ width:100%; float:left; font-family: 'Roboto', sans-serif;  margin-top:10px;}
+.login-form .form-group label{ font-size:14px; color:#888888; font-weight:normal; margin-top:10px;}
+.login-form .envelope-ico{ position: absolute; margin-left:373px; margin-top:-22px;}
+.login-form .form-control{ padding-right:33px;}
+.login-form .lock-ico{ position: absolute; margin-left:373px; margin-top:-27px;}
+.login-form .chkbx{ width:13px; height:12px; background:#fff;  margin-top:1px;}
+.login-form .chkbx-label{ color:#807e7e; font-size:11px;}
+.login-form .checkbox span{font-size:11px; color:#0685c9;}
+.login-form .checkbox span a{font-size:11px; color:#0685c9;}
+.login-form .checkbox span a:hover{font-size:11px; color:#045986; text-decoration:none;}
+.login-btn{
+	width:110px;
+	height:35px;
+	font-size:15px;
+	border-bottom:1px solid #da9309;
+	}
+
+.clear {
+    clear:both; height:0px; font-size:0px;
+}
+ .Usetable thead tr {}.Usetable tbody {max-height: 388px;overflow-y: auto;width: 100%;}
+.Main-info {
+    height: 428px;
+    overflow-y: scroll;
+    border-bottom:1px solid lightgrey;
+}
+.clear-height{height:10px;}
+.multi-left-pop{display: none;position: absolute;z-index: 100;background: #135ba5;padding: 5px;  margin-top:0px; margin-left : 15px;}
+.Single-left-pop{display: none;position: absolute;z-index: 100;background: #135ba5;padding: 5px;  margin-top:7%; margin-left : 10%;}
+#report-frame {
+    height:400px;
+}
+ 
+/* #Media Queries
+================================================== */
+ 
+  /* Smaller than standard 960 (devices and browsers) */
+  @media only screen and (max-width: 959px) {}
+
+@media only screen and (min-width: 1680px){
+ #report-frame { height:700px;}
+}
+ 
+ @media only screen and (min-width: 1920px){
+	 .login-box{ margin-top:48%;  }
+      /*.Usetable thead tr {display: block;}*/
+          .Usetable tbody {max-height: 730px;}
+  #report-frame { height:730px;}
+  .Main-info{height:730px;}
+ .multi-left-pop{ margin-left:15%;}
+ .Single-left-pop{margin-left:20%;}
+ }
+ @media only screen and (min-width: 1280px){
+	 .login-box{ margin-top:22%;}
+ }
+  /* Tablet Portrait size to standard 960 (devices and browsers) */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+	  .login-box{ margin-top:50%;}
+	  }
+ 
+  /* All Mobile Sizes (devices and browser) */
+  @media only screen and (max-width: 767px) {
+	  
+	  }
+ 
+  /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+  @media only screen and (min-width: 480px) and (max-width: 640px) {
+	  #log-wrapper{ width:100%; height:100%;}
+	  .login-box{ margin-top:5%;}
+	  .login-wrapper{ width:415px;}
+	  .login-form .envelope-ico{  margin-left:316px;}
+	  .login-form .lock-ico{margin-left:316px;}
+	  .footer{ position:relative;}
+	  
+	  }
+ 
+  /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+  @media only screen and (max-width: 479px) {
+	  .login-wrapper{ width:280px; height:310px; position:absolute; top:50%; left:50%; margin-left:-140px; margin-top:-155px;}
+	  .login-box{ padding:10px; margin-top:3.5%;}
+	  .login-form .envelope-ico{  margin-left:232px;}
+	  .login-form .lock-ico{margin-left:232px;}
+	  .footer{ padding:0px 20px;}
+	  .footer p{ line-height:24px;}
+}
+/* #Media Queries
+================================================== */
+ 
+  /* Smaller than standard 960 (devices and browsers) */
+  @media only screen and (max-width: 959px) {}
+ 
+  /* Tablet Portrait size to standard 960 (devices and browsers) */
+  @media only screen and (min-width: 768px) and (max-width: 959px) {}
+ 
+  /* All Mobile Sizes (devices and browser) */
+  @media only screen and (max-width: 767px) {}
+ 
+  /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+  @media only screen and (min-width: 480px) and (max-width: 767px) {}
+ 
+  /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+  @media only screen and (max-width: 479px) {}
+

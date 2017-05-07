@@ -1,0 +1,123 @@
+﻿@model MAF.BAL.Models.SearchByPhoneParameterModel
+@{
+    ViewBag.Title = "Search By Phone";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/plugins/datepicker/css/jquery-datetimepicker.css" rel="stylesheet" />
+<style>
+    .right-panel {
+        /*margin-left: 200px;*/
+        padding: 0px 15px 0;
+    }
+
+    .inner-content h3 {
+        margin: 5px 0 10px;
+    }
+
+    .search-wrapper {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        /*padding: 3px 12px;*/
+        margin-top: 25px;
+    }
+		.form-control[readonly]{
+    cursor: auto;
+    background-color: #fff;
+    opacity: 1;
+	}
+</style>
+<div class="right-panel">
+    <div class="inner-content clearfix">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5><strong>Search by Phone</strong></h5>
+                @using (Html.BeginForm("SearchbyPhone", "Report", FormMethod.Post, new { id = "filterform" }))
+                {
+                    @*@Html.AntiForgeryToken()*@
+                    @Html.ValidationSummary(true)
+                    <div class="search-wrapper">
+                        <div class="col-sm-3" >
+                            <div class="form-group">
+                                <label>From Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.FromDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "FromDate", @class = "form-control", @readonly="readonly", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.FromDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>To Date</label>
+                                <div class="inner-addon right-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    @Html.TextBoxFor(m => m.ToDate, "{0:MM/dd/yyyy hh:mm tt}", new { id = "ToDate", @class = "form-control", @readonly="readonly", placeholder = "mm/dd/yyyy hh:mm tt" })
+                                    @Html.ValidationMessageFor(m => m.ToDate)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Enter phone number" })
+                                @Html.ValidationMessageFor(m => m.PhoneNumber)
+                            </div>
+                        </div>                        
+                        <div class="col-sm-2">
+                            <div class="form-group text-right padding-top-custom">
+                                <input type="submit" class="btn btn-warning" value="View Report" style="width:100px;" />
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.ShowIframe)
+                {
+                    <iframe src='@Url.Content("~/Reports/SearchReport.aspx")' width="100%" style="border: none;" id="report-frame"></iframe>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/plugins/datepicker/js/jquery-datetimepicker.js"></script>
+    <script>  
+        $.validator.defaults.focusInvalid = false;
+        $.validator.unobtrusive.adapters.add(
+        'isdateafter', ['propertytested', 'allowequaldates'], function (options) {
+            options.rules['isdateafter'] = options.params;
+            options.messages['isdateafter'] = options.message;
+        });
+        $.validator.addMethod("isdateafter", function (value, element, params) {
+            var startdatevalue = $('input[name="' + params.propertytested + '"]').val();
+            if (!value || !startdatevalue) return true;
+            return (params.allowequaldates) ? Date.parse(startdatevalue) <= Date.parse(value) : Date.parse(startdatevalue) < Date.parse(value);
+        }, '');
+        $(function () {
+            $('#FromDate').datetimepicker({
+                defaultTime: '08:00 AM',
+                //mask:true,
+                maxDate: new Date,
+                formatTime: 'g:i A',
+                format: 'm/d/Y h:i A'
+            });
+            $('#ToDate').datetimepicker({
+                defaultTime: '08:00 PM',
+                //mask: true,
+                maxDate: new Date,
+                formatTime: 'g:i A',
+                format: 'm/d/Y h:i A'
+            });
+       
+        });
+    </script>
+}
+
+

@@ -1,0 +1,65 @@
+﻿@model MAF.BAL.Models.ManagementList
+
+<style>
+    .QContent {
+        background-color: none;
+        border: none;
+        font-family: Arial;
+        font-size: 13px;
+        max-height: 250px;
+        overflow-y: scroll;
+    }
+
+    .Scont_table {
+        width: 500px;
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+        .Scont_table tr th {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .Scont_table tr td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+</style>
+
+<div class="QContent">
+    <table class="Scont_table table table-striped table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>S.No</th>
+            <th>Queue Name</th>
+            <th>Assign</th>
+        </tr>
+        @{
+            int count = 0;
+            foreach (var item in Model.objQueueList)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.QueueNumber  @item.QueueName </td>
+                    <td>
+                        @{
+                        try
+                        {
+                        var val = (from p in Model.objMultiuserScheduleReportlist where p.QueueNumber.Contains(item.QueueNumber) select p).ToList().Count;
+                        if (val == 1) { <input id="chkuser@(item.QueueId)" type="checkbox" class="chkqueue" value="@item.QueueNumber" checked /> }
+                        else {<input id="chk@(item.QueueId)" type="checkbox" class="chkqueue" value="@item.QueueNumber" /> }
+
+                        }
+                        catch (Exception e)
+                        {<input id="chk@(item.QueueId)" type="checkbox" class="chkqueue" checked value="@item.QueueNumber" />}
+}                             
+                    </td>
+
+                </tr>
+            }
+        }
+
+    </table>
+</div>
+<div class="clear-height"></div>

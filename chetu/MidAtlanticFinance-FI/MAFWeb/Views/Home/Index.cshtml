@@ -1,0 +1,120 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+<script src="~/Scripts/Js/jquery-1.3.2.min.js"></script>
+
+
+<div class="right-panel">
+    <div class="inner-content clearfix">
+
+        <div class="text-center"  style="margin-top:30px;">
+            <div class="content-menu DispRole"  style="@Session["Management"]">
+                <a href="@Url.Action("Index","Management")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/management.png"></div>
+                        <h3>MANAGEMENT </h3>
+
+                    </div>
+                </a>
+            </div>
+
+            <div class="content-menu DispRole" style="@Session["QueueLog"]">
+
+                <a href="@Url.Action("QueueLog","Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/telephone.png"></div>
+                        <h3>Queue Calls Log</h3>
+
+                    </div>
+                </a>
+            </div>
+            <div class="content-menu DispRole" style="@Session["AgentLog"]">
+
+                <a href="@Url.Action("AgentLog","Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/call.png"></div>
+                        <h3>Agent Calls Log</h3>
+
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="content-menu DispRole" style="@Session["searchbyphone"]">
+
+                <a href="@Url.Action("SearchbyPhone", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/agenda.png"></div>
+                        <h3>Search By Phone</h3>
+                    </div>
+                </a>
+            </div>
+            
+
+       
+            <div class="content-menu DispRole" style="@Session["Collection"]">
+                <a href="@Url.Action("Collection", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/collection.png"></div>
+                        <h3>Collection Report</h3>
+
+                    </div>
+                </a>
+            </div>
+            <div class="content-menu DispRole" style="@Session["PowerZone"]">
+                <a href="@Url.Action("PowerZone", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/power-zone.png"></div>
+                        <h3>Power Zone Report</h3>
+
+                    </div>
+                </a>
+            </div>
+            <div class="content-menu DispRole" style="@Session["ScoreCard"]">
+                <a href="@Url.Action("ScoreCard", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/score-card.png"></div>
+                        <h3>Score Card Report</h3>
+
+                    </div>
+                </a>
+            </div>
+
+            <div class="content-menu DispRole" style="@Session["ChatLog"]">
+                <a href="@Url.Action("ChatLog", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/chat-log.png"></div>
+                        <h3>Chat Log Report</h3>
+
+                    </div>
+                </a>
+            </div>
+            <div class="content-menu DispRole" style="@Session["DropCallLog"]">
+                <a href="@Url.Action("DropCallLog", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/phone-drop.png"></div>
+                        <h3>Drop Calls Report</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="content-menu DispRole" style="@Session["HourlyCallLog"]">
+                <a href="@Url.Action("HourlyCallLog", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/hourly.png"></div>
+                        <h3>Hourly Calls Report</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="content-menu DispRole" style="@Session["DNDStatus"]">
+                <a href="@Url.Action("DNDCall", "Report")">
+                    <div class="thumbnail large_icon">
+                        <div class="icon-imge"><img src="~/images/hourly.png"></div>
+                        <h3>DND Status Report</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

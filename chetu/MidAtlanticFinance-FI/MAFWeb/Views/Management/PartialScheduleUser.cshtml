@@ -1,0 +1,45 @@
+﻿@model MAF.BAL.Models.ManagementList
+<style>
+    .EContent {border: 1px solid gray;background-color: none;border: none;font-family: Arial;font-size: 13px;height: 250px;overflow-y: auto; overflow-x:hidden;}.Scont_table {width: 500px;border-collapse: collapse;margin: auto;}.Scont_table tr th {border: 1px solid #ddd;padding: 10px;}
+.Scont_table tr td {border: 1px solid #ddd;padding: 10px;}
+</style>
+
+<div class="EContent">
+    <table class="Scont_table table table-striped table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th width="56px">S.No</th>
+            <th width="330px">User Name</th>
+            <th width="69px"></th>
+        </tr>
+        @{   
+             
+            int count = 0;            
+            foreach (var item in Model.objManagementList)
+            {
+                count++;
+                <tr >
+                    <td width="56px">@count</td>
+                    <td width="330px">@item.UserName </td>
+                    <td width="54px">
+                        @{  
+                try
+                {
+                    var val = (from p in Model.objMultiuserScheduleReportlist where p.UserName.Contains(item.UserName) select p).ToList().Count;
+                    if (val == 1) { <input id="chkuser@(item.UserId)" type="checkbox"  class="chkuser" value="@item.UserId" checked /> }
+                    else {<input id="chkuser@(item.UserId)" type="checkbox"  class="chkuser" value="@item.UserId" /> }
+                    
+                }
+                catch (Exception e) {<input id="chkuser@(item.UserId)" type="checkbox"  class="chkuser" checked value="@item.UserId" />}
+             
+                @*if (val>0) { <input id="chkuser@(item.Userid)" type="checkbox"  class="chkuser" value="@item.Userid" checked /> @val}
+                else {  <input id="chkuser@(item.Userid)" type="checkbox"  class="chkuser" value="@item.Userid" />}*@
+                        }
+                   
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+</div>
+<div class="clear-height"></div>

@@ -1,0 +1,12 @@
+D:\Projects\MidAtlanticFinance-FI\MAFWeb\bin\MAF.DAL.dll.config
+D:\Projects\MidAtlanticFinance-FI\MAFWeb\bin\MAF.DAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAFWeb\bin\MAF.DAL.pdb
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\obj\Debug\MAF.DAL.dll
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\obj\Debug\MAF.DAL.pdb
+D:\Projects\MidAtlanticFinance-FI\MAF.DAL\obj\Debug\MAF.DAL.csprojResolveAssemblyReference.cache
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAFWeb\bin\MAF.DAL.dll.config
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAFWeb\bin\MAF.DAL.dll
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAFWeb\bin\MAF.DAL.pdb
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.DAL\obj\Debug\MAF.DAL.csprojResolveAssemblyReference.cache
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.DAL\obj\Debug\MAF.DAL.dll
+C:\Users\saurabhs6\Desktop\MidAtlanticFinance-FI\MAF.DAL\obj\Debug\MAF.DAL.pdb
