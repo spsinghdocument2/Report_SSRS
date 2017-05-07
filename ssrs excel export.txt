@@ -1,0 +1,12 @@
+2 table
+1 table ----PageName = AutoPay Enrollment  
+2 table--- Properties--
+Hidden----=IIF((Globals!RenderFormat.Name = "EXCELOPENXML" OR Globals!RenderFormat.Name = "EXCEL"), false, true)
+DataElementName = AutoPayEnrollmentData
+DataElementOutput = NoOutput
+PageName = AutoPay Enrollment Data
+
+select table(Tablix properties)---- click (add page break before)
+======================================================
+Total User Count:
+=CountDistinct(Fields!AccountNumber.Value, "AutoPayEnrollment")

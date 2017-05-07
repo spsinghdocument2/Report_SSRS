@@ -1,0 +1,48 @@
+========================================view================
+alter VIEW dbo.vw_totalsale
+AS
+SELECT TOP 1000 [Name]
+     ,[Email]
+     -- ,[Mobileno]
+      ,[Adderss]
+      ,[Messages]
+  FROM [aaaaaa].[dbo].[contact]
+  
+  select * from dbo.vw_totalsale
+=========================
+IF OBJECT_ID('tempdb..##Temp') IS NOT NULL
+DROP TABLE ##Temp
+
+DECLARE
+@objectName varchar(100) = 'vw_totalsale',
+@KeyColumn varchar(100) = 'Email';
+DECLARE
+@ColumnNames NVARCHAR(MAX)='',
+@Values NVARCHAR(MAX)='',
+@SQL NVARCHAR(MAX)=''
+ SELECT 
+ @ColumnNames += ',' +QUOTENAME(COLUMN_NAME),
+ @Values += ',' +QUOTENAME(COLUMN_NAME)
+ + ' = CONVERT(VARCHAR(100), ' + QUOTENAME(COLUMN_NAME) + ')'
+ FROM INFORMATION_SCHEMA.COLUMNS
+                         WHERE  TABLE_NAME = @objectName
+                         AND     COLUMN_NAME <> @KeyColumn
+                         
+  PRINT @ColumnNames
+  PRINT  @Values
+  
+  SET @SQL = N'SELECT * INTO  ##Temp
+  FROM
+  (
+  SELECT ' +  @KeyColumn +  @Values + '
+  FROM ' + @objectName + '
+  ) AS DRV
+  UNPIVOT
+  (
+  VALUE FOR ColumnName in ( '+ STUFF (@ColumnNames , 1,1,'') +')
+  )AS UnPVT ;';
+  Print  @SQL;
+  EXEC sp_executesql @SQL
+  SELECT * FROM  ##Temp            
+                         
+                         

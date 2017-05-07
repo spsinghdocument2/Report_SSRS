@@ -1,0 +1,11 @@
+Chart Data---Values--right click---Series Properties---
+
+1 Seris Data (Value field) fx =Count(IIf(Fields!Type.Value ="Opt-Out",1,0))
+Tooltip = Opt-Out
+
+2 Visibility fx =IIF(Fields!Type.Value ="Opt-Out", False, True)
+
+3 Legend =Switch(
+Fields!Type.Value="Opt-Out","Opt-Out",
+Fields!Type.Value="Opt-In","Opt-In"
+)

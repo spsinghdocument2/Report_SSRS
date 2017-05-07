@@ -1,0 +1,315 @@
+
+Shared data sources----add database ------
+
+-----------------inter net exproler---
+
+property---tergetServerURL= http://searing/ReportServer/
+targetreportfile= 
+targetReportFolder=
+
+apply ---deploy--
+------http://searing/ReportServer/- click--- mange
+--------------------------
+=========================================list===========
+
+--list--group properties--Genneral--Add--group on
+
+-----------------breack page---
+group property----page breaks-----between each instance of a group ---(right)Sorting--Add--Sort By
+
+table add kro
+===================================================row hader each page==========================
+
+(right down) ---column Group Arro click ---Advances mode---(left) static click---then ---f4 (Property)-----RepeatOnNewPage ==True
+
+================================Running total====
+Expression--comman function --- Aggregate ---RunningValue
+=RunningValue(Fields!ItemsSold.Value,sum,"sp")
+===================Row number======================================
+Expression ---comman function ---miscellaneous----RowNumber
+=RowNumber("dataSet")
+or
+RowNumber(nothing)
+   AND
+RowNumber("group_colume_name")
+
+==group laga ne ke bad hi row nmber aaye ga----
+=================================================Mastr====detail report (pass paramiter another report) link click=================
+1 group parent set
+2 add total
+3 delete sub row
+4 (group) text box properties -------action ---go to repor---Specify a report--
+use these parameters(Add)
+5 (group) text box properties ------- General --toolTip--(Click on Region to go Dtail report ----ok
+
+===================== if condition=================
+=IIF(Fialds!Region.Value is nothing,"Blue","Black")
+----
+Row select -- properties------BackgroundColor--- Expersion---
+=IFF(RowNumber(Nothing)mod 2-0,"Green","Yellow")
+---------------------all row colore ------
+all row select --- properties------BackgroundColor--- Expersion---Common Function--Aggregate---RunningValue
+---Fields(DSFT s.)----select fild ----
+=IFF(RurningValue(Fields!Region.Value,CoutDistinct,Nothing)Mod 2-1 , "Green","Gray")
+----------------------- null value check -------
+=IIF(IsNothing(Fields!ItemsSold.Value),0,Fields!ItemsSold.Value)
+
+----------------------row colore condition-----------------
+select row---begground collor---expression-----
+=IFF(Fields!fjhj.value<=5,"Yellow","Pink")
+
+-----------------------------
+=RunningValue(Fields!spp.Value,CounDistinct,Nothing)
+----
+=RowNumber(Nothing)
+---------------------- row empoty then hide--------------
+(select ror right click) Row Viibilltiy----Show or hide based on an expression(click)
+=IFF(Isnothing(Fields!sppp.Value),true,false)
+      or
+=IFF((Isnothing(Fields!1 filed.Value) and Isnothing(Fields!2 filed.Value)) ,true,false)
+
+=====================================================================
+ISNULL(Region,'NULL')
+
+=================================Switch===============================
+=Switch(Fields!ItemsSold.Value<=3 "Red",Fields!2ItemsSold.Value <=5 ,"Brown",Fields!3ItemsSold.Value , "White")
+
+==================================SUB Master Report ======================
+--right click --insert- matrkx
+2 toolbox ---subreport---Right click ---Subreport Properties click ------use this report as a subreport
+3 (right) Parametrs ----add
+==========================================================================
+f4
+==============Show Parameter values==========
+add --text Box ---Expression------------click parrameters ----and click  Values---
+="Current Looking at " +Parameters!RegionName.Value +"Region Records"
+----multipul  parameters value----
+="Current Looking at " +join( Parameters!RegionName.Value," and") +"Region Records"
+==========================Add image background ======================================
+
+(left hand side) add image---(f4)--- backgroundImage--Source (Embedded)---Value--(select image) OR (Expression)
+=Switch(Parameters.!sdds.Value="Asia","image1",Parameters.!sdds.Value="india","india_Image")
+
+=============================== Add image row======================
+-Insert column(empty)--Right click--Insert----Image--ok--Image properties---
+(select the image source)--Embedded-------(Use this image) click (Fx)--------Fild--select colume
+=Switch(Parameters.!sdds.Value="Asia","image1",Parameters.!sdds.Value="india","india_Image")
+--Size
+
+========================================Header freeze==============================
+select---table--down me Column Groupe-----sdvance mode (click)---- lift hand side----(first 'static') select----f4---fixed data =true
+
+
+========================================rpater Header==============================
+select---table--down me Column Groupe-----sdvance mode (click)---- lift hand side----(first 'static') select----f4---RepeatonNewPage =true
+and KeepWithGroup =After
+============================================Total page ===============
+text box--Exprection--(Built in Fields)--PageNumber(select)----TotalPage seclect---  ---Common Function---Conversion--cstr
+
+="Page "+ Cstr(Globals.!PageNumber) +"Of" + Cstr(Globals!TotalPage)
+
+===================================group(page break)==========================
+
+add pareent Group----Group Properties(Page Breaks)----(Click)Between each instance of a group
+
+==========================number of Row per page================================================
+add group-----(click) parent Group----(click) fx(Expression)-------
+=Ceiling(RowNumber(nothing)/10)
+ok
+--Group Properties--(click)Sorting---(Expression) Delete-------------(click)Page Brecaks----(click)Between each instance of a group
+--group column delete(Delete column only) ok
+
+[group lga ke bhi ho sakta hai =Ceiling(RowNumber("group_colume_name")/10)]
+
+ 
+==================================pass parameter vaule (number of Row per page)===================================
+add parameters----(General)---name = RowsPerPage---prompt =Enter rows per page---Data type = integer
+(Default values)--Specify value-- 10
+
+uper ke jase add ker lo after that
+---group properties ----fx(Expression)----parameters(aad ker do)
+
+===============================================pass parameter vaule for image ========================================================================
+
+add--header----add image -------header me image ko add kro ----------click  Image properties---------Action---- Go to report-----------(specify a report) add same report---add parameter---fx-----="india"--ok
+
+=============================hide and unFide Columns=========================
+add-------parameters (data type Boolean)---ok---------(R.H.S dowun)--Advanced Mode-------(R.H.S) select Static column-------f4-----visbillty--Expression-----Parameter---------dubbl click -----"false"
+=Paramters!DetailReportView.value="False"
+
+=========================== Tabs like button=====================================
+
+---Add matrix---  (in) add TextBox------- select matrix-- go to properties ---Bookmark---(sp sinnn)------ select TextBox---text box Properties------Action-----Go to bookmark-----(select bookmark) sppp
+
+
+
+===================================================Chart=================================================================================
+select contry,Sum(sold) as Totas from df group by Contry
+
+-report---right click----insert---chaat--column(first)--ok--double click(chart data) open
+1 Valures---  group by (add kro)----Totas ---(in)--right click------change chart type-----Line ---first select
+2 Cartegory Groups --(add kro)---contry
+3
+--f4--color--Expression--
+
+=IFF(Field!Totas.Value=max(Field!Totas.Value,"deset_sale"),"Green",IFF(Field!Totas.Value=min(Field!Totas.Value,"detest"),"Red","YELLOW"))
+=======
+--column Bar select and Right click-- show data labels
+====
+select chart-----right click---chart properties---Fill---Gradient--colore select--(Border) Frame--ok
+
+==========================================chart Report  property===================================================================================================
+
+properties------CustomAttributes(click)
+paintWidth=.5
+pixilpoinWidth=20
+
+ ==========================================Stacked chart Report =====================================
+-report---right click----insert---chaat--column(second)--ok--double click(chart data) open
+========================bar chart color====================================================================
+select chart-----------series properties----Fill----click (fx)
+
+=Switch(Fields!fdfd.Value="usa","Blue",
+Fields!fdfd.Value="india","Red")
+=====interval===
+(select bar number)right click-------vertical Axical properties----interval=20
+====ToolTip============
+select chart----right click-------series properties------senes Data----Tooltip---fx---click---
+=sum(Fields!sdff.Value)
+====================================Pie Chart============================================================================
+
+-report---right click----insert---chaat--Shape(first)--ok--double click(chart data) open
+
+--Right click----Change Chart Type------(Exploded pie)Shape(second)
+
+=================Percentage pie Chart====================
+
+-report---right click----insert---chaat--Shape(first)--ok--double click(chart data) open
+category group ---select ----f4--click---(second)Group---name----copy kro
+---right click ---Show data lavel-----select (Show data lavel)---right click--series label properties---General-----click (fx)---
+=sum(Field!dgg.Value,"past value")/sum(Field!dgg.Value,"data sate name")
+--series label properties--Percentage  ---ok
+=============================================master report 2==============================================================================================================
+
+--add table ----- all column and row delete (ek header bachega)---insert row--- below
+---()insert----SubReport(add)-------right click-----subreport properties---(general)---Name=sp-----(Use this report as a subreport) add report---
+
+==parameter
+select row --right click---Row visibillity ----expression----parametr--
+IFF(Parameters!dfsdf!Value="gfhf"false,true)
+=============================================================================================================Matrix report==========
+WritingMode =Vertical 
+or
+
+WritingMode =Rotate270
+
+==============================================================================Matrix report in column (bar Chart) ========================
+
+
+---add----------Matrix report---------insert column---inside Group right-----select column ---right click----insert------------(add )data bar---select data bar----right click-----show data Labels
+bad me
+select data bar----right click-----Series Properties---Tooltip---fx
+
+================================================================================== excel export===========================================================
+
+----2 table lega----first table me report vala ho ga------second table me sempal hoga--------------Properties
+1 table ----PageName = AutoPay Enrollment  
+2 table--- Properties--
+Hidden----=IIF((Globals!RenderFormat.Name = "EXCELOPENXML" OR Globals!RenderFormat.Name = "EXCEL"), false, true)
+DataElementName = AutoPayEnrollmentData
+DataElementOutput = NoOutput
+PageName = AutoPay Enrollment Data
+
+select table(Tablix properties)---- click (add page break before
+
+==========================================================================Total User Count===========
+Total User Count: = CountDistinct(Fields!AccountNumber.Value, "AutoPayEnrollment")
+
+==============================================================checkbox in table (true or false)========================
+
+---add column--------f4---------font---fontFamlly-----Wingdings----right click---Expesion--------
+=IIF(Fields!AccountNumber.Value,chr(254),chr(168))
+
+or
+=IIF(Fields!AccountNumber.Value,chr(252),chr(251))
+or
+=IIF(Fields!AccountNumber.Value,chr(254),chr(253))
+
+=============================================================Sorting======================================
+select header--- right click---Text box properties-----interactive sorting---select---(Enable interacive sorting on this text box----short by----column name
+==========group by shorting=====
+select header--- right click---Text box properties-----interactive sorting---select---(Enable interacive sorting on this text box------Group--select group column----short by----column name
+
+=========================================================================================================Indicator============================
+
+add table-----add (empty) column-------select column ----right click ---insert---add indicator---select indicator--add column for in indicator
+
+select indicator ---right click---indicator properties----(value and states)click-- formula
+
+=============================================================================================pdf set==================================================================================================
+
+report propertis--------page setup----Inches--portait--Page Size=LeTTer-----Witdth=8--hight---
+Margins--jeft=.5--Right=.5--Top=.5----Boottom=.5
+
+================================================Header set============================================================================================================
+
+Column Groups------Advanced------mode-------Row Group--------------------Static --------f4-----repeaton new page = true------Fixed Data = true
+
+=========================================================Header colore ==============================================
+ backgroundColor=  #4c68a2   ,  colore =white
+
+=========================================================================================propertis==================================
+size = .2,8
+================
+a/n # = text alin right
+==========================
+Parameters------select (Parameters)----right click----parameter proprties----Allow blank value----OR---Allow null value
+
+
+==============================================================header freeze=========================================================
+
+select --table---------down me(column group)---advanced mode (click)-----lef me ----(first 'static')select---f4---fixced data---true
+
+
+========================================================================================add group ======================
+add group---porent group-------group by (add)---(group header)select---ok
+
+===========================================================================DrillDown report==============================================================================
+down-----row groups----(L.H.S)---Group properties-------Visibility-----select(Display can be toggled by this report item)-----select(Hide)----ok
+
+================Inner group ===================================================================================
+--a/c no-----group parent header---select(header row)--------right click---Insert row-----inside group-below(add)
+
+===========================================  BookMark ============================================
+table hader OR text box-----=propertyes-BookMark ---- kush name daldo-----then---button or textbox (right click)-----text box properties -----Action---Go to bookmark------same boomark name write 
+
+
+==============================================Auto refresh=======================================================
+
+report properties----------AutoRefresh =3-------------
+==============================================Auto refresh (header coler)=======================================================
+-select table header----properties----backGrroundColor---Expression---
+=Switch(second(now)>50"Yellow",
+second(now)>50"DarkBlue",
+second(now)>50"Purple")
+
+---Ok
+report properties----------AutoRefresh =10-------------
+
+=============================================================================Parameters true or false Ex===================
+
+=IFF(Parameters!Parameter_Exgh_Value,false,true)
+
+=====================================================================================================
+
+===========================================join 2 dataset ===================================================================================
+
+=Lookup(Fields!id1.Value,Fields!id2.Value,Fields!name.Value,"datasetname")
+
+=============================================================================================LogFiles =========================================================================
+C:\Program Files\Microsoft SQL Server\MSRS10_50.MSSQLSERVER\Reporting Services\LogFiles
+
+
+
+
+

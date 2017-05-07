@@ -1,0 +1,37 @@
+89
+====
+select a.city * from sp a
+=================== all row name=============================
+Select COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='TOTALSALE'
+
+============================TABLE================
+CREATE PROC MAINQUERY
+@ColumnName varchar(100),
+@values varchar(8000)
+as
+Begin
+
+IF OBJECT_ID('tempdb..##Temp') IS NOT NULL
+DROP TABLE ##Temp
+DECLARE @val varchar(max)
+set @val = Replace(@values,',',''',''')
+DECLARE @SQL NVARCHAR(max)
+set @SQL = 'select Region,city,state into ##Temp from dbo.TotalSale where '+@ColumnName+'
+in('''+@val+''')'
+print @SQL
+EXECUTE (@SQL)
+select * from ##Temp
+END
+=============COLUMNvALUES================
+CREATE PROC COLUMNvALUES
+
+@columnName VARCHAR(100)
+AS
+BEGIN
+IF OBJECT_ID('tempdb..##TempValues') IS NOT NULL
+DROP TABLE ##TempValues
+DECLARE @SQL NVARCHAR(100)
+SET @SQL='SELECT ' +@columnName + ' AS VAL INTO ##TemValues from dbo.TotalSale'
+EXECUTE (@SQL)
+SELECT DISTINCT VAL FROM ##TempValues
+END

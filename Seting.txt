@@ -1,0 +1,53 @@
+1 sql server Business Intelligence Development studio(sql server 2008)
+2 Visual studio Tool(sql server 2012)
+
+3 report Builder
+
+=====================================================================================================
+window ---search---'sql server report'--- or---Reporting services Configuration Manager--Yes
+
+Contect--
+
+1 Web Service Url
+2 Report Manger URL3
+
+=========================Seting==========================
+
+IE---open----tool--internet option---(open)-----Advanced (click)----(Enable Integrated windows Authentication*) click
+
+then
+Local Intranet ---click---Sites---click---down ka 3 click----Advanced(click)---add
+(http://sp_singh-vaio:8081/Reports) ----close----ok-----Custom level...(click)------sbse down radio button click(Automatic logon with current user name and password)
+----ok----Apply----ok
+==============================================================================dataSource=====================================
+
+
+sql server open ---Security---Logins---Right click---new logins---Login name=SSRSLogin----radio button click (sql Server authentication)---password=123456---confirm password =123456
+---all down click ke hta do
+--L.H.S---User Mapping (click)--select database(sp)---down---db_datareader(click)--ok
+
+---DataSource(folder)----create-------new dataSource create----name(paonline)----conect string----
+
+-radio button click (Credentials stored securely in the report server) ---User name = SSRSLogin---Password=123456
+--Test connection--ok
+
+===============================================================================================================================
+(upload)select ssrs project-----properties-----FullPath--bin
+OR
+
+
+select ssrs project (right click)-----properties------(TargetServerURL)--
+======================
+http://sp_singh-vaio:8081/Reports
+=================================================== csv or  tab or pipe (add)=====================================================================
+C:\Program Files\Microsoft SQL Server\MSRS10_50.MSSQLSERVER\Reporting Services\ReportServer
+
+rsreportserver(change)
+==========================pdf export all show (dril doen)=====================================================================
+
+group properties----visbility------------------------fx-----=IFF(Globals!RenderFormat.name="PDF",FALSE,TRUE)
+
+
+
+
+=====================================================================
